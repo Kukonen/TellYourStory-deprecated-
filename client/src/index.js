@@ -1,17 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Route} from 'react-router-dom';
 
-import User from './user/User';
-import Admin from './admin/Admin';
-
+import App from './Components/App/App';
 
 ReactDOM.render(
-    <div>
-        <BrowserRouter>
-            <Route path = "/" component={User}/>
-            <Route path = "/admin" component={Admin}/>
-        </BrowserRouter>
-    </div>,
-  document.getElementById('root')
+    <App />,
+    document.getElementById('root')
 );
