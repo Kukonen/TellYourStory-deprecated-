@@ -1,0 +1,48 @@
+@import "src/Style/index.scss";
+
+.AuthPage {
+	font-family: Comfortaa;
+	width: 40%;
+	margin: auto;
+	margin-top: 10%;
+}
+
+.Auth-section {
+	display: flex;
+	flex-direction: column;
+
+}
+
+.Auth-block {
+	margin-top: 5%;
+	height: 30px;
+	display: flex;
+}
+
+.Auth-text-block {
+	color: $secondary-color;
+	height: 100%;
+	background-color: $primary-color;
+	text-align: center;
+	font-size: $auth-font-size;
+	display: flex;
+	justify-content: center;
+	width: 25%;
+}
+
+.Auth-input-block {
+	margin-left: 5%;
+	width: 60%;
+}
+
+.Auth-input {
+	border: none;
+	outline: none;
+	font-family: Comfortaa;
+	font-size: $auth-input-font-size;
+	background-color: $secondary-color;
+	color: $primary-color;
+}
+
+.Auth-checkbox {
+}
