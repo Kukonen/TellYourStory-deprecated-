@@ -1,11 +1,12 @@
-$headline-font-size: 40px;
-$font-size: 30px;
-$font-color: #042DB3;
-$font-color-hover: blue;
-$background-color: #FFB000;
-$register-font-size: 14px;
+//$headline-font-size: 40px;
+//$font-size: 30px;
+//$font-color: #042DB3;
+//$font-color-hover: blue;
+//$background-color: #FFB000;
+//$register-font-size: 14px;
+@import "src/Style/index.scss";
 
-@mixin link-constructor($link-color,$link-color-hover ,$link-font-size) {
+@mixin link-constructor($link-color ,$link-font-size) {
 	font-family: Comfortaa;
 	text-decoration: none;
 	color: $link-color;
@@ -19,7 +20,7 @@ $register-font-size: 14px;
 
 .Header-block {
 	@include default-flex-template();
-	background-color: $background-color;
+	background-color: $primary-color;
 	padding: 1%;
 }
 
@@ -30,11 +31,11 @@ $register-font-size: 14px;
 }
 
 .Header-headline {
-	@include link-constructor($font-color, $font-color-hover, $headline-font-size)
+	@include link-constructor($secondary-color, $header-headline-font-size)
 }
 
 .Header-link {
-	@include link-constructor($font-color, $font-color-hover, $font-size)
+	@include link-constructor($secondary-color, $header-font-size)
 }
 
 .Header-center-section {
@@ -45,9 +46,9 @@ $register-font-size: 14px;
 	padding: 2%;
 	cursor: pointer;
 	&:hover {
-		background-color: $font-color;
+		background-color: $secondary-color;
 		.Header-link {
-			color: $background-color;
+			color: $primary-color;
 		}
 	}
 }
@@ -78,15 +79,15 @@ $register-font-size: 14px;
 }
 
 .Header-register-link {
-	@include link-constructor($font-color, $font-color-hover, $register-font-size)
+	@include link-constructor($secondary-color, $header-register-font-size)
 }
 
 .Header-register-block {
 	margin: auto;
 	&:hover {
-		background-color: $font-color;
+		background-color: $secondary-color;
 		.Header-register-link {
-			color: $background-color;
+			color: $primary-color;
 		}
 	}
 }
