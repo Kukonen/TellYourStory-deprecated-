@@ -1,5 +1,92 @@
+$headline-font-size: 40px;
+$font-size: 30px;
+$font-color: #042DB3;
+$font-color-hover: blue;
+$background-color: #FFB000;
+$register-font-size: 14px;
 
+@mixin link-constructor($link-color,$link-color-hover ,$link-font-size) {
+	font-family: Comfortaa;
+	text-decoration: none;
+	color: $link-color;
+	font-size: $link-font-size;
+}
+
+@mixin default-flex-template() {
+	display: flex;
+	justify-content: space-around;
+}
 
 .Header-block {
+	@include default-flex-template();
+	background-color: $background-color;
+	padding: 1%;
+}
 
+.Header-section {
+	text-align: center;
+	width: 30%;
+	margin: auto;
+}
+
+.Header-headline {
+	@include link-constructor($font-color, $font-color-hover, $headline-font-size)
+}
+
+.Header-link {
+	@include link-constructor($font-color, $font-color-hover, $font-size)
+}
+
+.Header-center-section {
+	@include default-flex-template();
+}
+
+.Header-center-block {
+	padding: 2%;
+	cursor: pointer;
+	&:hover {
+		background-color: $font-color;
+		.Header-link {
+			color: $background-color;
+		}
+	}
+}
+
+.Header-language-icon {
+	cursor: pointer;
+	height: 10%;
+	width: 10%;
+	&:first-of-type {
+		margin-bottom: 1%;
+	}
+}
+
+.Header-right-section {
+	@include default-flex-template();
+}
+
+.Header-right-block {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+}
+
+.Header-language-block {
+	display: flex;
+	margin: auto;
+	flex-direction: column;
+}
+
+.Header-register-link {
+	@include link-constructor($font-color, $font-color-hover, $register-font-size)
+}
+
+.Header-register-block {
+	margin: auto;
+	&:hover {
+		background-color: $font-color;
+		.Header-register-link {
+			color: $background-color;
+		}
+	}
 }

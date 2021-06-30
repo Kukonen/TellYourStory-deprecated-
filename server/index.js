@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 
 
 const app = express();
+app.use('api');
 app.use(express.json());
 app.use(cookieParser());
 

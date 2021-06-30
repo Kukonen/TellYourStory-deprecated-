@@ -1,0 +1,10 @@
+@font-face {
+    font-family: Comfortaa;
+    src: url("./fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+body {
+    background-color: #A4CBE0;
+}
