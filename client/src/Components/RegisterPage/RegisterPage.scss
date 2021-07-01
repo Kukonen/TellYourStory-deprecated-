@@ -74,8 +74,25 @@
 	background-color: $primary-color;
 	font-size: $auth-input-font-size;
 	margin-left: 27%;
+	margin-top: 5%;
 	&:hover {
 		color: $primary-color;
 		background-color: $secondary-color;
 	}
+}
+
+.Auth-error {
+	display: none;
+	font-family: Comfortaa;
+	width: 45%;
+	text-align: center;
+	font-size: $auth-input-font-size;
+	background-color: $primary-error-color;
+	color: $secondary-error-color;
+	margin-left: 15%;
+	padding: 1%;
+}
+
+.Auth-error-active {
+	display: inline-block;
 }

@@ -21,6 +21,8 @@ const RegisterPage = observer(() => {
     const inputStyleActive = "Auth-input Auth-input-active"
     const checkboxStyle = "Auth-checkbox"
     const checkboxStyleActive = "Auth-checkbox Auth-checkbox-active"
+    const errorStyle = "Auth-error"
+    const errorStyleActive = "Auth-error Auth-error-active"
 
     let nameTextRef = React.createRef();
     let nameInputRef = React.createRef();
@@ -60,6 +62,7 @@ const RegisterPage = observer(() => {
                                }
                                onChange={
                                    value => {
+                                       user.registerERROR = false
                                        user.registerChangeName(value.target.value)
                                    }
                                }
@@ -90,6 +93,7 @@ const RegisterPage = observer(() => {
                                }
                                onChange={
                                    value => {
+                                       user.registerERROR = false
                                        user.registerChangeEmail(value.target.value)
                                    }
                                }
@@ -120,6 +124,7 @@ const RegisterPage = observer(() => {
                                }
                                onChange={
                                    value => {
+                                       user.registerERROR = false
                                        user.registerChangePassword(value.target.value)
                                    }
                                }
@@ -150,6 +155,7 @@ const RegisterPage = observer(() => {
                                }
                                onChange={
                                    value => {
+                                       user.registerERROR = false
                                        user.registerChangePasswordAgain(value.target.value)
                                    }
                                }
@@ -181,6 +187,9 @@ const RegisterPage = observer(() => {
                                }
                         />
                     </div>
+                </div>
+                <div className={ user.registerERROR ? errorStyleActive : errorStyle}>
+                    {text.error}
                 </div>
             </div>
             <button type="button" className="Auth-button" onClick={() => user.register()}>

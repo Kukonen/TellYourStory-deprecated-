@@ -23,10 +23,22 @@ class userController {
         if(!ERROR) {
             await db.addUser(userDATA.name, userDATA.email, password).then((response) => {
                 res.cookie('key', response, {httpOnly: true})
-            }).catch(e => console.log(e));
+                res.json({
+                    status: "ok"
+                })
+            }).catch(e => {
+                console.log(e)
+                res.json({
+                    status: "error",
+                    description: "db error"
+                })
+            });
         }
         else {
-            console.log("error")
+            res.json({
+                status: "error",
+                description: "data error"
+            })
         }
 
 
@@ -34,6 +46,13 @@ class userController {
     }
     async login(req, res) {
 
+    }
+    async resetKey(req, res) {
+        console.log("here")
+        res.clearCookie('key', {path: '/'})
+        res.json({
+            status: "ok"
+        })
     }
 }
 

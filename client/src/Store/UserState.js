@@ -14,8 +14,14 @@ class UserState {
         remember: false
     }
 
+    registerERROR = false
+
     constructor() {
         makeAutoObservable(this)
+        if (localStorage.getItem('notRemember') === 'yes') {
+            axios.get('/user/resetkey').then()
+            localStorage.setItem('notRemember', 'no')
+        }
     }
 
     registerChangeName = (value) => this.registerDATA.name = value
@@ -29,6 +35,13 @@ class UserState {
         await axios.post('/user/register', this.registerDATA).then(response => {
             data = JSON.parse(JSON.stringify(response.data))
         }).catch(e => console.log(e))
+        if (data.status === "error") {
+            if (data.description === "data error") {
+                this.registerERROR = true
+            }
+            return
+        }
+        localStorage.setItem('notRemember', 'yes')
     }
 }
 
