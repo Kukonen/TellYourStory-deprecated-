@@ -14,7 +14,7 @@
 }
 
 .Auth-block {
-	margin-top: 5%;
+	margin-bottom: 5%;
 	height: 30px;
 	display: flex;
 }
@@ -27,7 +27,13 @@
 	font-size: $auth-font-size;
 	display: flex;
 	justify-content: center;
-	width: 25%;
+	width: 27%;
+	cursor: pointer;
+}
+
+.Auth-text-block-active {
+	background-color: $secondary-color;
+	color: $primary-color;
 }
 
 .Auth-input-block {
@@ -44,5 +50,32 @@
 	color: $primary-color;
 }
 
+.Auth-input-active {
+	color: $secondary-color;
+	background-color: $primary-color;
+}
+
 .Auth-checkbox {
+	display: inline-block;
+	background-color: $secondary-color;
+	-ms-transform: scale(2); -moz-transform: scale(2); -o-transform: scale(2); height: $auth-input-font-size; width: $auth-input-font-size
+}
+
+.Auth-checkbox-active {
+
+}
+
+.Auth-button {
+	cursor: pointer;
+	font-family: Comfortaa;
+	border: none;
+	outline: none;
+	color: $secondary-color;
+	background-color: $primary-color;
+	font-size: $auth-input-font-size;
+	margin-left: 27%;
+	&:hover {
+		color: $primary-color;
+		background-color: $secondary-color;
+	}
 }
