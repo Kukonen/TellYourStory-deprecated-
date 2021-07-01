@@ -24,8 +24,11 @@ class UserState {
     registerChangePasswordAgain = (value) => this.registerDATA.passwordAgain = value
     registerChangeRemember = (value) => this.registerDATA.remember = value
 
-    register() {
-        axios.post('/api/register', this.registerDATA)
+    async register() {
+        let data = {}
+        await axios.post('/user/register', this.registerDATA).then(response => {
+            data = JSON.parse(JSON.stringify(response.data))
+        }).catch(e => console.log(e))
     }
 }
 

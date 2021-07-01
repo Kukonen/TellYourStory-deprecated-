@@ -1,8 +1,8 @@
 const Route = require('express')
-const route = Route()
+const route = new Route()
 const userController = require('../controllers/user.controller')
 
 route.post('/register', userController.register)
-route.post('/', userController.login)
+route.post('/login', userController.login)
 
 module.exports = route;

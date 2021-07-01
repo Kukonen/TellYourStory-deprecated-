@@ -3,9 +3,13 @@ const Schema = mongoose.Schema;
 
 const usersSchema = new Schema({
     id: {
-        type: Number,
+        type: String,
         required: true,
         unique: true
+    },
+    key: {
+        type: String,
+        required: true
     },
     name: {
         type: String,
