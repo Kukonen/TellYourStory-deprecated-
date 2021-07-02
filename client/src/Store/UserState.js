@@ -15,7 +15,14 @@ class UserState {
         remember: false
     }
 
+    loginDATA = {
+        login: "",
+        password: "",
+        remember: false
+    }
+
     registerERROR = false
+    loginERROR = false
 
     constructor() {
         makeAutoObservable(this)
@@ -46,6 +53,10 @@ class UserState {
     registerChangePasswordAgain = (value) => this.registerDATA.passwordAgain = value
     registerChangeRemember = (value) => this.registerDATA.remember = value
 
+    loginChangeLogin = (value) => this.loginDATA.login = value
+    loginChangePassword = (value) => this.loginDATA.password = value
+    loginChangeRemember = (value) => this.loginDATA.remember = value
+
     async register() {
         let data = {}
         await axios.post('/api/user/register', this.registerDATA).then(response => {
@@ -58,6 +69,21 @@ class UserState {
             return
         }
         localStorage.setItem('notRemember', 'yes')
+        await this.getUserData().then
+        window.location.href = "/"
+    }
+
+    async login() {
+        let data = {}
+        await axios.post('/api/user/login', this.loginDATA).then(response => {
+            data = JSON.parse(JSON.stringify(response.data))
+        }).catch(e => console.log(e))
+        if (data.status === "error") {
+            if (data.description === "data error") {
+                this.loginERROR = true
+            }
+        }
+        await this.getUserData().then
         window.location.href = "/"
     }
 

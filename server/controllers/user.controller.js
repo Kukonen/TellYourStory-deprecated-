@@ -8,7 +8,6 @@ class userController {
 
         let ERROR = false;
 
-
         const salt = '6sixty6six';
 
         let password = {}
@@ -42,7 +41,44 @@ class userController {
         }
     }
     async login(req, res) {
+        const userDATA = req.body
 
+        let ERROR = false;
+
+        if (userDATA.login === '' || userDATA.password === '' || userDATA.login.indexOf('@') === -1) {
+            res.json({
+                status: "error",
+                description: "data error"
+            })
+            return
+        }
+
+        const salt = '6sixty6six';
+
+        const password = sha256((userDATA.password + salt))
+
+
+        await db.findUserByEmailAndPassword(userDATA.login, password).then((response) => {
+            if (response.find) {
+                res.cookie('key', response.data.key, {httpOnly: true})
+                res.json({
+                    status: "ok"
+                })
+            }
+            else {
+                res.json({
+                    status: "error",
+                    description: "did not find user"
+                })
+            }
+
+        }).catch(e => {
+            console.log(e)
+            res.json({
+                status: "error",
+                description: "db error"
+            })
+        });
     }
     // async resetKey(req, res) {
     //     res.clearCookie('key', {path: '/'})
@@ -53,18 +89,18 @@ class userController {
     async getUserData(req, res) {
         if (req.cookies.key !== undefined) {
             await db.findUserByKey(req.cookies.key).then(response => {
-                if (response.status === "error") {
+                if (!response.find) {
                     res.json({
                         status: "error",
-                        description: "db error"
+                        description: "did not find user"
                     })
                 }
                 else {
                     res.json({
                         status: "ok",
                         data: {
-                            name: response.name,
-                            avatar: response.avatar
+                            name: response.data.name,
+                            avatar: response.data.avatar
                         }
                     })
                 }

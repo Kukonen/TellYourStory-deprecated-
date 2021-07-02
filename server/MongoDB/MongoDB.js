@@ -36,7 +36,34 @@ class MongoDB {
         await users.find({key: key}, (err, userDATA) => {
             if (err)
                 error = true;
-            data = JSON.parse(JSON.stringify(userDATA[0]))
+            if (userDATA.length !== 0)
+                data = {
+                    find: true,
+                    data: JSON.parse(JSON.stringify(userDATA[0]))
+                }
+            else
+                data = {
+                    find: false
+                }
+        }).then()
+        return data
+    }
+
+    async findUserByEmailAndPassword(email, password) {
+        let error = false
+        let data = {}
+        await users.find({email: email, password: password}, (err, userDATA) => {
+            if (err)
+                error = true;
+            if (userDATA.length !== 0)
+                data = {
+                    find: true,
+                    data: JSON.parse(JSON.stringify(userDATA[0]))
+                }
+            else
+                data = {
+                    find: false
+                }
         }).then()
         return data
     }
