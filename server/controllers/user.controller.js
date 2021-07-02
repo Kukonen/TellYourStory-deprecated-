@@ -121,7 +121,7 @@ class userController {
         }
     }
     async logout(req, res) {
-        res.clearCookie('key', '/')
+        res.clearCookie('key')
         res.json({
             status: "ok"
         })

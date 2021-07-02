@@ -69,7 +69,7 @@ class UserState {
             return
         }
         localStorage.setItem('notRemember', 'yes')
-        await this.getUserData().then
+        await this.getUserData().then()
         window.location.href = "/"
     }
 
@@ -83,16 +83,18 @@ class UserState {
                 this.loginERROR = true
             }
         }
-        await this.getUserData().then
+        await this.getUserData().then()
         window.location.href = "/"
     }
 
     async logout() {
-        await axios.get('/api/user/logout').then()
-            .catch(e => console.log(e))
         this.avatar = undefined
         this.name = ''
         this.isLogged = "no"
+        await axios.get('/api/user/logout', {
+            withCredentials: true,
+            credentials: 'same-origin'
+        }).then().catch(e => console.log(e))
     }
 }
 
