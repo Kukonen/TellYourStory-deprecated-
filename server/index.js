@@ -9,8 +9,9 @@ const app = express();
 //app.use('/api');
 app.use(express.json());
 app.use(cookieParser());
+app.use(express.static('static'))
 
-app.use('/user', userRoute)
+app.use('/api/user', userRoute)
 
 const PORT = process.env.PORT;
 

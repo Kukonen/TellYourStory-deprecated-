@@ -27,7 +27,7 @@ class UserState {
 
     async getUserData() {
 
-        axios.get('/user/getuserdata').then(response => {
+        axios.get('/api/user/getuserdata').then(response => {
             const data = JSON.parse(JSON.stringify(response))
             if (data.data.status === "ok") {
                 this.name = data.data.data.name
@@ -35,7 +35,7 @@ class UserState {
                 this.isLogged = "yes"
             }
             else {
-                this.isLogged = "yes"
+                this.isLogged = "no"
             }
         })
     }
@@ -48,7 +48,7 @@ class UserState {
 
     async register() {
         let data = {}
-        await axios.post('/user/register', this.registerDATA).then(response => {
+        await axios.post('/api/user/register', this.registerDATA).then(response => {
             data = JSON.parse(JSON.stringify(response.data))
         }).catch(e => console.log(e))
         if (data.status === "error") {
@@ -59,6 +59,14 @@ class UserState {
         }
         localStorage.setItem('notRemember', 'yes')
         window.location.href = "/"
+    }
+
+    async logout() {
+        await axios.get('/api/user/logout').then()
+            .catch(e => console.log(e))
+        this.avatar = undefined
+        this.name = ''
+        this.isLogged = "no"
     }
 }
 

@@ -84,6 +84,12 @@ class userController {
             })
         }
     }
+    async logout(req, res) {
+        res.clearCookie('key', '/')
+        res.json({
+            status: "ok"
+        })
+    }
 }
 
 module.exports = new userController();

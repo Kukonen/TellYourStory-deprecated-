@@ -60,7 +60,7 @@
 	@include default-flex-template();
 }
 
-.Header-right-block {
+.Header-right-block-no-register {
 	display: flex;
 	flex-direction: column;
 	width: 50%;
@@ -68,7 +68,7 @@
 
 .Header-language-block {
 	display: flex;
-	margin: auto;
+	margin: auto auto auto 20%;
 	flex-direction: column;
 }
 
@@ -82,6 +82,43 @@
 		background-color: $secondary-color;
 		.Header-register-link {
 			color: $primary-color;
+		}
+	}
+}
+
+.Header-right-block-yes-register {
+	display: flex;
+	width: 100%;
+
+}
+.Header-right-block-profile {
+	width: 50%;
+	margin-left: 10%;
+}
+
+.Header-right-block-avatar {
+	width: 40%;
+	img {
+		height: 100%;
+		width: 100%;
+	}
+}
+.Header-right-block-profile-link-block {
+	background-color: $primary-color;
+	display: inline-block;
+	a {
+		font-size: $auth-font-size;
+		color: $secondary-color;
+		text-decoration: none;
+	}
+	//&:first-of-type {
+	//	margin-bottom: 10%;
+	//}
+	&:hover {
+		background-color: $secondary-color;
+		a {
+			color: $primary-color;
+			text-decoration: none;
 		}
 	}
 }

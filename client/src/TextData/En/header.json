@@ -2,5 +2,7 @@
   "catalog": "catalog",
   "questions": "questions",
   "login": "login",
-  "register": "register"
+  "register": "register",
+  "profile": "profile",
+  "logout": "log out"
 }
