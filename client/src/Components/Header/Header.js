@@ -18,6 +18,8 @@ const Header = observer(() => {
         text = EnText :
         text = RuText;
 
+    user.getUserData().then()
+
     return (
         <div>
             <div className="Header-block">
@@ -33,9 +35,13 @@ const Header = observer(() => {
                     </div>
                 </div>
                 <div className="Header-section Header-right-section">
-                {user.isLogged ?
+                {user.isLogged === "yes" ?
                     <div className="Header-right-block">
+                        <div>
+                            You are logged
+                        </div>
                     </div> :
+                    user.isLogged === "no" ?
                     <div className="Header-right-block">
                         <div className="Header-register-block">
                             <a href="/login" className="Header-register-link">{text.login}</a>
@@ -43,6 +49,9 @@ const Header = observer(() => {
                         <div className="Header-register-block">
                             <a href="/register" className="Header-register-link">{text.register}</a>
                         </div>
+                    </div> :
+                    <div>
+
                     </div>
                 }
 

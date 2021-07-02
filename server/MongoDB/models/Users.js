@@ -22,6 +22,9 @@ const usersSchema = new Schema({
     password: {
         type: String,
         required: true
+    },
+    avatar: {
+        type: String
     }
 });
 

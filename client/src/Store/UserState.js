@@ -4,7 +4,8 @@ import axios from "axios";
 class UserState {
 
     name = ''
-    isLogged = false
+    avatar = ''
+    isLogged = undefined
 
     registerDATA = {
         name: "",
@@ -18,10 +19,25 @@ class UserState {
 
     constructor() {
         makeAutoObservable(this)
-        if (localStorage.getItem('notRemember') === 'yes') {
-            axios.get('/user/resetkey').then()
-            localStorage.setItem('notRemember', 'no')
-        }
+        // if (localStorage.getItem('notRemember') === 'yes') {
+        //     axios.get('/user/resetkey').then()
+        //     localStorage.setItem('notRemember', 'no')
+        // }
+    }
+
+    async getUserData() {
+
+        axios.get('/user/getuserdata').then(response => {
+            const data = JSON.parse(JSON.stringify(response))
+            if (data.data.status === "ok") {
+                this.name = data.data.data.name
+                this.avatar = data.data.data.avatar
+                this.isLogged = "yes"
+            }
+            else {
+                this.isLogged = "yes"
+            }
+        })
     }
 
     registerChangeName = (value) => this.registerDATA.name = value
@@ -42,6 +58,7 @@ class UserState {
             return
         }
         localStorage.setItem('notRemember', 'yes')
+        window.location.href = "/"
     }
 }
 

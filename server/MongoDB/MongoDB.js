@@ -30,6 +30,16 @@ class MongoDB {
         })
         return key
     }
+    async findUserByKey(key) {
+        let error = false
+        let data = {}
+        await users.find({key: key}, (err, userDATA) => {
+            if (err)
+                error = true;
+            data = JSON.parse(JSON.stringify(userDATA[0]))
+        }).then()
+        return data
+    }
 }
 
 module.exports = new MongoDB();

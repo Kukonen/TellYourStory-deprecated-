@@ -40,19 +40,49 @@ class userController {
                 description: "data error"
             })
         }
-
-
-
     }
     async login(req, res) {
 
     }
-    async resetKey(req, res) {
-        console.log("here")
-        res.clearCookie('key', {path: '/'})
-        res.json({
-            status: "ok"
-        })
+    // async resetKey(req, res) {
+    //     res.clearCookie('key', {path: '/'})
+    //     res.json({
+    //         status: "ok"
+    //     })
+    // }
+    async getUserData(req, res) {
+        if (req.cookies.key !== undefined) {
+            await db.findUserByKey(req.cookies.key).then(response => {
+                if (response.status === "error") {
+                    res.json({
+                        status: "error",
+                        description: "db error"
+                    })
+                }
+                else {
+                    res.json({
+                        status: "ok",
+                        data: {
+                            name: response.name,
+                            avatar: response.avatar
+                        }
+                    })
+                }
+            }).catch(e => {
+                console.log(e)
+                res.json({
+                    status: "error",
+                    description: "request error"
+                })
+            })
+
+        }
+        else {
+            res.json({
+                status: "error",
+                description: "key error"
+            })
+        }
     }
 }
 
