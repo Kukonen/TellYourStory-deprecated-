@@ -17,8 +17,6 @@ const LoginPage = observer(() => {
     const textBlockStyleActive = "Auth-text-block Auth-text-block-active"
     const inputStyle = "Auth-input"
     const inputStyleActive = "Auth-input Auth-input-active"
-    const checkboxStyle = "Auth-checkbox"
-    const checkboxStyleActive = "Auth-checkbox Auth-checkbox-active"
     const errorStyle = "Auth-error"
     const errorStyleActive = "Auth-error Auth-error-active"
 
@@ -26,8 +24,6 @@ const LoginPage = observer(() => {
     let loginInputRef = React.createRef();
     let passwordTextRef = React.createRef();
     let passwordInputRef = React.createRef();
-    let rememberTextRef = React.createRef();
-    let rememberInputRef = React.createRef();
 
     return (
         <div className="AuthPage">
@@ -89,32 +85,6 @@ const LoginPage = observer(() => {
                                        user.loginERROR = false
                                        user.loginChangePassword(value.target.value)
                                    }
-                               }
-                        />
-                    </div>
-                </div>
-                <div className="Auth-block">
-                    <div className={textBlockStyle}
-                         ref={rememberTextRef}
-                    >
-                        {text.remember}
-                    </div>
-                    <div className="Auth-input-block">
-                        <input type="checkbox" className="Auth-checkbox"
-                               ref={rememberInputRef}
-                               onChange={e => {
-                                   let remember = e.target.checked
-                                   if (remember) {
-                                       e.target.className = checkboxStyleActive
-                                       rememberTextRef.current.className = textBlockStyleActive
-
-                                   }
-                                   else {
-                                       e.target.className = checkboxStyle
-                                       rememberTextRef.current.className = textBlockStyle
-                                   }
-                                   user.loginChangeRemember(remember)
-                               }
                                }
                         />
                     </div>

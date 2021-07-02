@@ -19,8 +19,6 @@ const RegisterPage = observer(() => {
     const textBlockStyleActive = "Auth-text-block Auth-text-block-active"
     const inputStyle = "Auth-input"
     const inputStyleActive = "Auth-input Auth-input-active"
-    const checkboxStyle = "Auth-checkbox"
-    const checkboxStyleActive = "Auth-checkbox Auth-checkbox-active"
     const errorStyle = "Auth-error"
     const errorStyleActive = "Auth-error Auth-error-active"
 
@@ -32,8 +30,6 @@ const RegisterPage = observer(() => {
     let passwordOneInputRef = React.createRef();
     let passwordTwoTextRef = React.createRef();
     let passwordTwoInputRef = React.createRef();
-    let rememberTextRef = React.createRef();
-    let rememberInputRef = React.createRef();
 
     return (
         <div className="AuthPage">
@@ -158,32 +154,6 @@ const RegisterPage = observer(() => {
                                        user.registerERROR = false
                                        user.registerChangePasswordAgain(value.target.value)
                                    }
-                               }
-                        />
-                    </div>
-                </div>
-                <div className="Auth-block">
-                    <div className={textBlockStyle}
-                        ref={rememberTextRef}
-                    >
-                        {text.remember}
-                    </div>
-                    <div className="Auth-input-block">
-                        <input type="checkbox" className="Auth-checkbox"
-                               ref={rememberInputRef}
-                               onChange={e => {
-                                        let remember = e.target.checked
-                                        if (remember) {
-                                            e.target.className = checkboxStyleActive
-                                            rememberTextRef.current.className = textBlockStyleActive
-
-                                        }
-                                        else {
-                                            e.target.className = checkboxStyle
-                                            rememberTextRef.current.className = textBlockStyle
-                                        }
-                                        user.registerChangeRemember(remember)
-                                    }
                                }
                         />
                     </div>

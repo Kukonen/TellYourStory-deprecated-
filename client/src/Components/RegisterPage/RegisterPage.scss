@@ -55,16 +55,6 @@
 	background-color: $primary-color;
 }
 
-.Auth-checkbox {
-	display: inline-block;
-	background-color: $secondary-color;
-	-ms-transform: scale(2); -moz-transform: scale(2); -o-transform: scale(2); height: $auth-input-font-size; width: $auth-input-font-size
-}
-
-.Auth-checkbox-active {
-
-}
-
 .Auth-button {
 	cursor: pointer;
 	font-family: Comfortaa;

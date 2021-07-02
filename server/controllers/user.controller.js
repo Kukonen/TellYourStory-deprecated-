@@ -80,12 +80,6 @@ class userController {
             })
         });
     }
-    // async resetKey(req, res) {
-    //     res.clearCookie('key', {path: '/'})
-    //     res.json({
-    //         status: "ok"
-    //     })
-    // }
     async getUserData(req, res) {
         if (req.cookies.key !== undefined) {
             await db.findUserByKey(req.cookies.key).then(response => {

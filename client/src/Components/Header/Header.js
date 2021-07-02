@@ -74,7 +74,7 @@ const Header = observer(() => {
                             <a href="/register" className="Header-register-link">{text.register}</a>
                         </div>
                     </div> :
-                    <div />
+                    <div className="Header-right-block-no-register" />
                 }
 
                     <div className="Header-right-block Header-language-block">

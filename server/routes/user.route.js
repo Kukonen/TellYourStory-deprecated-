@@ -4,7 +4,6 @@ const userController = require('../controllers/user.controller')
 
 route.post('/register', userController.register)
 route.post('/login', userController.login)
-//route.get('/resetkey', userController.resetKey)
 route.get('/getuserdata', userController.getUserData)
 route.get('/logout', userController.logout)
 

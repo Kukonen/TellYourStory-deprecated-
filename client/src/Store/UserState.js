@@ -11,14 +11,12 @@ class UserState {
         name: "",
         email: "",
         password: "",
-        passwordAgain: "",
-        remember: false
+        passwordAgain: ""
     }
 
     loginDATA = {
         login: "",
-        password: "",
-        remember: false
+        password: ""
     }
 
     registerERROR = false
@@ -26,10 +24,11 @@ class UserState {
 
     constructor() {
         makeAutoObservable(this)
-        // if (localStorage.getItem('notRemember') === 'yes') {
-        //     axios.get('/user/resetkey').then()
-        //     localStorage.setItem('notRemember', 'no')
-        // }
+        if (localStorage.getItem('notRemember') === 'yes') {
+            axios.get('/api/user/logout', {
+                withCredentials: true,
+            }).then().catch(e => console.log(e))
+        }
     }
 
     async getUserData() {
@@ -68,7 +67,6 @@ class UserState {
             }
             return
         }
-        localStorage.setItem('notRemember', 'yes')
         await this.getUserData().then()
         window.location.href = "/"
     }
@@ -93,7 +91,6 @@ class UserState {
         this.isLogged = "no"
         await axios.get('/api/user/logout', {
             withCredentials: true,
-            credentials: 'same-origin'
         }).then().catch(e => console.log(e))
     }
 }
