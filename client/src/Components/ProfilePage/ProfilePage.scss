@@ -1,0 +1,49 @@
+@import "src/Style/index.scss";
+
+.Profile-not-login-block {
+	width: 60%;
+	margin: 10% auto auto auto;
+	display: flex;
+	flex-direction: column;
+}
+.Profile-not-login-headline {
+	display: inline-block;
+	margin: auto;
+	background-color: $primary-color;
+	color: $secondary-color;
+	font-size: $auth-font-size;
+	font-family: Comfortaa;
+	padding: 1%;
+	cursor: pointer;
+	&:hover {
+		background-color: $secondary-color;
+		color: $primary-color;
+	}
+}
+
+.Profile-not-login-button-section {
+	margin: 5% auto auto auto;
+	display: flex;
+	flex-direction: column;
+	padding: 2%;
+	background-color: $primary-color;
+	cursor: pointer;
+}
+
+.Profile-not-login-button {
+	margin: auto;
+	&:first-of-type {
+		margin-bottom: 15%;
+	}
+	background-color: $primary-color;
+	color: $secondary-color;
+	font-size: $auth-font-size;
+	font-family: Comfortaa;
+	padding: 1%;
+	border: 0;
+	cursor: pointer;
+	&:hover {
+		background-color: $secondary-color;
+		color: $primary-color;
+	}
+}

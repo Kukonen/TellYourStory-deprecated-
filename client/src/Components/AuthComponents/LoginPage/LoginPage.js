@@ -1,10 +1,10 @@
 import React from 'react';
 import './LoginPage.scss'
 import {observer} from "mobx-react-lite";
-import user from "../../Store/UserState";
-import language from "../../Store/LanguageStore";
-import EnText from "../../TextData/En/login-register.json";
-import RuText from "../../TextData/Ru/login-register.json";
+import user from "../../../Store/UserState";
+import language from "../../../Store/LanguageStore";
+import EnText from "../../../TextData/En/login-register.json";
+import RuText from "../../../TextData/Ru/login-register.json";
 
 const LoginPage = observer(() => {
 
