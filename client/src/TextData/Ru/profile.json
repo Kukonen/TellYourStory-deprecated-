@@ -1,5 +1,7 @@
 {
-    "not-login-headline": "вы не вошли!",
-    "not-login-login": "авторизация",
-    "not-login-home": "на главную"
+    "notLogin": {
+        "headline": "вы не вошли!",
+        "login": "авторизация",
+        "home": "на главную"
+    }
 }

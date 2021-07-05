@@ -18,9 +18,8 @@
 	padding: 1%;
 }
 
-.Header-section {
+@mixin Header-section() {
 	text-align: center;
-	width: 30%;
 	margin: auto;
 }
 
@@ -33,11 +32,14 @@
 }
 
 .Header-center-section {
+	@include Header-section();
 	@include default-flex-template();
+	justify-content: center;
+	width: 60%;
 }
 
 .Header-center-block {
-	padding: 2%;
+	padding: 1%;
 	cursor: pointer;
 	&:hover {
 		background-color: $secondary-color;
@@ -49,15 +51,17 @@
 
 .Header-language-icon {
 	cursor: pointer;
-	height: 10%;
-	width: 10%;
+	height: 14%;
+	width: 14%;
 	&:first-of-type {
-		margin-bottom: 1%;
+		margin-bottom: 5%;
 	}
 }
 
 .Header-right-section {
+	@include Header-section();
 	@include default-flex-template();
+	width: 20%;
 }
 
 .Header-right-block-no-register {
@@ -93,7 +97,7 @@
 }
 .Header-right-block-profile {
 	width: 50%;
-	margin-left: 10%;
+	margin-left: 30%;
 }
 
 .Header-right-block-avatar {
@@ -107,7 +111,7 @@
 	background-color: $primary-color;
 	display: inline-block;
 	a {
-		font-size: $auth-font-size;
+		font-size: $header-register-font-size;
 		color: $secondary-color;
 		text-decoration: none;
 	}
@@ -118,4 +122,9 @@
 			text-decoration: none;
 		}
 	}
+}
+
+.Header-section-title {
+	@include Header-section();
+	width: 20%;
 }

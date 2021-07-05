@@ -28,18 +28,24 @@ const Header = observer(() => {
     return (
         <div>
             <div className="Header-block">
-                <div className="Header-section">
+                <div className="Header-section-title">
                     <a href="/" className="Header-headline">TellYourStory</a>
                 </div>
-                <div className="Header-section Header-center-section">
+                <div className="Header-center-section">
                     <div className="Header-center-block">
                         <a href="/catalog" className="Header-link">{text.catalog}</a>
                     </div>
                     <div className="Header-center-block">
+                        <a href="/popular" className="Header-link">{text.popular}</a>
+                    </div>
+                    <div className="Header-center-block">
                         <a href="/questions" className="Header-link">{text.questions}</a>
                     </div>
+                    <div className="Header-center-block">
+                        <a href="/contact" className="Header-link">{text.contact}</a>
+                    </div>
                 </div>
-                <div className="Header-section Header-right-section">
+                <div className="Header-right-section">
                 {user.isLogged === "yes" ?
                     <div className="Header-right-block-yes-register">
                                 <img className="Header-right-block-avatar" src={
@@ -71,7 +77,7 @@ const Header = observer(() => {
                             <a href="/login" className="Header-register-link">{text.login}</a>
                         </div>
                         <div className="Header-register-block">
-                            <a href="/register" className="Header-register-link">{text.register}</a>
+                            <a href="/register" className="Header-register-linkHeader-register-link">{text.register}</a>
                         </div>
                     </div> :
                     <div className="Header-right-block-no-register" />

@@ -4,5 +4,7 @@
   "login": "login",
   "register": "register",
   "profile": "profile",
-  "logout": "log out"
+  "logout": "logout",
+  "popular": "popular",
+  "contact": "feedback"
 }
