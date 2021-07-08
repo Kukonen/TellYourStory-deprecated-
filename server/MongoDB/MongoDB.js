@@ -67,6 +67,24 @@ class MongoDB {
         }).then()
         return data
     }
+
+    async updateByKey(key, parameters) {
+        let error = false
+        let data = {}
+        await users.updateOne({key: key}, parameters, (err, userDATA) => {
+            if (err)
+                error = true;
+            if (userDATA.length !== 0)
+                data = {
+                    find: true
+                }
+            else
+                data = {
+                    find: false
+                }
+        }).then()
+        return data
+    }
 }
 
 module.exports = new MongoDB();

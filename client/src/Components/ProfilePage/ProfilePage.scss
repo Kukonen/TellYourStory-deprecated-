@@ -84,9 +84,7 @@
 
 .Profile-already-login-main-section {
 	display: flex;
-	flex-direction: column;
 	padding: 1%;
-	background-color: $primary-color;
 }
 
 .Profile-already-login-main-section-bar {
@@ -96,6 +94,8 @@
 }
 
 .Profile-already-login-main-section-content {
+	width: 85%;
+	font-family: Comfortaa;
 }
 
 .Profile-already-login-bar-link {
@@ -103,9 +103,97 @@
 	font-family: Comfortaa;
 	cursor: pointer;
 	color: $secondary-color;
+	background-color: $primary-color;
 	text-align: center;
 	&:hover {
 		color: $primary-color;
 		background-color: $secondary-color;
 	}
+}
+
+.Profile-already-login-settings-block {
+	width: 60%;
+	margin: auto;
+}
+
+.Profile-already-login-content-settings-text-block {
+	color: $secondary-color;
+	height: 100%;
+	background-color: $primary-color;
+	text-align: center;
+	font-size: $profile-input-font-size;
+	display: flex;
+	justify-content: center;
+	width: 60%;
+	cursor: pointer;
+}
+.Profile-already-login-content-settings-text-block-active {
+	background-color: $secondary-color;
+	color: $primary-color;
+}
+.Profile-already-login-content-settings-block {
+	display: flex;
+	margin-bottom: 5%;
+}
+.Profile-already-login-content-settings-input-block {
+	margin-left: 5%;
+	width: 60%;
+	display: flex;
+}
+.Profile-already-login-content-settings-input {
+	border: none;
+	outline: none;
+	font-family: Comfortaa;
+	font-size: $profile-input-font-size;
+	background-color: $secondary-color;
+	color: $primary-color;
+}
+.Profile-already-login-content-settings-input-active{
+	color: $secondary-color;
+	background-color: $primary-color;
+}
+.Profile-already-login-settings-send-button {
+	font-family: Comfortaa;
+	color: $secondary-color;
+	background-color: $primary-color;
+	cursor: pointer;
+	border: none;
+	font-size: $profile-input-text-font-size;
+	margin: 5% auto auto 40%;
+	&:hover {
+		color: $primary-color;
+		background-color: $secondary-color;
+	}
+}
+
+.Profile-already-login-settings-error {
+	display: none;
+	font-family: Comfortaa;
+	width: 45%;
+	text-align: center;
+	font-size: $profile-error-font-size;
+	background-color: $primary-error-color;
+	color: $secondary-error-color;
+	margin-left: 15%;
+	padding: 1%;
+}
+
+.Profile-already-login-settings-error-active {
+	display: inline-block;
+}
+
+.Profile-already-login-settings-success {
+	display: none;
+	font-family: Comfortaa;
+	width: 45%;
+	text-align: center;
+	font-size: $profile-error-font-size;
+	background-color: $primary-success-color;
+	color: $secondary-success-color;
+	margin-left: 15%;
+	padding: 1%;
+}
+
+.Profile-already-login-settings-success-active {
+	display: inline-block;
 }

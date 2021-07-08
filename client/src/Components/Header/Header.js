@@ -80,7 +80,7 @@ const Header = observer(() => {
                             <a href="/login" className="Header-register-link">{text.login}</a>
                         </div>
                         <div className="Header-register-block">
-                            <a href="/register" className="Header-register-linkHeader-register-link">{text.register}</a>
+                            <a href="/register" className="Header-register-link">{text.register}</a>
                         </div>
                     </div> :
                     <div className="Header-right-block-no-register" />

@@ -4,6 +4,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 
 const userRoute = require('./routes/user.route')
+const profileRoute = require('./routes/profile.route')
 
 const app = express();
 //app.use('/api');
@@ -12,6 +13,7 @@ app.use(cookieParser());
 app.use(express.static('static'))
 
 app.use('/api/user', userRoute)
+app.use('/api/profile', profileRoute)
 
 const PORT = process.env.PORT;
 

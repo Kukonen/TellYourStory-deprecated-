@@ -14,6 +14,21 @@
         "barSettings": {
             "changeName": "change name",
             "changePassword": "change password"
+        },
+        "changePassword": {
+            "title": "change password",
+            "lastPassword": "last password",
+            "newPassword": "new password",
+            "send": "change",
+            "error": "an error occurred",
+            "success": "password changed"
+        },
+        "changeName": {
+            "title": "change name",
+            "newName": "new name",
+            "send": "change",
+            "error": "an error occurred",
+            "success": "name changed"
         }
     }
 }

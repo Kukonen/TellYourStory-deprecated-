@@ -6,6 +6,11 @@ import RuText from "../../TextData/Ru/profile.json";
 import language from "../../Store/LanguageStore";
 import user from '../../Store/UserState'
 import profile from '../../Store/ProfileStore'
+import {useState} from "react";
+
+import ChangePassword from './Settings/ChangePassword'
+import ChangeName from './Settings/ChangeName'
+
 
 const AlreadyLogin = observer(() => {
 
@@ -14,25 +19,25 @@ const AlreadyLogin = observer(() => {
         text = EnText :
         text = RuText;
 
+    const [mode, setMode] = useState("favorite")
+
     let bar = null
 
     if (profile.barMode === "content")
         bar = [
-            text.alreadyLogin.barContent.favorite,
-            text.alreadyLogin.barContent.ownStory,
-            text.alreadyLogin.barContent.favorite
-        ].map(text => <div className="Profile-already-login-bar-link">
-            {text}
-        </div>)
+            <div className="Profile-already-login-bar-link">{text.alreadyLogin.barContent.favorite}</div>,
+            <div className="Profile-already-login-bar-link">{text.alreadyLogin.barContent.ownStory}</div>,
+            <div className="Profile-already-login-bar-link">{text.alreadyLogin.barContent.favorite}</div>
+        ]
     if (profile.barMode === "settings")
         bar = [
-            text.alreadyLogin.barSettings.changeName,
-            text.alreadyLogin.barSettings.changePassword
-        ].map(text => <div className="Profile-already-login-bar-link">
-            {text}
-        </div>)
-
-
+            <div className="Profile-already-login-bar-link"
+                 onClick={() => setMode("changeName")}
+            >{text.alreadyLogin.barSettings.changeName}</div>,
+            <div className="Profile-already-login-bar-link"
+                onClick={() => setMode("changePassword")}
+            >{text.alreadyLogin.barSettings.changePassword}</div>
+        ]
 
     return (
         <div className="Profile-already-login-block">
@@ -59,8 +64,18 @@ const AlreadyLogin = observer(() => {
                 <div className="Profile-already-login-main-section-bar">
                     {bar}
                 </div>
-                <div className="Profile-already-login-main-section-content">
 
+                <div className="Profile-already-login-main-section-content">
+                    <div className="Profile-already-login-settings-block">
+                        {
+                            mode === "changeName" ?
+                                <ChangeName /> :
+                                mode === "changePassword" ?
+                                    <ChangePassword /> :
+                                    null
+
+                        }
+                    </div>
                 </div>
             </div>
         </div>

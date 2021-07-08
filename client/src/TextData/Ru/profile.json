@@ -14,6 +14,21 @@
         "barSettings": {
             "changeName": "изменить имя",
             "changePassword": "изменить пароль"
+        },
+        "changePassword": {
+            "title": "изменить пароль",
+            "lastPassword": "прошлый пароль",
+            "newPassword": "новый пароль",
+            "send": "изменить",
+            "error": "произошла ошибка",
+            "success": "пароль изменён"
+        },
+        "changeName": {
+            "title": "изменить имя",
+            "newName": "новое имя",
+            "send": "изменить",
+            "error": "произошла ошибка",
+            "success": "имя изменено"
         }
     }
 }
