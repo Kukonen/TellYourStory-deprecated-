@@ -1,6 +1,6 @@
 import {makeAutoObservable} from "mobx";
 
-class LanguageStore {
+class LanguageState {
     language = "en"
 
     constructor() {
@@ -22,4 +22,4 @@ class LanguageStore {
     }
 }
 
-export default new LanguageStore();
+export default new LanguageState();

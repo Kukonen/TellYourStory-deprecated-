@@ -3,7 +3,7 @@ import './ProfilePage.scss'
 import {observer} from "mobx-react-lite";
 import EnText from "../../TextData/En/profile.json";
 import RuText from "../../TextData/Ru/profile.json";
-import language from "../../Store/LanguageStore";
+import language from "../../Store/LanguageState";
 
 const NotLogin = observer(() => {
 

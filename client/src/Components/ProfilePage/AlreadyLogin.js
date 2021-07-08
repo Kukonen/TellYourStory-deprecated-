@@ -3,9 +3,9 @@ import './ProfilePage.scss'
 import {observer} from "mobx-react-lite";
 import EnText from "../../TextData/En/profile.json";
 import RuText from "../../TextData/Ru/profile.json";
-import language from "../../Store/LanguageStore";
+import language from "../../Store/LanguageState";
 import user from '../../Store/UserState'
-import profile from '../../Store/ProfileStore'
+import profile from '../../Store/ProfileState'
 import {useState} from "react";
 
 import ChangePassword from './Settings/ChangePassword'

@@ -2,7 +2,7 @@ import {makeAutoObservable} from "mobx";
 import axios from "axios";
 import user from './UserState'
 
-class ProfileStore {
+class ProfileState {
 
     barMode = "content"
     changeNameERROR = false
@@ -67,4 +67,4 @@ class ProfileStore {
     }
 }
 
-export default new ProfileStore();
+export default new ProfileState();

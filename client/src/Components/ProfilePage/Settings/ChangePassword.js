@@ -1,10 +1,10 @@
 import React from 'react';
 import {useState} from "react";
 import {observer} from "mobx-react-lite";
-import language from "../../../Store/LanguageStore";
+import language from "../../../Store/LanguageState";
 import EnText from "../../../TextData/En/profile.json";
 import RuText from "../../../TextData/Ru/profile.json";
-import profile from '../../../Store/ProfileStore';
+import profile from '../../../Store/ProfileState';
 
 const changePassword = observer(() => {
     let text = {}

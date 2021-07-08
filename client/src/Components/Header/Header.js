@@ -6,7 +6,7 @@ import RuText from '../../TextData/Ru/header.json';
 import EnText from '../../TextData/En/header.json';
 import {observer} from "mobx-react-lite";
 import { configure } from "mobx"
-import language from '../../Store/LanguageStore';
+import language from '../../Store/LanguageState';
 import user from '../../Store/UserState';
 
 import ruIcon from './language-img/ru.svg'
