@@ -5,6 +5,15 @@
         "home": "to home page"
     },
     "alreadyLogin": {
-        
+        "settings": "settings",
+        "barContent": {
+            "favorite": "favorite",
+            "ownStory": "my stories",
+            "friends": "friends"
+        },
+        "barSettings": {
+            "changeName": "change name",
+            "changePassword": "change password"
+        }
     }
 }

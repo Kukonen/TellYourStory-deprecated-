@@ -39,6 +39,9 @@ const Header = observer(() => {
                         <a href="/popular" className="Header-link">{text.popular}</a>
                     </div>
                     <div className="Header-center-block">
+                        <a href="/create" className="Header-link">{text.create}</a>
+                    </div>
+                    <div className="Header-center-block">
                         <a href="/questions" className="Header-link">{text.questions}</a>
                     </div>
                     <div className="Header-center-block">

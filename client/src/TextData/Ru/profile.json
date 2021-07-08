@@ -3,5 +3,17 @@
         "headline": "вы не вошли!",
         "login": "авторизация",
         "home": "на главную"
+    },
+    "alreadyLogin": {
+        "settings": "настройки",
+        "barContent": {
+            "favorite": "избранное",
+            "ownStory": "мои истории",
+            "friends": "друзья"
+        },
+        "barSettings": {
+            "changeName": "изменить имя",
+            "changePassword": "изменить пароль"
+        }
     }
 }

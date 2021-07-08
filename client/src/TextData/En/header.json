@@ -6,5 +6,6 @@
   "profile": "profile",
   "logout": "logout",
   "popular": "popular",
-  "contact": "feedback"
+  "contact": "feedback",
+  "create": "create story"
 }
