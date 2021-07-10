@@ -39,7 +39,7 @@ const changePassword = observer(() => {
                 >{text.alreadyLogin.changePassword.newPassword}
                 </div>
                 <div className="Profile-already-login-content-settings-input-block">
-                    <input type="text" className={inputStyle}
+                    <input type="password" className={inputStyle}
                            ref={lastPasswordInputRef}
                            onFocus={
                                e => {
@@ -69,7 +69,7 @@ const changePassword = observer(() => {
                 >{text.alreadyLogin.changePassword.lastPassword}
                 </div>
                 <div className="Profile-already-login-content-settings-input-block">
-                    <input type="text" className={inputStyle}
+                    <input type="password" className={inputStyle}
                            ref={newPasswordInputRef}
                            onFocus={
                                e => {
