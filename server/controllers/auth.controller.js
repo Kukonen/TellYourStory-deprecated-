@@ -14,7 +14,11 @@ class authController {
         const key = uuid.v4()
         const id = uuid.v4()
         await new User({id, key, email, name, password: hash}).save()
+        ctx.cookies.set('key', user.key, {httpOnly: true})
         ctx.status = 201
+        ctx.body = {
+            "name": user.name
+        }
     }
 
     async login(ctx) {
