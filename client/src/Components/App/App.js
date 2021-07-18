@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.scsss'
+import './App.scss'
 import {observer} from "mobx-react-lite";
 import Header from "../Header/Header";
 import Main from "../Main/Main";

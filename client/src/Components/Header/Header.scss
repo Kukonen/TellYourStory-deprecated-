@@ -1,0 +1,64 @@
+@import "src/Style/index.scss";
+
+@mixin header-section($width, $font-size) {
+	display: flex;
+	width: $width;
+	font-size: $font-size;
+	font-family: "Bell MT";
+	text-align: center;
+}
+
+.Header {
+	display: flex;
+	background-color: #828fff;
+	padding: 5px;
+}
+
+.Header-section-Headline {
+	@include header-section(25%, $header-headline-font-size);
+}
+
+.Header-headline {
+	cursor: pointer;
+	margin: auto;
+	text-decoration: none;
+	color: $header-headline-link-color;
+}
+
+.Header-section-Main {
+	@include header-section(50%, $header-link-font-size);
+	justify-content: space-around;
+}
+
+.Header-main-link-block {
+	margin: auto;
+}
+
+.Header-main-link {
+	text-decoration: none;
+	background-image: linear-gradient(currentColor, currentColor);
+	background-position: 0 100%;
+	background-repeat: no-repeat;
+	background-size: 0% 2px;
+	transition: background-size .3s;
+	color: $header-link-color;
+	&:hover {
+		background-size: 100% 2px;
+	}
+}
+
+.Header-section-Profile {
+	@include header-section(25%, $header-link-font-size);
+}
+
+.Header-profile-block {
+	display: flex;
+	width: 80%;
+	flex-direction: column;
+}
+
+.Header-flags-block {
+	display: flex;
+	width: 20%;
+	flex-direction: column;
+}
