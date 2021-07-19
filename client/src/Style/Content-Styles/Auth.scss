@@ -1,0 +1,41 @@
+@import "src/Style/index.scss";
+
+.Auth-section {
+
+}
+
+.Auth-block {
+	display: flex;
+	font-family: $font-family;
+	font-size: $auth-font-size;
+	margin: auto;
+}
+
+.Auth-text-block {
+	width: 11%;
+	margin-right: 5%;
+	border-right: 1px solid black;
+	&:first-of-type {
+		margin-bottom: 2%;
+	}
+}
+
+.Auth-input-block {
+	width: 40%;
+
+}
+
+.Auth-input {
+	font-family: $font-family;
+	font-size: $auth-input-font-size;
+	border: 1px solid black;
+	outline: none;
+}
+
+.Auth-button {
+	cursor: pointer;
+	padding: 5px 15px;
+	font-size: $auth-font-size;
+	background-color: $auth-button-background-color;
+	border: none;
+}

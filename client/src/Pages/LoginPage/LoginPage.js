@@ -7,12 +7,20 @@ const LoginPage = observer(() => {
         <div className="Auth-section">
             <h1>Login</h1>
             <div className="Auth-block">
-                email
-                <input className="Auth-input" type="text"/>
+                <div className="Auth-text-block">
+                    email
+                </div>
+                <div className="Auth-input-block">
+                    <input className="Auth-input" type="text"/>
+                </div>
             </div>
-            <div>
-                password
-                <input className="Auth-input" type="password"/>
+            <div className="Auth-block">
+                <div className="Auth-text-block">
+                    password
+                </div>
+                <div className="Auth-input-block">
+                    <input className="Auth-input" type="password"/>
+                </div>
             </div>
             <button className="Auth-button">login</button>
         </div>
