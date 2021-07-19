@@ -8,6 +8,19 @@
 	text-align: center;
 }
 
+@mixin header-link($color: black) {
+	text-decoration: none;
+	background-image: linear-gradient(currentColor, currentColor);
+	background-position: 0 100%;
+	background-repeat: no-repeat;
+	background-size: 0% 2px;
+	transition: background-size .3s;
+	color: $color;
+	&:hover {
+		background-size: 100% 2px;
+	}
+}
+
 .Header {
 	display: flex;
 	background-color: #828fff;
@@ -35,30 +48,38 @@
 }
 
 .Header-main-link {
-	text-decoration: none;
-	background-image: linear-gradient(currentColor, currentColor);
-	background-position: 0 100%;
-	background-repeat: no-repeat;
-	background-size: 0% 2px;
-	transition: background-size .3s;
-	color: $header-link-color;
-	&:hover {
-		background-size: 100% 2px;
-	}
+	@include header-link($header-link-color)
 }
 
 .Header-section-Profile {
 	@include header-section(25%, $header-link-font-size);
 }
 
-.Header-profile-block {
+.Header-profile-section {
 	display: flex;
 	width: 80%;
 	flex-direction: column;
+}
+
+.Header-profile-block {
+
+}
+
+.Header-profile-link {
+	@include header-link($header-link-color)
 }
 
 .Header-flags-block {
 	display: flex;
 	width: 20%;
 	flex-direction: column;
+}
+
+.Header-flag {
+	cursor: pointer;
+	width: 40%;
+	height: 40%;
+	&:first-of-type {
+		margin-bottom: 5%;
+	}
 }

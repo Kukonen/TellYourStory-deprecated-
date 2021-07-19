@@ -1,0 +1,15 @@
+@import "src/Style/index.scss";
+
+.Main {
+	display: flex;
+	flex: 1 0 auto;
+}
+
+.Main-section-side {
+	width: 20%;
+}
+
+.Main-section-content {
+	width: 60%;
+	background-color: $main-background-color;
+}

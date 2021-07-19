@@ -1,6 +1,10 @@
 import React from 'react';
 import './Header.scss'
 import {observer} from "mobx-react-lite";
+import user from "../../Store/UserState"
+import enFlag from './flags/en.svg'
+import ruFlag from './flags/ru.svg'
+
 
 const Header = observer(() => {
     return (
@@ -34,10 +38,31 @@ const Header = observer(() => {
                 </div>
             </div>
             <div className="Header-section-Profile">
-                <div className="Header-profile-block">
-
+                {
+                    user.isLogged === "no" ?
+                        <div className="Header-profile-section">
+                            <div className="Header-profile-block">
+                                <a href="/login" className="Header-profile-link">login</a>
+                            </div>
+                            <div className="Header-profile-block">
+                                <a href="/register" className="Header-profile-link">register</a>
+                            </div>
+                        </div> :
+                    user.isLogged === "yes" ?
+                        <div className="Header-profile-section">
+                            <div className="Header-profile-block">
+                                <a href="/login" className="Header-profile-link">profile</a>
+                            </div>
+                            <div className="Header-profile-block">
+                                <a href="/register" className="Header-profile-link">logout</a>
+                            </div>
+                        </div> :
+                        <div className="Header-profile-section" />
+                }
+                <div className="Header-flags-block" >
+                    <img src={enFlag} alt="en" className="Header-flag"/>
+                    <img src={ruFlag} alt="ru" className="Header-flag"/>
                 </div>
-                <div className="Header-flags-block" />
             </div>
         </div>
     )

@@ -2,14 +2,14 @@ import React from 'react';
 import './App.scss'
 import {observer} from "mobx-react-lite";
 import Header from "../Header/Header";
-import Main from "../Main/Main";
+import Content from "../Content/Content";
 import Footer from "../Footer/Footer";
 
 const App = observer(() => {
     return (
-        <div>
+        <div className="App">
             <Header />
-            <Main />
+            <Content />
             <Footer />
         </div>
     )

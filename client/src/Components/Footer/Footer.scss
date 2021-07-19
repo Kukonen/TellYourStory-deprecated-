@@ -1,0 +1,13 @@
+@import "src/Style/index.scss";
+
+.Footer {
+	flex: -1 0 auto;
+	background-color: $footer-background-color;
+}
+
+.Footer-block {
+	color: $footer-links-color;
+	font-family: "Bell MT";
+	font-size: $footer-links-font-size;
+	padding: 10px;
+}

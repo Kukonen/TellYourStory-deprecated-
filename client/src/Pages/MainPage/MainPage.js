@@ -1,13 +1,13 @@
 import React from 'react';
-import './Main.scss'
+
 import {observer} from "mobx-react-lite";
 
-const Main = observer(() => {
+const MainPage = observer(() => {
     return (
         <div>
-            
+            <h1>Main page</h1>
         </div>
     )
 });
 
-export default Main;
+export default MainPage;
