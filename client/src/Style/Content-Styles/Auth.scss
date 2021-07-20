@@ -32,7 +32,22 @@
 	outline: none;
 }
 
+.Auth-ERROR-block {
+	display: none;
+	padding: 5px 15px;
+	font-size: $auth-font-size;
+	font-family: $font-family;
+	color: $auth-ERROR-color;
+	background-color: $auth-ERROR-background-color;
+	margin-top: 2%;
+}
+
+.Auth-ERROR-block-active {
+	display: inline-block;
+}
+
 .Auth-button {
+	margin-top: 5%;
 	cursor: pointer;
 	padding: 5px 15px;
 	font-size: $auth-font-size;

@@ -13,7 +13,7 @@ class authController {
         const hash = await bcrypt.hash(password, salt)
         const key = uuid.v4()
         const id = uuid.v4()
-        await new User({id, key, email, name, password: hash}).save()
+        await new User({id, key, email, name, password: hash, avatar: undefined}).save()
         ctx.cookies.set('key', user.key, {httpOnly: true})
         ctx.status = 201
         ctx.body = {
@@ -31,7 +31,8 @@ class authController {
             ctx.cookies.set('key', user.key, {httpOnly: true})
             ctx.status = 200
             ctx.body = {
-                "name": user.name
+                "name": user.name,
+                "avatar": user.avatar
             }
         } else {
             ctx.throw(400, "Password does not match")

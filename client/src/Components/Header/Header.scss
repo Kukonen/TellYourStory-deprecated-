@@ -21,6 +21,11 @@
 	}
 }
 
+@mixin header-profile-section() {
+	display: flex;
+	width: 80%;
+}
+
 .Header {
 	display: flex;
 	background-color: #828fff;
@@ -55,14 +60,38 @@
 	@include header-section(25%, $header-link-font-size);
 }
 
-.Header-profile-section {
+.Header-profile-section-login {
+	@include header-profile-section();
+}
+
+.Header-profile-avatar-block {
+	width: 20%;
 	display: flex;
-	width: 80%;
+	align-items: center;
+	justify-content: center;
+}
+
+.Header-profile-links-block {
+	width: 20%;
+}
+
+.Header-profile-section-not-login {
+	@include header-profile-section();
 	flex-direction: column;
+}
+
+.Header-profile-section-no-information {
+	@include header-profile-section();
 }
 
 .Header-profile-block {
 
+}
+
+.Header-profile-avatar {
+	cursor: pointer;
+	height: $header-avatar-size;
+	width: $header-avatar-size;
 }
 
 .Header-profile-link {

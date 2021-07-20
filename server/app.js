@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 const Koa = require('koa');
-
+const koaStatic = require('koa-static')
 const config = require('./lib/config')
 const handlers = require('./handlers')
 const routers = require('./routes/index.router')
@@ -11,6 +11,7 @@ const app = new Koa();
 
 handlers.forEach(h => app.use(h))
 
+app.use(koaStatic(__dirname + '/static'));
 app.use(routers.routes())
 app.use(routers.allowedMethods())
 mongooseConfig()
