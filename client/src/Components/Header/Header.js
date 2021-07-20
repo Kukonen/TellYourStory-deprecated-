@@ -66,7 +66,7 @@ const Header = observer(() => {
                                 </div>
                                 <div className="Header-profile-block">
                                     <a href="/" className="Header-profile-link"
-                                    onClick={() => user}
+                                    onClick={() => user.logout()}
                                     >logout</a>
                                 </div>
                             </div>

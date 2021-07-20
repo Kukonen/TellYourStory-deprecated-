@@ -14,6 +14,10 @@ class userController {
             "avatar": user.avatar
         }
     }
+
+    async logout(ctx) {
+        ctx.cookies.set('key', null)
+    }
 }
 
 module.exports = new userController();

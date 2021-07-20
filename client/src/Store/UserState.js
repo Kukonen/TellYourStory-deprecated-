@@ -27,7 +27,13 @@ class UserState {
     }
 
     async logout() {
-
+        await axios.get('/api/user/logout')
+            .then(() => {
+                this.name = ''
+                this.avatar = undefined
+                this.isLogged = "no"
+            })
+            .catch(e => console.log(e))
     }
 }
 
