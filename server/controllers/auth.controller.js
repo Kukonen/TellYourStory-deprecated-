@@ -5,19 +5,28 @@ const uuid = require('uuid')
 class authController {
     async register(ctx) {
         const {name, email, password} = ctx.request.body
+        if (email.indexOf('@') === -1) {
+            ctx.throw(400, "Email value is not email")
+        }
         const user = await User.findOne({email})
         if (user) {
             ctx.throw(400, "Email already exists")
         }
+
         const salt = await bcrypt.genSalt(10)
         const hash = await bcrypt.hash(password, salt)
         const key = uuid.v4()
         const id = uuid.v4()
         await new User({id, key, email, name, password: hash, avatar: undefined}).save()
-        ctx.cookies.set('key', user.key, {httpOnly: true})
+            .then()
+            .catch(e => {
+                console.log(e)
+                ctx.throw(501, "User can't create")
+            })
+        ctx.cookies.set('key', key, {httpOnly: true})
         ctx.status = 201
         ctx.body = {
-            "name": user.name
+            "name": name
         }
     }
 

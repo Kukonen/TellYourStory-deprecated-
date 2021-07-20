@@ -25,11 +25,29 @@
 
 }
 
+.Auth-input-error-block {
+	display: none;
+	padding: 5px 15px;
+	font-size: $auth-font-size;
+	font-family: $font-family;
+	color: $auth-ERROR-color;
+	background-color: $auth-ERROR-background-color;
+	margin-top: 2%;
+}
+
+.Auth-input-error-block-active {
+	display: inline-block;
+}
+
 .Auth-input {
 	font-family: $font-family;
 	font-size: $auth-input-font-size;
 	border: 1px solid black;
 	outline: none;
+}
+
+.Auth-input-error {
+	border: 1px solid $auth-ERROR-background-color;
 }
 
 .Auth-ERROR-block {
