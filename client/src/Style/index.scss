@@ -1,5 +1,21 @@
 @import "light.scss";
 
+// Global
+
+$headline-font-size: 26px;
+
+
+.Headline-block {
+	font-family: $font-family;
+	font-size: $headline-font-size;
+	background-color: $headline-background-color;
+	height: 10%;
+	text-align: center;
+	padding: 10px;
+	border: 1px solid $headline-border-color;
+	margin-bottom: 5%;
+}
+
 // Header
 
 $header-headline-font-size: 28px;
@@ -17,5 +33,5 @@ $auth-input-font-size: 26px;
 
 // Questions
 
-$questions-headline-font-size: 26px;
+
 $questions-text-font-size: 18px;

@@ -91,7 +91,7 @@ const Questions = () => {
 
     return (
         <div className="Questions">
-            <div className="Question-headline">Questions</div>
+            <div className="Headline-block">Questions</div>
             <div className="Question-content">
                 <div className="Questions-sidebar-sections-primary">
                     <div className="Questions-sidebar-sections-secondary">

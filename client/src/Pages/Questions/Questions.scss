@@ -6,19 +6,8 @@
 	font-size: $questions-text-font-size;
 }
 
-.Question-headline {
-	font-family: $font-family;
-	font-size: $questions-headline-font-size;
-	background-color: $questions-background-color;
-	height: 10%;
-	text-align: center;
-	padding: 10px;
-	border: 1px solid $question-border-color;
-}
-
 .Question-content {
 	display: flex;
-	margin-top: 5%;
 }
 
 .Questions-sidebar-sections-primary {

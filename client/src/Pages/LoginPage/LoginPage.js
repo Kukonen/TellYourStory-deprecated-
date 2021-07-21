@@ -19,7 +19,7 @@ const LoginPage = observer(() => {
 
     return (
         <div className="Auth-section">
-            <h1>Login</h1>
+            <div className="Headline-block">Login</div>
             <div className="Auth-block">
                 <div className="Auth-text-block">
                     email

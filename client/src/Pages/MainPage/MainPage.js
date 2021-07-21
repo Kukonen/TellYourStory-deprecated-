@@ -5,7 +5,7 @@ import {observer} from "mobx-react-lite";
 const MainPage = observer(() => {
     return (
         <div>
-            <h1>Main page</h1>
+            <div className="Headline-block">Tell Your Story for everybody!</div>
         </div>
     )
 });

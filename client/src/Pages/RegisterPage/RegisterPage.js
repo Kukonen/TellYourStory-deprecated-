@@ -21,7 +21,7 @@ const RegisterPage = observer(() => {
 
     return (
         <div className="Auth-section">
-            <h1>Register</h1>
+            <div className="Headline-block">Register</div>
             <div className="Auth-block">
                 <div className="Auth-text-block">
                     name
