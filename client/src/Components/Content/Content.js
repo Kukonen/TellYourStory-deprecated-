@@ -6,7 +6,7 @@ import './Content.scss'
 import Main from '../../Pages/MainPage/MainPage'
 import Register from '../../Pages/RegisterPage/RegisterPage'
 import Login from '../../Pages/LoginPage/LoginPage'
-
+import Questions from "../../Pages/Questions/Questions";
 
 const Content = () => {
     return (
@@ -17,6 +17,7 @@ const Content = () => {
                     <Route path="/" exact component={Main} />
                     <Route path="/login" exact component={Login} />
                     <Route path="/register" exact component={Register} />
+                    <Route path="/questions" exact component={Questions} />
                 </BrowserRouter>
             </div>
             <div className="Main-section-side" />

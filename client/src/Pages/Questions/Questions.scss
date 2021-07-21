@@ -1,0 +1,79 @@
+@import "src/Style/index.scss";
+
+@mixin Question-content-block-text() {
+	padding: 15px;
+	font-family: $font-family;
+	font-size: $questions-text-font-size;
+}
+
+.Question-headline {
+	font-family: $font-family;
+	font-size: $questions-headline-font-size;
+	background-color: $questions-background-color;
+	height: 10%;
+	text-align: center;
+	padding: 10px;
+	border: 1px solid $question-border-color;
+}
+
+.Question-content {
+	display: flex;
+	margin-top: 5%;
+}
+
+.Questions-sidebar-sections-primary {
+	width: 20%;
+	margin-right: 5%;
+}
+
+.Questions-sidebar-sections-secondary {
+	background-color: $questions-background-color;
+	padding: 10px;
+}
+
+.Questions-sidebar-block {
+	font-family: $font-family;
+	font-size: $questions-text-font-size;
+	padding: 5px 10px;
+	cursor: pointer;
+	margin-bottom: 10%;
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+.Questions-sidebar-block-active {
+	background-color: #efefef;
+	color: #828fff;
+	border: 1px solid $question-border-color;
+}
+
+.Questions-content-sections {
+	width: 75%;
+}
+
+.Question-content-block {
+	background-color: $questions-background-color;
+	margin-bottom: 5%;
+	border: 1px solid $question-border-color;
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+.Question-content-block-title {
+	padding: 15px;
+	font-family: $font-family;
+	font-size: $questions-text-font-size;
+	cursor: pointer;
+}
+
+.Question-content-block-text-visible {
+	@include Question-content-block-text();
+	display: block;
+	border-top: 1px solid $question-border-color;
+}
+
+.Question-content-block-text-hidden {
+	display: none;
+}

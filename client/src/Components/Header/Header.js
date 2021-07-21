@@ -28,7 +28,7 @@ const Header = observer(() => {
                     </a>
                 </div>
                 <div className="Header-main-link-block">
-                    <a className="Header-main-link" href="/question">
+                    <a className="Header-main-link" href="/questions">
                         Questions
                     </a>
                 </div>
