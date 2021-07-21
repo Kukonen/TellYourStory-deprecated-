@@ -7,6 +7,7 @@ import Main from '../../Pages/MainPage/MainPage'
 import Register from '../../Pages/RegisterPage/RegisterPage'
 import Login from '../../Pages/LoginPage/LoginPage'
 import Questions from "../../Pages/Questions/Questions";
+import ContactUs from "../../Pages/ContactUsPage/ContactUsPage"
 
 const Content = () => {
     return (
@@ -18,6 +19,7 @@ const Content = () => {
                     <Route path="/login" exact component={Login} />
                     <Route path="/register" exact component={Register} />
                     <Route path="/questions" exact component={Questions} />
+                    <Route path="/contact" exact component={ContactUs}/>
                 </BrowserRouter>
             </div>
             <div className="Main-section-side" />

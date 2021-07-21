@@ -1,4 +1,6 @@
 const User = require('../models/User')
+const Problems = require('../models/Problems')
+const uuid = require('uuid')
 
 class userController {
     async getInformation(ctx) {
@@ -17,6 +19,19 @@ class userController {
 
     async logout(ctx) {
         ctx.cookies.set('key', null)
+    }
+
+    async sendProblem(ctx) {
+        const {title, text} = ctx.request.body
+        const id = uuid.v4()
+        await new Problems({id, title, text}).save()
+            .then(() => {
+                ctx.status = 201
+            })
+            .catch(e => {
+                console.log(e)
+                ctx.throw(501, "User can't create")
+            })
     }
 }
 

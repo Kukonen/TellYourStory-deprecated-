@@ -6,6 +6,8 @@ class UserState {
     avatar = undefined
     isLogged = "no"
 
+    problemError = false
+
     constructor() {
         makeAutoObservable(this)
     }
@@ -34,6 +36,20 @@ class UserState {
                 this.isLogged = "no"
             })
             .catch(e => console.log(e))
+    }
+
+    async sendProblem(title, text) {
+        await axios.post('/api/user/sendproblem', {
+            title: title,
+            text: text
+        })
+            .then(response => {
+
+            })
+            .catch(e => {
+                console.log(e)
+                this.problemError = true
+            })
     }
 }
 
