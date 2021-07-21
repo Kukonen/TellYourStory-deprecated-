@@ -23,6 +23,14 @@ const Questions = () => {
                 let childes = parent.childNodes
                 childes.forEach(child => child.className = questionTypeStyle)
                 element.target.className = questionTypeStyleActive
+                parent.parentNode.parentNode.childNodes[1].childNodes
+                    .forEach(parentElement => parentElement.childNodes.forEach(childElement => {
+                        if (childElement.classList.contains("Question-content-block-text-visible")) {
+                            childElement.classList.remove("Question-content-block-text-visible")
+                            childElement.classList.add("Question-content-block-text-hidden")
+                        }
+                    })
+                )
                 setQuestionMode(index)
             }
             }>
@@ -63,7 +71,6 @@ const Questions = () => {
                     <div className="Question-content-block-title" onClick={ element => {
                         const parent = element.target.parentNode
                         const child = parent.childNodes[1]
-                        console.log(child.classList.contains("Question-content-block-text-hidden"))
                         if (child.classList.contains("Question-content-block-text-hidden")) {
                             child.classList.remove("Question-content-block-text-hidden")
                             child.classList.add("Question-content-block-text-visible")
@@ -81,8 +88,6 @@ const Questions = () => {
             )
         })
     }
-
-    console.log(questionsElements)
 
     return (
         <div className="Questions">
