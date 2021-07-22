@@ -33,6 +33,7 @@ const ContactUsPage = () => {
                             setTitleError(false)
                         }}
                         placeholder={titleError ? "write title of question" : ""}
+                           value={titleProblem}
                     />
                 </div>
             </div>
@@ -51,6 +52,7 @@ const ContactUsPage = () => {
                                setTextError(false)
                            }}
                            placeholder={textError ? "write explanation problem" : ""}
+                              value={textProblem}
                     />
                 </div>
             </div>
@@ -62,7 +64,11 @@ const ContactUsPage = () => {
             <div className="Contact-button-section Contact-button-section-active">
                 <button className="Contact-button" onClick={ () => {
                     if (titleProblem !== '' && textProblem !== '') {
-                        user.sendProblem(titleProblem, textProblem).then()
+                        user.sendProblem(titleProblem, textProblem).then(() => {
+                            setTitleProblem('')
+                            setTextProblem('')
+                        })
+
                     }
                     else if (titleProblem === '') {
                         setTitleError(true)

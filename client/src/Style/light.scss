@@ -1,8 +1,15 @@
 // Global
 
 $font-family: "Bell MT";
+$default-background-color: white;
+$default-border-color: #e5e5e5;
+$default-error-background-color: #FF0D00;
+$default-error-color: honeydew;
+$default-success-color: lightgreen;
 $headline-background-color: white;
 $headline-border-color: #e5e5e5;
+
+
 
 // Header
 
@@ -22,19 +29,22 @@ $footer-background-side-color: #ededed;
 
 // Auth
 
+$auth-background-color: $default-background-color;
+$auth-border-color: $default-border-color;
 $auth-button-background-color: #828fff;
-$auth-ERROR-color: honeydew;
-$auth-ERROR-background-color: #FF0D00;
+$auth-ERROR-color: $default-error-color;
+$auth-ERROR-background-color: $default-error-background-color;
+$auth-success-border-color: $default-success-color;
 
 // Questions
 
-$questions-background-color: white;
-$question-border-color: #e5e5e5;
+$questions-background-color: $default-background-color;
+$question-border-color: $default-border-color;
 
 // Contact Us
 
-$contact-background-color: white;
-$contact-border-color: #e5e5e5;
+$contact-background-color: $default-background-color;
+$contact-border-color: $default-border-color;
 $contact-button-background-color: #828fff;
-$contact-error-background-color: #FF0D00;
-$auth-error-color: honeydew;
+$contact-error-background-color: $default-error-background-color;
+$auth-error-color: $default-error-color;

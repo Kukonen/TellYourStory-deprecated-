@@ -1,5 +1,14 @@
 @import "src/Style/index.scss";
 
+@mixin auth-block($bg-color) {
+	background-color: $bg-color;
+	border: 1px solid $auth-border-color;
+	font-size: $contact-font-size;
+	font-family: $font-family;
+	padding: 10px;
+
+}
+
 .Auth-section {
 
 }
@@ -12,22 +21,23 @@
 }
 
 .Auth-text-block {
-	width: 11%;
-	margin-right: 5%;
-	border-right: 1px solid black;
+	width: 15%;
+	text-align: center;
+	@include auth-block($auth-background-color);
 	&:first-of-type {
-		margin-bottom: 2%;
+		margin-bottom: 5%;
 	}
 }
 
 .Auth-input-block {
-	width: 40%;
-
+	width: 65%;
+	margin-left: 5%;
 }
 
 .Auth-input-error-block {
 	display: none;
 	padding: 5px 15px;
+	width: auto;
 	font-size: $auth-font-size;
 	font-family: $font-family;
 	color: $auth-ERROR-color;
@@ -40,14 +50,25 @@
 }
 
 .Auth-input {
+	border: 1px solid $contact-border-color;
+	font-size: $contact-font-size;
 	font-family: $font-family;
-	font-size: $auth-input-font-size;
-	border: 1px solid black;
 	outline: none;
+	padding: 10px;
+	width: 70%;
 }
 
 .Auth-input-error {
 	border: 1px solid $auth-ERROR-background-color;
+}
+
+.Auth-input-success {
+	border: 1px solid $auth-success-border-color;
+}
+
+.Auth-error-section {
+	display: flex;
+	align-items: center;
 }
 
 .Auth-ERROR-block {
@@ -57,18 +78,26 @@
 	font-family: $font-family;
 	color: $auth-ERROR-color;
 	background-color: $auth-ERROR-background-color;
-	margin-top: 2%;
+	margin: 2% auto;
 }
 
 .Auth-ERROR-block-active {
 	display: inline-block;
 }
 
+.Auth-button-section {
+	display: flex;
+	align-items: center;
+	margin-bottom: 5%;
+}
+
 .Auth-button {
-	margin-top: 5%;
+	@include auth-block($contact-background-color);
 	cursor: pointer;
-	padding: 5px 15px;
-	font-size: $auth-font-size;
-	background-color: $auth-button-background-color;
-	border: none;
+	border-radius: 10px;
+	margin: auto;
+	padding: 10px 20px;
+	&:hover {
+		background-color: $contact-button-background-color;
+	}
 }
