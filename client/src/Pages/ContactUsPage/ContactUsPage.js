@@ -61,16 +61,12 @@ const ContactUsPage = () => {
             </div>
             <div className="Contact-button-section Contact-button-section-active">
                 <button className="Contact-button" onClick={ () => {
-                    alert("here")
                     if (titleProblem !== '' && textProblem !== '') {
-                        alert("here 1")
                         user.sendProblem(titleProblem, textProblem).then()
                     }
                     else if (titleProblem === '') {
-                        alert("here 2")
                         setTitleError(true)
                     } else if (textProblem === '') {
-                        alert("here 3")
                         setTextError(true)
                     }
                 }}>
