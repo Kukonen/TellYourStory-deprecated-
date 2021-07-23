@@ -1,0 +1,16 @@
+{
+    "eu" : {
+        "headline": "Contact Us",
+        "title": "Title question",
+        "explanation": "Explain problem",
+        "error": "something went wrong",
+        "send": " Send "
+    },
+    "ru": {
+        "headline": "Свяжитесь с нами!",
+        "title": "Заголовок",
+        "explanation": "Что случилось",
+        "error": "что-то пошло не так",
+        "send": "Отправить"
+    }
+}

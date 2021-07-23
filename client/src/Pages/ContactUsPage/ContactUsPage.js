@@ -1,9 +1,12 @@
 import React from 'react';
 import './ContactUsPage.scss'
 import {useState} from "react";
+import {observer} from "mobx-react-lite";
 import user from '../../Store/UserState'
 
-const ContactUsPage = () => {
+const ContactUsPage = observer(() => {
+
+    const localization = user.text
 
     const [titleProblem, setTitleProblem] = useState('')
     const [textProblem, setTextProblem] = useState('')
@@ -17,12 +20,12 @@ const ContactUsPage = () => {
     return (
         <div>
             <div className="Headline-block">
-                Contact Us
+                {localization.contactUs.headline}
             </div>
             <div className="Contact-section">
                 <div className="Contact-text-section">
                     <div className="Contact-text-block">
-                        Title question
+                        {localization.contactUs.title}
                     </div>
                 </div>
                 <div className="Contact-input-block">
@@ -40,7 +43,7 @@ const ContactUsPage = () => {
             <div className="Contact-section">
                 <div className="Contact-text-section">
                     <div className="Contact-text-block">
-                        Explain problem
+                        {localization.contactUs.explanation}
                     </div>
                 </div>
                 <div className="Contact-input-block">
@@ -58,7 +61,7 @@ const ContactUsPage = () => {
             </div>
             <div className={user.problemError ? "Contact-error-section" : "Contact-error-section Contact-error-section-hide"}>
                 <div className="Contact-error-block">
-                    something went wrong
+                    {localization.contactUs.error}
                 </div>
             </div>
             <div className="Contact-button-section Contact-button-section-active">
@@ -76,11 +79,11 @@ const ContactUsPage = () => {
                         setTextError(true)
                     }
                 }}>
-                    Send problem
+                    {localization.contactUs.send}
                 </button>
             </div>
         </div>
     )
-}
+})
 
 export default ContactUsPage;

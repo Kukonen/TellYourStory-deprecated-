@@ -1,0 +1,22 @@
+{
+    "en": {
+        "allStories": "All Stories",
+        "createYourStory":  "Create your story",
+        "questions": "Questions",
+        "contactUs": "Contact us",
+        "login": "login",
+        "register": "register",
+        "profile": "profile",
+        "logout": "logout"
+    },
+    "ru": {
+        "allStories": "Все Истории",
+        "createYourStory":  "Создай Свою Историю",
+        "questions": "Вопросы",
+        "contactUs": "Свяжитесь с Нами",
+        "login": "войти",
+        "register": "регистрация",
+        "profile": "профиль",
+        "logout": "выйти"
+    }
+}

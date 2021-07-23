@@ -5,8 +5,9 @@ import user from "../../Store/UserState"
 import enFlag from './flags/en.svg'
 import ruFlag from './flags/ru.svg'
 
-
 const Header = observer(() => {
+
+    const localization = user.text
 
     return (
         <div className="Header">
@@ -19,22 +20,22 @@ const Header = observer(() => {
             <div className="Header-section-Main">
                 <div className="Header-main-link-block">
                     <a className="Header-main-link" href="/list">
-                        All Stories
+                        {localization.header.allStories}
                     </a>
                 </div>
                 <div className="Header-main-link-block">
                     <a className="Header-main-link" href="/create">
-                        Create your story
+                        {localization.header.createYourStory}
                     </a>
                 </div>
                 <div className="Header-main-link-block">
                     <a className="Header-main-link" href="/questions">
-                        Questions
+                        {localization.header.questions}
                     </a>
                 </div>
                 <div className="Header-main-link-block">
                     <a className="Header-main-link" href="/contact">
-                        Contact us
+                        {localization.header.contactUs}
                     </a>
                 </div>
             </div>
@@ -43,10 +44,10 @@ const Header = observer(() => {
                     user.isLogged === "no" ?
                         <div className="Header-profile-section-not-login">
                             <div className="Header-profile-block">
-                                <a href="/login" className="Header-profile-link">login</a>
+                                <a href="/login" className="Header-profile-link">{localization.header.login}</a>
                             </div>
                             <div className="Header-profile-block">
-                                <a href="/register" className="Header-profile-link">register</a>
+                                <a href="/register" className="Header-profile-link">{localization.header.register}</a>
                             </div>
                         </div> :
                     user.isLogged === "yes" ?
@@ -62,20 +63,20 @@ const Header = observer(() => {
                             </div>
                             <div className="Header-profile-links-block">
                                 <div className="Header-profile-block">
-                                    <a href="/pofile" className="Header-profile-link">profile</a>
+                                    <a href="/pofile" className="Header-profile-link">{localization.header.profile}</a>
                                 </div>
                                 <div className="Header-profile-block">
                                     <a href="/" className="Header-profile-link"
                                     onClick={() => user.logout()}
-                                    >logout</a>
+                                    >{localization.header.logout}</a>
                                 </div>
                             </div>
                         </div> :
                         <div className="Header-profile-section-no-information" />
                 }
                 <div className="Header-flags-block" >
-                    <img src={enFlag} alt="en" className="Header-flag"/>
-                    <img src={ruFlag} alt="ru" className="Header-flag"/>
+                    <img src={enFlag} alt="en" className="Header-flag" onClick={() => user.changeLanguage("en")}/>
+                    <img src={ruFlag} alt="ru" className="Header-flag" onClick={() => user.changeLanguage("ru")}/>
                 </div>
             </div>
         </div>
