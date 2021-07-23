@@ -1,13 +1,14 @@
 import React from 'react';
 import './Questions.scss'
 import {useState} from "react";
+import {observer} from "mobx-react-lite";
+import user from '../../Store/UserState'
 
-const Questions = () => {
+const Questions = observer(() => {
 
-    const questionType = [
-        "Question type 1",
-        "Question type 2"
-    ]
+    const localization = user.text
+
+    const questionType = localization.questions.questionType
 
 
     const [questionMode, setQuestionMode] = useState(0)
@@ -39,28 +40,9 @@ const Questions = () => {
         )
     })
 
-    const questions = [
-        [
-            {
-                "title": "title 1",
-                "text": "text by 1"
-            },
-            {
-                "title": "title 2",
-                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi asperiores at corporis dicta dignissimos dolore ea enim error facere itaque maxime necessitatibus nisi perspiciatis, praesentium repudiandae veniam vitae, voluptatum!"
-            }
-        ],
-        [
-            {
-                "title": "title 2/1",
-                "text": "text by 2"
-            },
-            {
-                "title": "title 2/2",
-                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi asperiores at corporis dicta dignissimos dolore ea enim error facere itaque maxime necessitatibus nisi perspiciatis, praesentium repudiandae veniam vitae, voluptatum!"
-            }
-        ]
-    ]
+    const questions = localization.questions.questions
+
+    console.log(questions)
 
     let questionsElements = [];
 
@@ -91,7 +73,7 @@ const Questions = () => {
 
     return (
         <div className="Questions">
-            <div className="Headline-block">Questions</div>
+            <div className="Headline-block">{localization.questions.headline}</div>
             <div className="Question-content">
                 <div className="Questions-sidebar-sections-primary">
                     <div className="Questions-sidebar-sections-secondary">
@@ -107,6 +89,6 @@ const Questions = () => {
             </div>
         </div>
     )
-}
+})
 
 export default Questions;

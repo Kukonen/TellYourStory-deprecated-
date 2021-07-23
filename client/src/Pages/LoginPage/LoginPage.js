@@ -4,12 +4,15 @@ import {observer} from "mobx-react-lite";
 import {useState} from "react";
 import auth from '../../Store/AuthState'
 import { configure } from "mobx"
+import user from "../../Store/UserState"
 
 const LoginPage = observer(() => {
 
     configure({
         enforceActions: "never",
     })
+
+    const localization = user.text
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -24,10 +27,10 @@ const LoginPage = observer(() => {
 
     return (
         <div className="Auth-section">
-            <div className="Headline-block">Login</div>
+            <div className="Headline-block">{localization.auth.login.headline}</div>
             <div className="Auth-block">
                 <div className="Auth-text-block">
-                    email
+                    {localization.auth.login.email}
                 </div>
                 <div className="Auth-input-block">
                     <input className={noEmailInformationError || auth.loginERROR ? errorInputStyleActive : errorInputStyle} type="text" onChange={email => {
@@ -35,13 +38,13 @@ const LoginPage = observer(() => {
                         setEmail(email.target.value)
                         setNoEmailInformationError(false)
                     }}
-                    placeholder={noEmailInformationError ? "write email" : "" }
+                    placeholder={noEmailInformationError ? localization.auth.login.emailError : "" }
                     />
                 </div>
             </div>
             <div className="Auth-block">
                 <div className="Auth-text-block">
-                    password
+                    {localization.auth.login.password}
                 </div>
                 <div className="Auth-input-block">
                     <input className={noPasswordInformationError || auth.loginERROR ? errorInputStyleActive : errorInputStyle} type="password" onChange={password => {
@@ -49,12 +52,12 @@ const LoginPage = observer(() => {
                         setPassword(password.target.value)
                         setNoPasswordInformationError(false)
                     }}
-                    placeholder={noPasswordInformationError ? "write password" : "" }
+                    placeholder={noPasswordInformationError ? localization.auth.login.passwordError : "" }
                     />
                 </div>
             </div>
             <div className="Auth-error-section">
-                <div className={!auth.loginERROR ? errorStyle : errorStyleActive}>something went wrong</div>
+                <div className={!auth.loginERROR ? errorStyle : errorStyleActive}>{localization.auth.login.error}</div>
             </div>
             <div className="Auth-button-section">
                 <button className="Auth-button" onClick={() => {
@@ -66,7 +69,7 @@ const LoginPage = observer(() => {
                     } else if (password === '') {
                         setNoPasswordInformationError(true)
                     }
-                } }>login</button>
+                } }>{localization.auth.login.login}</button>
             </div>
 
         </div>

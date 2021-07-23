@@ -1,14 +1,19 @@
 import React from 'react';
 import './Footer.scss'
+import {observer} from "mobx-react-lite";
+import user from '../../Store/UserState'
 
-const Footer = () => {
+const Footer = observer(() => {
+
+    const localization = user.text
+
     return (
         <div className="Footer">
             <div className="Footer-block">
-                site by Evgeniy Kukonen
+                {localization.footer.author}
             </div>
         </div>
     )
-}
+})
 
 export default Footer;
