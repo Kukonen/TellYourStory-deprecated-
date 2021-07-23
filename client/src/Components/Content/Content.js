@@ -8,6 +8,7 @@ import Register from '../../Pages/RegisterPage/RegisterPage'
 import Login from '../../Pages/LoginPage/LoginPage'
 import Questions from "../../Pages/Questions/Questions";
 import ContactUs from "../../Pages/ContactUsPage/ContactUsPage"
+import Create from '../../Pages/CreatePage/CreatePage'
 
 const Content = () => {
     return (
@@ -20,6 +21,7 @@ const Content = () => {
                     <Route path="/register" exact component={Register} />
                     <Route path="/questions" exact component={Questions} />
                     <Route path="/contact" exact component={ContactUs}/>
+                    <Route path="/create" exact component={Create} />
                 </BrowserRouter>
             </div>
             <div className="Main-section-side" />

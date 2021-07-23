@@ -1,0 +1,12 @@
+{
+    "en" :{
+        "story": "Story",
+        "chapters": "Chapters",
+        "counters": "Counters"
+    },
+    "ru" : {
+        "story": "Истоия",
+        "chapters": "Главы",
+        "counters": "Счётчики"
+    }
+}

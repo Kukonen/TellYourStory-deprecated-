@@ -1,0 +1,32 @@
+@import "src/Style/index.scss";
+
+.Create {
+	display: flex;
+}
+
+.Create-menu {
+	width: 15%;
+}
+
+.Create-menu-block {
+	font-family: $font-family;
+	font-size: $create-menu-font-size;
+	padding: 10px;
+	background-color: $create-background-color;
+	border: 1px solid $create-border-color;
+	text-align: center;
+	margin-bottom: 5%;
+	cursor: pointer;
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+.Create-menu-block-active {
+	background-color: $create-active-background-color;
+}
+
+.Create-content {
+	width: 80%;
+	margin-left: 5%;
+}

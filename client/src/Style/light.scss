@@ -6,6 +6,8 @@ $default-border-color: #e5e5e5;
 $default-error-background-color: #FF0D00;
 $default-error-color: honeydew;
 $default-success-color: lightgreen;
+$default-primary-color: #828fff;
+$default-secondary-color: black;
 $headline-background-color: white;
 $headline-border-color: #e5e5e5;
 
@@ -13,14 +15,14 @@ $headline-border-color: #e5e5e5;
 
 // Header
 
-$header-background-color: #828fff;
-$header-link-color: black;
-$header-headline-link-color: black;
+$header-background-color: $default-primary-color;
+$header-link-color: $default-secondary-color;
+$header-headline-link-color: $default-secondary-color;
 
 // Footer
 
-$footer-background-color: #828fff;
-$footer-links-color: black;
+$footer-background-color: $default-primary-color;
+$footer-links-color: $default-secondary-color;
 
 // Main
 
@@ -31,7 +33,7 @@ $footer-background-side-color: #ededed;
 
 $auth-background-color: $default-background-color;
 $auth-border-color: $default-border-color;
-$auth-button-background-color: #828fff;
+$auth-button-background-color: $default-primary-color;
 $auth-ERROR-color: $default-error-color;
 $auth-ERROR-background-color: $default-error-background-color;
 $auth-success-border-color: $default-success-color;
@@ -45,6 +47,12 @@ $question-border-color: $default-border-color;
 
 $contact-background-color: $default-background-color;
 $contact-border-color: $default-border-color;
-$contact-button-background-color: #828fff;
+$contact-button-background-color: $default-primary-color;
 $contact-error-background-color: $default-error-background-color;
 $auth-error-color: $default-error-color;
+
+// Create
+
+$create-background-color: $default-background-color;
+$create-border-color: $default-border-color;
+$create-active-background-color: $default-primary-color;
