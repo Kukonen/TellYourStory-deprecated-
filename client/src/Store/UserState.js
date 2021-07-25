@@ -6,7 +6,7 @@ import Cookies from 'js-cookie'
 class UserState {
     name = null
     avatar = undefined
-    isLogged = "no"
+    isLogged = null
     language = Cookies.get('language') === "en" ? "en" :
         Cookies.get('language') === "ru" ? "ru" :
             "en"
@@ -32,6 +32,9 @@ class UserState {
         }).catch(e => {
             console.log(e)
         })
+        if (status === 204) {
+            this.isLogged = "no"
+        }
         if (status === 200) {
             this.name = data.name
             this.avatar = data.avatar

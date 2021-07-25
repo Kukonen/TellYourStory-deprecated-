@@ -1,0 +1,90 @@
+@import "src/Style/index.scss";
+
+@mixin create-counter-block() {
+	display: flex;
+}
+
+@mixin create-counter-input-name() {
+	font-family: $font-family;
+	font-size: $create-counters-font-size;
+	width: 50%;
+	text-align: center;
+	outline: none;
+	border: 1px solid $create-border-color;
+}
+
+@mixin create-counter-input-number() {
+	font-family: $font-family;
+	font-size: $create-counters-font-size;
+	width: 10%;
+	text-align: center;
+	outline: none;
+	border: 1px solid $create-border-color;
+}
+
+@mixin create-counter-input-button() {
+	width: 5%;
+	background-color: $create-background-color;
+	border: 1px solid $create-border-color;
+	cursor: pointer;
+}
+
+.Create-counters-add {
+
+}
+
+.Create-counters-add-input {
+	@include create-counter-block();
+}
+
+.Create-counters-add-input-name {
+	@include create-counter-input-name();
+}
+
+.Create-counters-add-input-count {
+	@include create-counter-input-number();
+}
+
+.Create-counters-add-input-button {
+	@include create-counter-input-button();
+}
+
+.Create-counter-list {
+	margin-top: 5%;
+}
+
+.Create-counter-list-headline-block {
+	margin-bottom: 2%;
+	width: 50%;
+	display: flex;
+	align-items: center;
+}
+
+.Create-counter-list-headline {
+	display: inline-block;
+	font-size: $create-counters-headline-font-size;
+	background-color: $create-background-color;
+	border: 1px solid $create-border-color;
+	padding: 10px;
+	margin: auto;
+}
+
+.Create-counter-list-input {
+	@include create-counter-block();
+	margin-bottom: 3%;
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+.Create-counters-list-input-name {
+	@include create-counter-input-name();
+}
+
+.Create-counters-list-input-count {
+	@include create-counter-input-number();
+}
+
+.Create-counters-list-button {
+	@include create-counter-input-button();
+}

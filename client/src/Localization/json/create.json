@@ -1,12 +1,36 @@
 {
     "en" :{
-        "story": "Story",
-        "chapters": "Chapters",
-        "counters": "Counters"
+        "noLogin":  {
+            "headline": "Please, login or register for create your story",
+            "login": "login",
+            "register": "register"
+        },
+        "menu": {
+            "story": "Story",
+            "chapters": "Chapters",
+            "counters": "Counters"
+        },
+        "counters": {
+            "addName": "name",
+            "addCount": "#",
+            "counterListHeadline": "Saved"
+        }
     },
     "ru" : {
-        "story": "Истоия",
-        "chapters": "Главы",
-        "counters": "Счётчики"
+        "noLogin":  {
+            "headline": "Пожалуйста, войдите или зарегистрируйтесь, чтобы создать свою историю",
+            "login": "войти",
+            "register": "зарегистрироваться"
+        },
+        "menu": {
+            "story": "Истоия",
+            "chapters": "Главы",
+            "counters": "Счётчики"
+        },
+        "counters": {
+            "addName": "название",
+            "addCount": "#",
+            "counterListHeadline": "Сохранённые"
+        }
     }
 }

@@ -4,6 +4,31 @@
 	display: flex;
 }
 
+.Create-no-login-links-section {
+	display: flex;
+	width: 60%;
+	margin: auto;
+}
+
+.Create-no-login-links-block {
+	width: 40%;
+	text-align: center;
+	background-color: $create-background-color;
+	border: 1px solid $create-border-color;
+	cursor: pointer;
+	padding: 10px;
+	&:first-of-type {
+	margin-right: 10%;
+	}
+}
+
+.Create-no-login-links {
+	font-family: $font-family;
+	font-size: $create-menu-font-size;
+	text-decoration: none;
+	color: black;
+}
+
 .Create-menu {
 	width: 15%;
 }
