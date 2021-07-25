@@ -3,8 +3,8 @@ import './Counters.scss'
 import {observer} from "mobx-react-lite";
 import user from '../../../Store/UserState'
 import {useState} from "react";
-import saveImg from './save.svg'
-import addIcon from './add.svg'
+import saveImg from '../Img/save.svg'
+import addIcon from '../Img/add.svg'
 
 
 const Counters = observer(() => {

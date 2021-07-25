@@ -14,6 +14,13 @@
             "addName": "name",
             "addCount": "#",
             "counterListHeadline": "Saved"
+        },
+        "chapters" : {
+            "addTitle": "name of new chapter",
+            "savedHeadline": "Saved",
+            "title": "title of chapter",
+            "text": "text of chapter",
+            "decisionPlaceholder": "name of decision"
         }
     },
     "ru" : {
@@ -31,6 +38,13 @@
             "addName": "название",
             "addCount": "#",
             "counterListHeadline": "Сохранённые"
+        },
+        "chapters" : {
+            "addTitle": "название новой главы",
+            "savedHeadline": "Сохранённые",
+            "title": "название главы",
+            "text": "текст главы",
+            "decisionPlaceholder": "названия решения"
         }
     }
 }

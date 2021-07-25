@@ -1,0 +1,126 @@
+@import "src/Style/index.scss";
+
+@mixin chapters-section($margin-bottom) {
+	display: flex;
+	margin-bottom: $margin-bottom;
+}
+
+@mixin input-title() {
+	font-family: $font-family;
+	font-size: $create-chapter-font-size;
+	width: 40%;
+	outline: none;
+	background-color: $create-background-color;
+	border: 1px solid $create-border-color;
+}
+
+@mixin button-title() {
+	font-family: $font-family;
+	font-size: $create-chapter-font-size;
+	width: 5%;
+	background-color: $create-background-color;
+	border: 1px solid $create-border-color;
+	cursor: pointer;
+	text-align: center;
+}
+
+.Create-chapters-add-section {
+	@include chapters-section(5%);
+}
+
+.Create-chapters-add-input-title {
+	@include input-title();
+}
+
+.Create-chapters-add-input-button {
+	@include button-title();
+}
+
+.Create-chapter-headline-section {
+	margin-bottom: 2%;
+	width: 50%;
+	display: flex;
+	align-items: center;
+}
+
+.Create-chapter-headline-block {
+	display: inline-block;
+	font-size: $create-chapter-headline-font-size;
+	background-color: $create-background-color;
+	border: 1px solid $create-border-color;
+	padding: 10px;
+	margin: auto;
+}
+
+.Create-chapters-section-head {
+	@include chapters-section(1%);
+}
+
+.Create-chapters-input-title {
+	@include input-title();
+}
+
+.Create-chapters-input-button {
+	@include button-title();
+}
+
+.Create-chapters-section-body {
+	@include chapters-section(1%);
+}
+
+.Create-chapters-textarea-text {
+	width: calc(55% + 2px);
+	font-family: $font-family;
+	font-size: $create-chapter-font-size;
+	outline: none;
+	background-color: $create-background-color;
+	border: 1px solid $create-border-color;
+}
+
+.Create-chapters-section-footer {
+	@include chapters-section(5%);
+	flex-direction: column;
+}
+
+.Create-chapters-decision-name {
+	width: 40%;
+	font-family: $font-family;
+	font-size: $create-chapter-font-size;
+	outline: none;
+	background-color: $create-background-color;
+	border: 1px solid $create-border-color;
+}
+
+.Create-chapters-decision-counter {
+	display: flex;
+}
+
+.Create-chapters-decision-counter-name {
+	width: calc(40% + 4px);
+	font-family: $font-family;
+	font-size: $create-chapter-font-size;
+	background-color: $create-background-color;
+	border: 1px solid $create-border-color;
+}
+
+.Create-chapters-decision-counter-value {
+	width: 5%;
+	font-family: $font-family;
+	font-size: $create-chapter-font-size;
+	background-color: $create-background-color;
+	border: 1px solid $create-border-color;
+}
+
+.Create-chapters-decision-title-block {
+	display: flex;
+}
+
+.Create-chapters-decision-save {
+	font-family: $font-family;
+	font-size: $create-chapter-font-size;
+	width: calc(5% + 4px);
+	background-color: $create-background-color;
+	border: 1px solid $create-border-color;
+	cursor: pointer;
+	text-align: center;
+}
