@@ -20,6 +20,49 @@ class templateController {
             ctx.status = 201
         }
     }
+
+    async createCounter(ctx) {
+        const {name, count} = ctx.request.body
+        const key = ctx.cookies.get('key');
+        const id = uuid.v4()
+        const template = await Template.findOne({key})
+        let counters = template.counter
+        counters.push({
+            id: id,
+            name: name,
+            count: count
+        })
+
+        await Template.updateOne({key}, {counter: counters})
+
+        ctx.body = {
+            counters: counters
+        }
+        ctx.status = 200
+    }
+
+    async changeCounter(ctx) {
+        const {name, count, id} = ctx.request.body
+        const key = ctx.cookies.get('key');
+        const template = await Template.findOne({key})
+        let counters = template.counter
+        for (let i = 0; i < counters.length; ++i) {
+            if(counters[i].id === id) {
+                counters[i] = {
+                    name: name,
+                    count: count,
+                    id: id
+                }
+            }
+        }
+
+        await Template.updateOne({key}, {counter: counters})
+
+        ctx.body = {
+            counters: counters
+        }
+        ctx.status = 200
+    }
 }
 
 module.exports = new templateController();

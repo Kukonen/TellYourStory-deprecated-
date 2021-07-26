@@ -1,7 +1,9 @@
 const Router = require('koa-router')
 const router = new Router().prefix('/template')
-const userController = require('../controllers/template.controller')
+const templateController = require('../controllers/template.controller')
 
-router.get('/openorcreate', userController.openOrCreate)
+router.get('/openorcreate', templateController.openOrCreate)
+router.post('/createcounter', templateController.createCounter)
+router.post('/changecounter', templateController.changeCounter)
 
 module.exports = router.routes()
