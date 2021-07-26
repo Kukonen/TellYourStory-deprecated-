@@ -3,6 +3,7 @@ import './CreatePage.scss'
 import {observer} from "mobx-react-lite";
 import {useState} from "react";
 import user from '../../Store/UserState'
+import template from '../../Store/TemplateState'
 
 import Chapters from '../../Components/Create/Chapters/Chapters'
 import Counters from '../../Components/Create/Counters/Counters'
@@ -11,6 +12,9 @@ import Story from '../../Components/Create/Story'
 
 const CreatePage = observer(() => {
     const localization = user.text
+
+    if (user.isLogged === "yes")
+        template.openOrCreate().then()
 
     const [mode, setMode] = useState(0)
 
