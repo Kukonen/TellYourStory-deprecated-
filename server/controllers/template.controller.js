@@ -32,7 +32,7 @@ class templateController {
             name: name,
             count: count
         })
-        
+
         await Template.updateOne({key}, {counter: counters})
 
         ctx.body = {
