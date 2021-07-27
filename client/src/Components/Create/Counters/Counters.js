@@ -13,38 +13,70 @@ const Counters = observer(() => {
     const [name, setName] = useState('')
     const [count, setCount] = useState(0)
 
-    const counters = template.counter
+    let counters = []
 
-    const counterList = Array.isArray(counters) ? counters.map(counter => {
-        const [counterName, setCounterName] = useState(counter.name)
-        const [counterNumber, setCounterNumber] = useState(counter.count)
-        return (
-            <div className="Create-counter-list-input" key = {counter.id}>
-                <input type="text" className="Create-counters-list-input-name"
-                       onChange={value => setCounterName(value.target.value)}
-                       value={counterName}
-                       placeholder={localization.create.counters.addName}
-                />
-                <input type="number" className="Create-counters-list-input-count"
-                       onChange={value => setCounterNumber(value.target.value)}
-                       value={counterNumber}
-                       placeholder={localization.create.counters.addCount}
-                />
-                <img alt="save" className="Create-counters-list-button" src={saveImg} onClick={el =>
-                {
-                    // without state
-                    // const parent = el.target.parentNode
-                    // const childes = parent.childNodes
-                    // const text = childes[0].value
-                    // const number = childes[1].value
-                    // const id = parent.key
+    counters = template.counter
 
-                    template.changeCounter(counterName, counterNumber, counter.id)
-                }
-                } />
-            </div>
-        )
-    }) : null
+    let counterList = []
+
+    counterList = counters.map(counter => {
+            // const [counterName, setCounterName] = useState(counter.name)
+            // const [counterNumber, setCounterNumber] = useState(counter.count)
+            const counterName = counter.name
+            const counterNumber = counter.count
+            return (
+                <div className="Create-counter-list-input" key = {counter.id}>
+                    <input type="text" className="Create-counters-list-input-name"
+                           defaultValue={counterName}
+                           placeholder={localization.create.counters.addName}
+                    />
+                    <input type="number" className="Create-counters-list-input-count"
+                           defaultValue={counterNumber}
+                           placeholder={localization.create.counters.addCount}
+                    />
+                    <img alt="save" className="Create-counters-list-button" src={saveImg} onClick={el =>
+                    {
+                        //without state
+                        const parent = el.target.parentNode
+                        const childes = parent.childNodes
+                        const text = childes[0].value
+                        const number = childes[1].value
+                        //const id = parent.key
+
+                        template.changeCounter(text, number, counter.id)
+                    }
+                    } />
+                </div>
+            )
+        })
+
+
+    // for (let i = 0; i < counters.length; ++i) {
+    //     console.log("here")
+    //     const counterName = counters[i].name
+    //     const counterNumber = counters[i].count
+    //     counterList.push(
+    //         <div className="Create-counter-list-input" key = {counters[i].id}>
+    //             <input type="text" className="Create-counters-list-input-name"
+    //                    //onChange={value => setCounterName(value.target.value)}
+    //                    defaultValue={counterName}
+    //                    placeholder={localization.create.counters.addName}
+    //             />
+    //             <input type="number" className="Create-counters-list-input-count"
+    //                    //onChange={value => setCounterNumber(value.target.value)}
+    //                    defaultValue={counterNumber}
+    //                    placeholder={localization.create.counters.addCount}
+    //             />
+    //             <img alt="save" className="Create-counters-list-button" src={saveImg} onClick={el =>
+    //             {
+    //                 template.changeCounter(counterName, counterNumber, counters[i].id)
+    //             }
+    //             } />
+    //         </div>
+    //     )
+    // }
+
+
     return (
         <div>
             <div className="Create-counters-add">
@@ -70,7 +102,7 @@ const Counters = observer(() => {
                             {localization.create.counters.counterListHeadline}
                         </div>
                     </div>
-                    {counterList}
+                    {Array.isArray(counterList) ? counterList : null}
                 </div>
             </div>
         </div>

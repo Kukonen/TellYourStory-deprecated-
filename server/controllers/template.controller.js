@@ -43,6 +43,7 @@ class templateController {
 
     async changeCounter(ctx) {
         const {name, count, id} = ctx.request.body
+        console.log(name, count, id)
         const key = ctx.cookies.get('key');
         const template = await Template.findOne({key})
         let counters = template.counter

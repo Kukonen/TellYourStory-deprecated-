@@ -30,15 +30,18 @@ class TemplateState {
     async createCounter(name, count) {
         axios.post('/api/template/createcounter', {name, count}).then(response =>{
             if (response.status === 200) {
-                this.counter = response.data.counter
+                this.counter = response.data.counters
+                console.log(this.counter)
             }
         })
     }
 
     async changeCounter(name, count, id) {
+        console.log(name, count, id)
         axios.post('/api/template/changecounter', {name, count, id}).then(response => {
             if (response.status === 200) {
-                this.counter = response.data.counter
+                this.counter = response.data.counters
+
             }
         })
     }
