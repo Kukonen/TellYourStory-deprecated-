@@ -37,11 +37,19 @@ class TemplateState {
     }
 
     async changeCounter(name, count, id) {
-        console.log(name, count, id)
         axios.post('/api/template/changecounter', {name, count, id}).then(response => {
             if (response.status === 200) {
                 this.counter = response.data.counters
 
+            }
+        })
+    }
+
+    async deleteCounter(id) {
+        axios.post('/api/template/deletecounter', {id}).then(response => {
+            if (response.status === 200) {
+                this.counter = []
+                this.counter = response.data.counters
             }
         })
     }

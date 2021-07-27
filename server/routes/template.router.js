@@ -5,5 +5,6 @@ const templateController = require('../controllers/template.controller')
 router.get('/openorcreate', templateController.openOrCreate)
 router.post('/createcounter', templateController.createCounter)
 router.post('/changecounter', templateController.changeCounter)
+router.post('/deletecounter', templateController.deleteCounter)
 
 module.exports = router.routes()

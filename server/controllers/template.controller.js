@@ -32,7 +32,7 @@ class templateController {
             name: name,
             count: count
         })
-
+        
         await Template.updateOne({key}, {counter: counters})
 
         ctx.body = {
@@ -43,7 +43,6 @@ class templateController {
 
     async changeCounter(ctx) {
         const {name, count, id} = ctx.request.body
-        console.log(name, count, id)
         const key = ctx.cookies.get('key');
         const template = await Template.findOne({key})
         let counters = template.counter
@@ -54,6 +53,29 @@ class templateController {
                     count: count,
                     id: id
                 }
+            }
+        }
+
+        await Template.updateOne({key}, {counter: counters})
+
+        ctx.body = {
+            counters: counters
+        }
+        ctx.status = 200
+    }
+
+    async deleteCounter(ctx) {
+        const {id} = ctx.request.body
+        const key = ctx.cookies.get('key');
+        const template = await Template.findOne({key})
+        let counters = []
+        for (let i = 0; i < template.counter.length; ++i) {
+            if(template.counter[i].id !== id) {
+                counters.push({
+                    name: template.counter[i].name,
+                    count: template.counter[i].count,
+                    id: template.counter[i].id
+                })
             }
         }
 
