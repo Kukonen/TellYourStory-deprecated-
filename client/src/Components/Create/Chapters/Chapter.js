@@ -4,7 +4,7 @@ import {useState} from "react";
 import {observer} from "mobx-react-lite";
 import arrowDownImg from "../Img/arrowdown.svg";
 import saveImg from "../Img/save.svg";
-import addImg from "../Img/add.svg";
+import deleteImg from "../Img/trash.svg";
 import user from "../../../Store/UserState";
 import template from "../../../Store/TemplateState";
 
@@ -38,6 +38,9 @@ const Chapter = observer((props) => {
                     }}/>
                     <img src={saveImg} alt="save" className="Create-chapters-input-button" onClick = {() => {
                         template.changeChapter(props.id, title, text, decision)
+                    }} />
+                    <img src={deleteImg} alt="save" className="Create-chapters-input-button" onClick = {() => {
+                        template.deleteChapter(props.id)
                     }} />
                 </div>
                 <div className={ hide ? "Create-chapters-section-body Create-chapter-hide-section" : "Create-chapters-section-body"}>

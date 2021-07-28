@@ -20,7 +20,7 @@ const Chapters = observer(() => {
 
     const chaptersElements = chapters.map((chapter, index) => {
 
-        return <Chapter {...{
+        return <Chapter key={chapter.id} {...{
             id: chapter.id,
             title: chapter.title,
             text: chapter.text,

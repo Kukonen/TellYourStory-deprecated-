@@ -23,7 +23,7 @@ const Counters = observer(() => {
 
     counterList = counters.map(counter => {
             return (
-                <Counter {... {
+                <Counter key={counter.id} {... {
                     ...counter
                 }}/>
             )

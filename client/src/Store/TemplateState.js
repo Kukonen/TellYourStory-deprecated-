@@ -43,6 +43,14 @@ class TemplateState {
         })
     }
 
+    async deleteChapter(id) {
+        axios.post('/api/template/deletechapter', {id}).then(response => {
+            if (response.status === 200) {
+                this.chapter = response.data.chapters
+            }
+        })
+    }
+
     async createCounter(name, count) {
         axios.post('/api/template/createcounter', {name, count}).then(response =>{
             if (response.status === 200) {

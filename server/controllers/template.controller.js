@@ -66,6 +66,30 @@ class templateController {
         ctx.status = 200
     }
 
+    async deleteChapter(ctx) {
+        const {id} = ctx.request.body
+        const key = ctx.cookies.get('key');
+        const template = await Template.findOne({key})
+        let chapters = []
+        for (let i = 0; i < template.chapter.length; ++i) {
+            if(template.chapter[i].id !== id) {
+                chapters.push({
+                    id: template.chapter[i].id,
+                    title: template.chapter[i].title,
+                    text: template.chapter[i].text,
+                    decision: template.chapter[i].decision
+                })
+            }
+        }
+
+        await Template.updateOne({key}, {chapter: chapters})
+
+        ctx.body = {
+            chapters: chapters
+        }
+        ctx.status = 200
+    }
+
     async createCounter(ctx) {
         const {name, count} = ctx.request.body
         const key = ctx.cookies.get('key');
