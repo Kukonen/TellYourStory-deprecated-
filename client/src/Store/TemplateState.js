@@ -51,6 +51,14 @@ class TemplateState {
         })
     }
 
+    async createDecision(chapterId, title) {
+        axios.post('/api/template/createdecision', {chapterId, title}).then(response => {
+            if (response.status === 200) {
+                this.chapter = response.data.chapters
+            }
+        })
+    }
+
     async createCounter(name, count) {
         axios.post('/api/template/createcounter', {name, count}).then(response =>{
             if (response.status === 200) {

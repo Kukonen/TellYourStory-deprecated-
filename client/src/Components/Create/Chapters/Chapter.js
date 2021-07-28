@@ -5,15 +5,20 @@ import {observer} from "mobx-react-lite";
 import arrowDownImg from "../Img/arrowdown.svg";
 import saveImg from "../Img/save.svg";
 import deleteImg from "../Img/trash.svg";
+import addImg from "../Img/add.svg"
 import user from "../../../Store/UserState";
 import template from "../../../Store/TemplateState";
+import Decision from "./Decision";
+import {values} from "mobx";
 
 const Chapter = observer((props) => {
     const localization = user.text
     const [hide, setHide] = useState(true)
     const [title, setTitle] = useState(props.title)
     const [text, setText] = useState(props.text)
+    const [addDecisionTitle, setAddDecisionTitle] = useState('')
     const [decision, setDecision] = useState(props.decision)
+    console.log(props)
 
     return (
         <div>
@@ -54,30 +59,33 @@ const Chapter = observer((props) => {
                         }}
                     />
                 </div>
-                {/*<div className={hide ? "Create-chapters-section-footer Create-chapter-hide-section" : "Create-chapters-section-footer"}>*/}
-                {/*    <div className="Create-chapters-decision-title-block">*/}
-                {/*        <input type="text"*/}
-                {/*               className="Create-chapters-decision-name"*/}
-                {/*               placeholder={localization.create.chapters.decisionPlaceholder}*/}
-                {/*        />*/}
-                {/*        <img src={addImg} alt="save" className="Create-chapters-decision-save"/>*/}
+                <div className={hide ? "Create-chapters-section-footer Create-chapter-hide-section" : "Create-chapters-section-footer"}>
+                    <div className="Create-chapters-decision-title-block">
+                        <input type="text"
+                               className="Create-chapters-decision-name"
+                               placeholder={localization.create.chapters.decisionPlaceholder}
+                               value={addDecisionTitle}
+                               onChange={value => setAddDecisionTitle(value.target.value)}
+                        />
+                        <img src={addImg} alt="save" className="Create-chapters-decision-save" onClick = {() => {
+                            let addDecision = decision
+                            addDecision.push({
+                                id: props.id,
+                                title: addDecisionTitle,
+                                counters: []
+                            })
+                            setDecision(addDecision)
+                            template.createDecision(props.id ,addDecisionTitle).then()
+                            setAddDecisionTitle('')
+                        }}/>
 
-                {/*    </div>*/}
-                {/*    {*/}
-                {/*        counters.map(counter => {*/}
-                {/*            return (*/}
-                {/*                <div className="Create-chapters-decision-counter" key = {counter.id}>*/}
-                {/*                    <div className="Create-chapters-decision-counter-name">*/}
-                {/*                        {counter.name}*/}
-                {/*                    </div>*/}
-                {/*                    <input type="number" className="Create-chapters-decision-counter-value"*/}
-                {/*                           defaultValue={0}*/}
-                {/*                    />*/}
-                {/*                </div>*/}
-                {/*            )*/}
-                {/*        })*/}
-                {/*    }*/}
-                {/*</div>*/}
+                    </div>
+                    {
+                        decision.map(decision => {
+                            return <Decision key={decision.id} {...decision}/>
+                        })
+                    }
+                </div>
             </div>
         </div>
     )

@@ -90,6 +90,52 @@ class templateController {
         ctx.status = 200
     }
 
+    async createDecision(ctx) {
+        try {
+            const {chapterId, title} = ctx.request.body
+            const id = uuid.v4()
+            const key = ctx.cookies.get('key');
+            const template = await Template.findOne({key})
+
+            // let chapter = template.chapter.filter( chapter => {
+            //     if (chapter.id === chapterId)
+            //     {
+            //         chapter.decision.push({
+            //             id: id,
+            //             title: title,
+            //             counters: []
+            //         })
+            //     }
+            //
+            // })
+            let chapters = template.chapter
+
+            for (let i = 0; i < template.chapter.length; ++i) {
+                if (template.chapter[i].id === chapterId) {
+                    let decision = chapters[i].decision
+                    decision.push({
+                            id: id,
+                            title: title,
+                            counters: []
+                        })
+                    chapters[i].decision = decision
+                }
+            }
+
+
+            await Template.updateOne({key}, {
+                chapter: chapters
+            })
+
+            ctx.body = {
+                chapters: chapters
+            }
+            ctx.status = 200
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     async createCounter(ctx) {
         const {name, count} = ctx.request.body
         const key = ctx.cookies.get('key');
