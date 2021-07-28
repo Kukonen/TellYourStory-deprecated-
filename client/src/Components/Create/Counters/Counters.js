@@ -7,6 +7,7 @@ import saveImg from '../Img/save.svg'
 import addIcon from '../Img/add.svg'
 import deleteIcon from '../Img/trash.svg'
 import template from '../../../Store/TemplateState'
+import Counter from './Counter'
 
 const Counters = observer(() => {
     const localization = user.text
@@ -21,38 +22,10 @@ const Counters = observer(() => {
     let counterList = []
 
     counterList = counters.map(counter => {
-            // const [counterName, setCounterName] = useState(counter.name)
-            // const [counterNumber, setCounterNumber] = useState(counter.count)
-            const counterName = counter.name
-            const counterNumber = counter.count
             return (
-                <div className="Create-counter-list-input" key = {counter.id}>
-                    <input type="text" className="Create-counters-list-input-name"
-                           defaultValue={counterName}
-                           placeholder={localization.create.counters.addName}
-                    />
-                    <input type="number" className="Create-counters-list-input-count"
-                           defaultValue={counterNumber}
-                           placeholder={localization.create.counters.addCount}
-                    />
-                    <img alt="save" className="Create-counters-list-button" src={saveImg} onClick={el =>
-                    {
-                        //without state
-                        const parent = el.target.parentNode
-                        const childes = parent.childNodes
-                        const text = childes[0].value
-                        const number = childes[1].value
-                        //const id = parent.key
-
-                        template.changeCounter(text, number, counter.id)
-                    }
-                    } />
-                    <img alt="delete" className="Create-counters-list-button" src={deleteIcon} onClick={el =>
-                    {
-                        template.deleteCounter(counter.id)
-                    }
-                    } />
-                </div>
+                <Counter {... {
+                    ...counter
+                }}/>
             )
         })
 
