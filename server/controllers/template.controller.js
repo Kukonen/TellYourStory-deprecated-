@@ -21,6 +21,51 @@ class templateController {
         }
     }
 
+    async createChapter(ctx) {
+        const {title} = ctx.request.body
+        const key = ctx.cookies.get('key')
+        const id = uuid.v4()
+        const template = await Template.findOne({key})
+        let chapters = template.chapter
+        chapters.push({
+            id: id,
+            title: title,
+            text: "",
+            decision: []
+        })
+
+        await Template.updateOne({key}, {chapter: chapters})
+
+        ctx.body = {
+            chapters: chapters
+        }
+        ctx.status = 200
+    }
+
+    async changeChapter(ctx) {
+        const {id, title, text, decision} = ctx.request.body
+        const key = ctx.cookies.get('key');
+        const template = await Template.findOne({key})
+        let chapters = template.chapter
+        for (let i = 0; i < chapters.length; ++i) {
+            if(chapters[i].id === id) {
+                chapters[i] = {
+                    id: id,
+                    title: title,
+                    text: text,
+                    decision: decision
+                }
+            }
+        }
+
+        await Template.updateOne({key}, {chapter: chapters})
+
+        ctx.body = {
+            chapters: chapters
+        }
+        ctx.status = 200
+    }
+
     async createCounter(ctx) {
         const {name, count} = ctx.request.body
         const key = ctx.cookies.get('key');

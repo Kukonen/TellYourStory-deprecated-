@@ -27,11 +27,26 @@ class TemplateState {
         })
     }
 
+    async createChapter(title) {
+        axios.post('/api/template/createchapter', {title}).then(response =>{
+            if (response.status === 200) {
+                this.chapter = response.data.chapters
+            }
+        })
+    }
+
+    async changeChapter(id, title, text, decision) {
+        axios.post('/api/template/changechapter', {id, title, text, decision}).then(response => {
+            if (response.status === 200) {
+                this.chapter = response.data.chapters
+            }
+        })
+    }
+
     async createCounter(name, count) {
         axios.post('/api/template/createcounter', {name, count}).then(response =>{
             if (response.status === 200) {
                 this.counter = response.data.counters
-                console.log(this.counter)
             }
         })
     }

@@ -22,7 +22,9 @@ const Chapters = observer(() => {
 
         return <Chapter {...{
             id: chapter.id,
-            title: chapter.title
+            title: chapter.title,
+            text: chapter.text,
+            decision: chapter.decision
         }}/>
     })
 
