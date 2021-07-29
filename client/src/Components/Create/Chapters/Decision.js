@@ -1,10 +1,20 @@
 import React, {useState} from 'react';
 
 import {observer} from "mobx-react-lite";
+import template from '../../../Store/TemplateState'
+import Counters from './Counters'
 
 const Decision = observer((props) => {
     const [title, setTitle] = useState(props.title)
-    const [count, setCount] = useState(props.count)
+
+    let counter = props.counters || []
+
+    let counters = counter.map(counterMap => {
+        return <Counters {...{
+            name: counterMap.name,
+            count: counterMap.count
+        }} />
+    })
 
     return (
         <div className="Create-chapters-decision-counter">
@@ -12,10 +22,10 @@ const Decision = observer((props) => {
                    value={title}
                    onChange={value => setTitle(value.target.value)}
             />
-            <input type="number" className="Create-chapters-decision-counter-value"
-                   value={count}
-                   onChange={value => setCount(value.target.value)}
-            />
+            <div>
+                {counters}
+            </div>
+
         </div>
     )
 });

@@ -97,17 +97,6 @@ class templateController {
             const key = ctx.cookies.get('key');
             const template = await Template.findOne({key})
 
-            // let chapter = template.chapter.filter( chapter => {
-            //     if (chapter.id === chapterId)
-            //     {
-            //         chapter.decision.push({
-            //             id: id,
-            //             title: title,
-            //             counters: []
-            //         })
-            //     }
-            //
-            // })
             let chapters = template.chapter
 
             for (let i = 0; i < template.chapter.length; ++i) {
@@ -122,6 +111,39 @@ class templateController {
                 }
             }
 
+
+            await Template.updateOne({key}, {
+                chapter: chapters
+            })
+
+            ctx.body = {
+                chapters: chapters
+            }
+            ctx.status = 200
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    async refreshDecision(ctx) {
+
+        try {
+            const key = ctx.cookies.get('key');
+            const template = await Template.findOne({key})
+
+            let chapters = template.chapter
+
+            chapters.forEach(chapter =>
+                chapter.decision.forEach( decision =>
+                    decision.counters = template.counter.map(counter =>
+                    {
+                        return {
+                            "name": counter.name,
+                            "count": 0
+                        }
+                    }
+
+                )))
 
             await Template.updateOne({key}, {
                 chapter: chapters

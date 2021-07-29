@@ -18,7 +18,6 @@ const Chapter = observer((props) => {
     const [text, setText] = useState(props.text)
     const [addDecisionTitle, setAddDecisionTitle] = useState('')
     const [decision, setDecision] = useState(props.decision)
-    console.log(props)
 
     return (
         <div>

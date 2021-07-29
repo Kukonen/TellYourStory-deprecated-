@@ -59,6 +59,15 @@ class TemplateState {
         })
     }
 
+    async refreshDecision() {
+        axios.get('/api/template/refreshdevision').then(response => {
+            if (response.status === 200) {
+                //console.log(response.data.chapters)
+                this.chapter = response.data.chapters
+            }
+        })
+    }
+
     async createCounter(name, count) {
         axios.post('/api/template/createcounter', {name, count}).then(response =>{
             if (response.status === 200) {
