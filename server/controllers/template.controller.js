@@ -158,6 +158,38 @@ class templateController {
         }
     }
 
+    async changeDecision(ctx) {
+        try {
+            const {id, title, counters} = ctx.request.body
+            const key = ctx.cookies.get('key');
+
+            const template = await Template.findOne({key})
+
+            let chapters = template.chapter
+
+            for (let i = 0; i < chapters.length; ++i) {
+                for (let j = 0; j < chapters[i].decision.length; ++j) {
+                    if (chapters[i].decision[j].id === id) {
+                        chapters[i].decision[j] = {
+                            id: id,
+                            title: title,
+                            counters: counters
+                        }
+                    }
+                }
+            }
+
+            await Template.updateOne({key}, {
+                chapter: chapters
+            })
+
+        } catch (e) {
+            console.log(e)
+        }
+
+
+    }
+
     async createCounter(ctx) {
         const {name, count} = ctx.request.body
         const key = ctx.cookies.get('key');
