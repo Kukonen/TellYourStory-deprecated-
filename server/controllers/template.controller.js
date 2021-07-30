@@ -92,12 +92,19 @@ class templateController {
 
     async createDecision(ctx) {
         try {
-            const {chapterId, title} = ctx.request.body
-            const id = uuid.v4()
+            const {chapterId, decisionId, title} = ctx.request.body
+            const id = decisionId
             const key = ctx.cookies.get('key');
             const template = await Template.findOne({key})
 
             let chapters = template.chapter
+
+            const counters = template.counter.map(counter => {
+                return{
+                    "name": counter.name,
+                    "count": 0
+                }
+            })
 
             for (let i = 0; i < template.chapter.length; ++i) {
                 if (template.chapter[i].id === chapterId) {
@@ -105,12 +112,11 @@ class templateController {
                     decision.push({
                             id: id,
                             title: title,
-                            counters: []
+                            counters: counters
                         })
                     chapters[i].decision = decision
                 }
             }
-
 
             await Template.updateOne({key}, {
                 chapter: chapters

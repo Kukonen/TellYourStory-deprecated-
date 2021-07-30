@@ -51,8 +51,8 @@ class TemplateState {
         })
     }
 
-    async createDecision(chapterId, title) {
-        axios.post('/api/template/createdecision', {chapterId, title}).then(response => {
+    async createDecision(chapterId, decisionId, title) {
+        axios.post('/api/template/createdecision', {chapterId, decisionId, title}).then(response => {
             if (response.status === 200) {
                 this.chapter = response.data.chapters
             }

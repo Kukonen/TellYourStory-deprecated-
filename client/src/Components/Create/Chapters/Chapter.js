@@ -9,7 +9,7 @@ import addImg from "../Img/add.svg"
 import user from "../../../Store/UserState";
 import template from "../../../Store/TemplateState";
 import Decision from "./Decision";
-import {values} from "mobx";
+import {v4} from "uuid"
 
 const Chapter = observer((props) => {
     const localization = user.text
@@ -68,13 +68,25 @@ const Chapter = observer((props) => {
                         />
                         <img src={addImg} alt="save" className="Create-chapters-decision-save" onClick = {() => {
                             let addDecision = decision
-                            addDecision.push({
-                                id: props.id,
-                                title: addDecisionTitle,
-                                counters: []
+
+                            const counters = template.counter.map(counter => {
+                                return{
+                                    "name": counter.name,
+                                    "count": 0
+                                }
                             })
+
+                            const id = v4()
+
+                            addDecision.push({
+                                id: id,
+                                title: addDecisionTitle,
+                                counters: counters
+                            })
+
+                            template.createDecision(props.id, id, addDecisionTitle)
+
                             setDecision(addDecision)
-                            template.createDecision(props.id ,addDecisionTitle).then()
                             setAddDecisionTitle('')
                         }}/>
 
