@@ -62,7 +62,6 @@ class TemplateState {
     async refreshDecision() {
         axios.get('/api/template/refreshdevision').then(response => {
             if (response.status === 200) {
-                //console.log(response.data.chapters)
                 this.chapter = response.data.chapters
             }
         })
@@ -70,9 +69,17 @@ class TemplateState {
 
     async changeDecision(id, title, counters) {
         axios.post('/api/template/changedecision', {id, title, counters}).then(response => {
-            // if (response.status === 200) {
-            //     this.chapter = response.data.chapters
-            // }
+            if (response.status === 200) {
+                this.chapter = response.data.chapters
+            }
+        })
+    }
+
+    async deleteDecision(id) {
+        axios.post('/api/template/deletedecision', {id}).then(response => {
+            if (response.status === 200) {
+                this.chapter = response.data.chapters
+            }
         })
     }
 

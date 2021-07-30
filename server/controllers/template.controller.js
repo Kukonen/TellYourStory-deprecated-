@@ -183,11 +183,53 @@ class templateController {
                 chapter: chapters
             })
 
+            ctx.body = {
+                chapters: chapters
+            }
+            ctx.status = 200
+
         } catch (e) {
             console.log(e)
         }
 
 
+    }
+
+    async deleteDecision(ctx) {
+        const {id} = ctx.request.body
+        const key = ctx.cookies.get('key');
+        const template = await Template.findOne({key})
+        let chapters = template.chapter
+        // for (let i = 0; i < template.chapter.length; ++i) {
+        //     if(template.chapter[i].id !== id) {
+        //         chapters.push({
+        //             id: template.chapter[i].id,
+        //             title: template.chapter[i].title,
+        //             text: template.chapter[i].text,
+        //             decision: template.chapter[i].decision
+        //         })
+        //     }
+        // }
+
+
+
+        for (let i = 0; i < chapters.length; ++i) {
+            const decision = []
+
+            for (let j = 0; j < chapters[i].decision.length; ++j) {
+                if (chapters[i].decision[j].id !== id) {
+                    decision.push(chapters[i].decision[j])
+                }
+            }
+            chapters[i].decision = decision
+        }
+
+        await Template.updateOne({key}, {chapter: chapters})
+
+        ctx.body = {
+            chapters: chapters
+        }
+        ctx.status = 200
     }
 
     async createCounter(ctx) {

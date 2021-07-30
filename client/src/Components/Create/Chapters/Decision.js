@@ -4,6 +4,7 @@ import {observer} from "mobx-react-lite";
 import template from '../../../Store/TemplateState'
 import Counters from './Counters'
 import saveImg from '../Img/save.svg'
+import deleteImg from '../Img/trash.svg'
 
 const Decision = observer((props) => {
     const [title, setTitle] = useState(props.title)
@@ -35,6 +36,9 @@ const Decision = observer((props) => {
                 />
                 <img src={saveImg} alt="save" className="Create-chapter-decision-button" onClick={ element => {
                     template.changeDecision(props.id, title, counter).then()
+                }}/>
+                <img src={deleteImg} alt="delete" className="Create-chapter-decision-button" onClick={ element => {
+                    template.deleteDecision(props.id).then()
                 }}/>
             </div>
 
