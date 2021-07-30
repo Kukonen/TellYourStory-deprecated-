@@ -18,6 +18,8 @@ const Chapters = observer(() => {
 
     const chapters = template.chapter
 
+    template.refreshDecision().then()
+
     const chaptersElements = chapters.map((chapter, index) => {
 
         return <Chapter key={chapter.id} {...{

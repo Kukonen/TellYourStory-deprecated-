@@ -87,6 +87,7 @@ class TemplateState {
         axios.post('/api/template/createcounter', {name, count}).then(response =>{
             if (response.status === 200) {
                 this.counter = response.data.counters
+                this.refreshDecision()
             }
         })
     }

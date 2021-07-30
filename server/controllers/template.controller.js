@@ -133,17 +133,27 @@ class templateController {
 
             let chapters = template.chapter
 
-            chapters.forEach(chapter =>
-                chapter.decision.forEach( decision =>
-                    decision.counters = template.counter.map(counter =>
+            chapters.forEach((chapter, chapterIndex) => {
+                    chapter.decision.forEach( (decision, decisionIndex) =>
                     {
-                        return {
+                    let counter = template.counter.map(counter => {
+                        return{
                             "name": counter.name,
                             "count": 0
                         }
-                    }
+                    })
 
-                )))
+                    const counters = template.chapter[chapterIndex].decision[decisionIndex].counters
+
+                    counter.forEach(counter => {
+                        const index = counters.findIndex(countersIndex => countersIndex.name === counter.name)
+                        if (index >= 0) {
+                            counter.count = counters[index].count
+                        }
+                    })
+                    decision.counters = counter
+                })
+            })
 
             await Template.updateOne({key}, {
                 chapter: chapters
@@ -200,18 +210,6 @@ class templateController {
         const key = ctx.cookies.get('key');
         const template = await Template.findOne({key})
         let chapters = template.chapter
-        // for (let i = 0; i < template.chapter.length; ++i) {
-        //     if(template.chapter[i].id !== id) {
-        //         chapters.push({
-        //             id: template.chapter[i].id,
-        //             title: template.chapter[i].title,
-        //             text: template.chapter[i].text,
-        //             decision: template.chapter[i].decision
-        //         })
-        //     }
-        // }
-
-
 
         for (let i = 0; i < chapters.length; ++i) {
             const decision = []
