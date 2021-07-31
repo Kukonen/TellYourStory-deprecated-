@@ -8,8 +8,15 @@ import arrowUpImg from '../Img/arrowup.svg'
 import arrowDownImg from '../Img/arrowdown.svg'
 import template from "../../../Store/TemplateState";
 import Chapter from "./Chapter"
+import { configure } from "mobx"
+
 
 const Chapters = observer(() => {
+
+    configure({
+        enforceActions: "never",
+    })
+
     const localization = user.text
 
     const counters = template.counter

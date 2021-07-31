@@ -19,6 +19,10 @@ const Chapter = observer((props) => {
     const [addDecisionTitle, setAddDecisionTitle] = useState('')
     const [decision, setDecision] = useState(props.decision)
 
+    function updateDecision(newDecision) {
+        setDecision(newDecision)
+    }
+
     return (
         <div>
             <div key = {props.id}>
@@ -84,7 +88,7 @@ const Chapter = observer((props) => {
                                 counters: counters
                             })
 
-                            template.createDecision(props.id, id, addDecisionTitle)
+                            template.createDecision(props.id, id, addDecisionTitle).then()
 
                             setDecision(addDecision)
                             setAddDecisionTitle('')
@@ -93,7 +97,8 @@ const Chapter = observer((props) => {
                     </div>
                     {
                         decision.map(decision => {
-                            return <Decision key={decision.id} {...decision}/>
+                            const decisionParams = Object.assign(decision, {"chapterId": props.id})
+                            return <Decision key={decision.id} {...decisionParams} updateDecision={updateDecision}/>
                         })
                     }
                 </div>

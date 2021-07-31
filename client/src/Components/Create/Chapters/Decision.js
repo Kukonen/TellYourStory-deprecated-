@@ -20,6 +20,10 @@ const Decision = observer((props) => {
         setCounter(tmpCounter)
     }
 
+    function updateDecision (newDecision) {
+        props.updateDecision(newDecision)
+    }
+
     let counters = counter.map((counterMap, index) => {
         return <Counters key={index} {...{
             name: counterMap.name,
@@ -38,7 +42,20 @@ const Decision = observer((props) => {
                     template.changeDecision(props.id, title, counter).then()
                 }}/>
                 <img src={deleteImg} alt="delete" className="Create-chapter-decision-button" onClick={ element => {
-                    template.deleteDecision(props.id).then()
+
+                    template.deleteDecision(props.id).then(() => {
+                        let newDecision = []
+
+                        const chapterIndex = template.chapter.findIndex(chapter => chapter.id === props.chapterId)
+
+                        for (let i = 0; i < template.chapter[chapterIndex].decision.length; ++i) {
+                            if (template.chapter[chapterIndex].decision[i].id !== props.id) {
+                                newDecision.push(template.chapter[chapterIndex].decision[i])
+                            }
+                        }
+
+                        updateDecision(newDecision)
+                    })
                 }}/>
             </div>
 
