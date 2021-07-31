@@ -36,7 +36,23 @@ const Counter = observer((props) => {
                 } />
                 <img alt="delete" className="Create-counters-list-button" src={deleteIcon} onClick={el =>
                 {
-                    template.deleteCounter(props.id).then()
+                    template.chapter.forEach(chapter => {
+                        chapter.decision.forEach(decision => {
+                            decision.counters = decision.counters.filter(counters => {
+                                if (counters.name !== props.name)
+                                    return counters
+                            })
+                        })
+                    })
+                    template.deleteCounter(props.id).then(() => {
+
+                    })
+                    //console.log(template.chapter[0].decision[0].counters)
+                    // for (let i = 0; i < template.chapter.length; ++i) {
+                    //     for (let j = 0; j < template.counter[i].decision.length; ++j) {
+                    //         fo
+                    //     }
+                    // }
                 }
                 } />
             </div>
