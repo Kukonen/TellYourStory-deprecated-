@@ -21,6 +21,26 @@ class templateController {
         }
     }
 
+    async createStoryLevel(ctx) {
+        const id = uuid.v4()
+        const key = ctx.cookies.get('key')
+        const template = await Template.findOne({key})
+        let levels = template.story
+        const number = levels.length === 0 ? 0 : levels[levels.length - 1].number + 1
+        levels.push({
+            id: id,
+            number: number,
+            chapters: []
+        })
+
+        await Template.updateOne({key}, {story: levels})
+
+        ctx.body = {
+            story: levels
+        }
+        ctx.status = 200
+    }
+
     async createChapter(ctx) {
         const {title} = ctx.request.body
         const key = ctx.cookies.get('key')

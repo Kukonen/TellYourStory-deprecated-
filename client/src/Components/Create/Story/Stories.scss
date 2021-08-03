@@ -1,0 +1,47 @@
+@import "src/Style/index.scss";
+
+@mixin story-block($font-size) {
+	font-family: $font-family;
+	font-size: $font-size;
+	cursor: pointer;
+	background-color: $create-background-color;
+	border: 1px solid $create-border-color;
+	padding: 10px;
+}
+
+.Create-story-options-section {
+	display: flex;
+	justify-content: space-around;
+	padding: 10px;
+}
+.Create-story-options-block {
+	@include story-block($create-story-options-font-size);
+	margin-right: 5%;
+	&:last-of-type {
+		margin-right: 0;
+	}
+}
+
+.Create-story-content-section {
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+}
+
+.Create-story-level {
+	border: 1px solid $create-border-color;
+	background-color: $create-background-color;
+	padding: 10px;
+	margin-bottom: 2%;
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+.Create-story-level-title-section {
+	display: flex;
+}
+
+.Create-story-level-title-block {
+	@include story-block($create-story-level-title-font-size);
+}

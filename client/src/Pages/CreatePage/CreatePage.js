@@ -7,7 +7,7 @@ import template from '../../Store/TemplateState'
 
 import Chapters from '../../Components/Create/Chapters/Chapters'
 import Counters from '../../Components/Create/Counters/Counters'
-import Story from '../../Components/Create/Story'
+import Stories from '../../Components/Create/Story/Stories'
 
 
 const CreatePage = observer(() => {
@@ -38,7 +38,7 @@ const CreatePage = observer(() => {
             </div>
             <div className="Create-content">
                 {
-                    mode === 0 ? <Story/> :
+                    mode === 0 ? <Stories/> :
                         mode === 1 ? <Chapters/> :
                             mode === 2 ? <Counters/> :
                                 null

@@ -21,6 +21,12 @@
             "title": "title of chapter",
             "text": "text of chapter",
             "decisionPlaceholder": "name of decision"
+        },
+        "story": {
+            "addLevel": "Add Level",
+            "deleteAll": "Delete All",
+            "level": "Level",
+            "addChapter": "Add Chapter"
         }
     },
     "ru" : {
@@ -45,6 +51,12 @@
             "title": "название главы",
             "text": "текст главы",
             "decisionPlaceholder": "названия решения"
+        },
+        "story": {
+            "addLevel": "Добавить Уровень",
+            "deleteAll": "Удалить Всё",
+            "level": "Уровень",
+            "addChapter": "Добавить Главу"
         }
     }
 }
