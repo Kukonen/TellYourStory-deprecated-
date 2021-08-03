@@ -4,6 +4,7 @@ const templateController = require('../controllers/template.controller')
 
 router.get('/openorcreate', templateController.openOrCreate)
 router.get('/createstorylevel', templateController.createStoryLevel)
+router.post('/deletelevel', templateController.deleteLevel)
 router.post('/createchapter', templateController.createChapter)
 router.post('/changechapter', templateController.changeChapter)
 router.post('/deletechapter', templateController.deleteChapter)

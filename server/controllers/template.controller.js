@@ -41,6 +41,24 @@ class templateController {
         ctx.status = 200
     }
 
+    async deleteLevel(ctx) {
+        const {id} = ctx.request.body
+        const key = ctx.cookies.get('key')
+        const template = await Template.findOne({key})
+        let levels = template.story
+        levels = levels.filter(level => level.id !== id)
+        let i = 0
+        levels.forEach(level => {
+            level.number = i
+            i++
+        })
+        await Template.updateOne({key}, {story: levels})
+        ctx.body = {
+            story: levels
+        }
+        ctx.status = 200
+    }
+
     async createChapter(ctx) {
         const {title} = ctx.request.body
         const key = ctx.cookies.get('key')

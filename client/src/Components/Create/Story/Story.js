@@ -2,7 +2,7 @@ import React from 'react'
 import './Stories.scss'
 import {observer} from "mobx-react-lite";
 import user from "../../../Store/UserState";
-
+import template from '../../../Store/TemplateState'
 
 const Story = observer((props) => {
 
@@ -17,8 +17,10 @@ const Story = observer((props) => {
                 <div className="Create-story-level-title-block">
                     {localization.create.story.addChapter}
                 </div>
-                <div>
-
+                <div className="Create-story-level-title-block"
+                     onClick={() => template.deleteLevel(props.id)}
+                >
+                    {localization.create.story.deleteLevel}
                 </div>
             </div>
         </div>
