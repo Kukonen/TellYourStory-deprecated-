@@ -27,7 +27,9 @@
             "deleteAll": "Delete All",
             "level": "Level",
             "addChapter": "Add Chapter",
-            "deleteLevel": "Delete Level"
+            "deleteLevel": "Delete Level",
+            "noChapterFirst": "not a single chapter was found",
+            "noChapterSecond": "the chapter will be skipped"
         }
     },
     "ru" : {
@@ -58,7 +60,9 @@
             "deleteAll": "Удалить Всё",
             "level": "Уровень",
             "addChapter": "Добавить Главу",
-            "deleteLevel": "Удалить Уровень"
+            "deleteLevel": "Удалить Уровень",
+            "noChapterFirst": "ни одна глава не была найдена",
+            "noChapterSecond": "глава будет пропущенна"
         }
     }
 }

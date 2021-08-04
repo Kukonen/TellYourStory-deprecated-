@@ -10,7 +10,7 @@ const Stories = observer(() => {
     const localization = user.text
 
     const storyElements = template.story.map(story => {
-        return <Story {...story}/>
+        return <Story key={story.id} {...story}/>
     })
 
     return (

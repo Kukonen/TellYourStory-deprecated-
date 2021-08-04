@@ -45,3 +45,14 @@
 .Create-story-level-title-block {
 	@include story-block($create-story-level-title-font-size);
 }
+
+.Create-story-chapter-block {
+	@include story-block($create-story-chapter-font-size);
+	margin-top: 3%;
+}
+
+.Create-story-chapter-not-found-block {
+	display: flex;
+	flex-direction: column;
+	cursor: auto;
+}
