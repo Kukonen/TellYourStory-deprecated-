@@ -5,18 +5,30 @@ import './Chapter'
 import user from "../../../Store/UserState";
 import template from '../../../Store/TemplateState'
 import Chapter from "../Chapters/Chapter";
+import addImg from '../Img/add.svg'
 
 const Story = observer((props) => {
 
     const localization = user.text
 
-    const [chapters, setChapters] = useState([])
+    const chaptersOptionsJSON = template.chapter.map(chapter => {
+        return ({
+            "id": chapter.id,
+            "title":  chapter.title
+        })
+    })
+    const chaptersOptions = chaptersOptionsJSON.map(chapter => {
+        return (
+            <option value={chapter.id} className="Create-story-chapter-option">
+                {chapter.title}
+            </option>
+        )
+    })
+    console.log(chaptersOptions)
 
-    // const tmpChpaters = props.chapters.map(chapter => {
-    //     return <Chapter {...chapter} />
-    // })
-
-    //setChapters(tmpChpaters)
+    const [chapters, setChapters] = useState(props.chapters.map(chapter => {
+        return <Chapter {...chapter} />
+    }))
 
     if (chapters.length === 0) {
         setChapters((
@@ -31,6 +43,7 @@ const Story = observer((props) => {
     const chaptersSectionRef= React.createRef();
 
     return (
+
         <div className="Create-story-level">
             <div className="Create-story-level-title-section">
                 <div className="Create-story-level-title-block">
@@ -38,10 +51,15 @@ const Story = observer((props) => {
                 </div>
                 <div className="Create-story-level-title-block"
                      onClick={() => {
-                         chaptersSectionRef.current.remove()
+                         chaptersSectionRef.current.innerHtml = ''
                          const element = (
-                             <div>
-                                 some text
+                             <div className="Create-story-chapter-block">
+                                 <select className="Create-story-chapter-select">
+                                     {
+                                         chaptersOptions
+                                     }
+                                 </select>
+                                 <img src={addImg} alt="add"className="Create-story-chapter-add-button"/>
                              </div>
                          )
                          setChapters(element)
