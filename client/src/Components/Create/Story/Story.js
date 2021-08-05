@@ -24,20 +24,19 @@ const Story = observer((props) => {
             </option>
         )
     })
-    console.log(chaptersOptions)
 
     const [chapters, setChapters] = useState(props.chapters.map(chapter => {
         return <Chapter {...chapter} />
     }))
 
     if (chapters.length === 0) {
-        setChapters((
+        setChapters([(
                 <div className="Create-story-chapter-block Create-story-chapter-not-found-block">
                     <span className="Create-story-chapter-not-found-text">{localization.create.story.noChapterFirst}</span>
                     <hr className="Create-story-chapter-not-found-hr"/>
                     <span className="Create-story-chapter-not-found-text">{localization.create.story.noChapterSecond}</span>
                 </div>
-            ))
+            )])
     }
 
     const chaptersSectionRef= React.createRef();
@@ -50,8 +49,8 @@ const Story = observer((props) => {
                     {localization.create.story.level + ": " + props.number}
                 </div>
                 <div className="Create-story-level-title-block"
-                     onClick={() => {
-                         chaptersSectionRef.current.innerHtml = ''
+                     onClick={targetElement => {
+                         //chaptersSectionRef.current.innerHtml = ''
                          const element = (
                              <div className="Create-story-chapter-block">
                                  <select className="Create-story-chapter-select">
@@ -59,10 +58,24 @@ const Story = observer((props) => {
                                          chaptersOptions
                                      }
                                  </select>
-                                 <img src={addImg} alt="add"className="Create-story-chapter-add-button"/>
+                                 <img src={addImg} alt="add" className="Create-story-chapter-add-button"
+                                      onClick={el => {
+                                          const parent = el.target.parentNode.parentNode
+                                          const targetChapter = parent.getElementsByClassName('Create-story-chapter-select')[0]
+                                          console.log(targetChapter.value)
+                                          parent.removeChild(el.target.parentNode)
+                                          //parent.append()
+                                      }}
+                                 />
                              </div>
                          )
-                         setChapters(element)
+
+                         let a = chapters
+
+                         a.push(element)
+                         console.log(a)
+                         setChapters(a)
+                         //chaptersSectionRef.appendChild(element)
                      }}
                 >
                     {localization.create.story.addChapter}
@@ -74,6 +87,7 @@ const Story = observer((props) => {
                 </div>
             </div>
             <div
+                className="Create-story-chapters-section"
                 ref={chaptersSectionRef}
             >
                 {chapters}
