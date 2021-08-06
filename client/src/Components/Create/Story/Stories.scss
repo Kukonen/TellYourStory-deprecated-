@@ -70,7 +70,7 @@
 .Create-story-chapter-option {
 }
 
-.Create-story-chapter-add-button {
+.Create-story-chapter-button {
 	font-family: $font-family;
 	font-size: $create-chapter-font-size;
 	width: 5%;
@@ -78,4 +78,9 @@
 	border: 1px solid $create-border-color;
 	cursor: pointer;
 	text-align: center;
+}
+
+.Create-story-chapter-title {
+	display: flex;
+	@include story-block($create-story-chapter-font-size)
 }

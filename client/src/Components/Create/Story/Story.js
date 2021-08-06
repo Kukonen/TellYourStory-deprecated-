@@ -29,8 +29,6 @@ const Story = observer((props) => {
         return <Chapter {...chapter} />
     }))
 
-    console.log(chapters)
-
     if (chapters.length === 0) {
         setChapters([(
                 <div className="Create-story-chapter-block Create-story-chapter-not-found-block">
@@ -64,7 +62,7 @@ const Story = observer((props) => {
                                          chaptersOptions
                                      }
                                  </select>
-                                 <img src={addImg} alt="add" className="Create-story-chapter-add-button"
+                                 <img src={addImg} alt="add" className="Create-story-chapter-button"
                                       onClick={el => {
                                           const targetChapterId = el.target.parentNode.getElementsByTagName('select')[0].value
                                           const createdElement = <Chapter {...{chapterId: targetChapterId}} />
