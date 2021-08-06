@@ -67,6 +67,11 @@ const Story = observer((props) => {
                                  <img src={addImg} alt="add" className="Create-story-chapter-add-button"
                                       onClick={el => {
                                           const targetChapterId = el.target.parentNode.getElementsByTagName('select')[0].value
+                                          const createdElement = <Chapter {...{chapterId: targetChapterId}} />
+                                          let tmpNewChapters = chapters
+                                          tmpNewChapters.push(createdElement)
+                                          const idx = template.story.findIndex(st => st.id === props.id)
+                                          template.story[idx].chapters = tmpNewChapters
                                           chaptersSection.removeChild(chaptersSection.getElementsByClassName('Create-story-chapter-block-add')[0])
                                           template.addChapterToStoryLevel(props.id, targetChapterId)
                                       }}
@@ -75,7 +80,7 @@ const Story = observer((props) => {
                          )
 
                          let tmpChapters = chapters
-                         tmpChapters.push()
+                         tmpChapters.push(element)
                          const idx = template.story.findIndex(st => st.id === props.id)
                          template.story[idx].chapters = tmpChapters
                      }}
