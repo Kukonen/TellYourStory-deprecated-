@@ -59,6 +59,24 @@ class templateController {
         ctx.status = 200
     }
 
+    async addChapterToStoryLevel(ctx) {
+        const {levelId, chapterId} = ctx.request.body
+        const key = ctx.cookies.get('key')
+        const template = await Template.findOne({key})
+        let levels = template.story
+        const storyIdx = levels.findIndex(level => level.id === levelId)
+        levels[storyIdx].chapters.push({
+            chapterId: chapterId
+        })
+
+        await Template.updateOne({key}, {story: levels})
+
+        ctx.body = {
+            story: levels
+        }
+        ctx.status = 200
+    }
+
     async createChapter(ctx) {
         const {title} = ctx.request.body
         const key = ctx.cookies.get('key')

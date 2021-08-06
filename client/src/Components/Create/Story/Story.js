@@ -4,7 +4,7 @@ import {observer} from "mobx-react-lite";
 import './Chapter'
 import user from "../../../Store/UserState";
 import template from '../../../Store/TemplateState'
-import Chapter from "../Chapters/Chapter";
+import Chapter from "./Chapter";
 import addImg from '../Img/add.svg'
 
 const Story = observer((props) => {
@@ -29,6 +29,8 @@ const Story = observer((props) => {
         return <Chapter {...chapter} />
     }))
 
+    console.log(chapters)
+
     if (chapters.length === 0) {
         setChapters([(
                 <div className="Create-story-chapter-block Create-story-chapter-not-found-block">
@@ -50,9 +52,13 @@ const Story = observer((props) => {
                 </div>
                 <div className="Create-story-level-title-block"
                      onClick={targetElement => {
-                         //chaptersSectionRef.current.innerHtml = ''
+                         const chaptersSection = targetElement.target.parentNode.parentNode.getElementsByClassName('Create-story-chapters-section')[0]
+                         if (chaptersSection.getElementsByClassName('Create-story-chapter-not-found-block').length > 0)
+                             chaptersSection.removeChild(chaptersSection.getElementsByClassName('Create-story-chapter-not-found-block')[0])
+                        if (chaptersSection.getElementsByClassName('Create-story-chapter-block-add').length > 0)
+                            return
                          const element = (
-                             <div className="Create-story-chapter-block">
+                             <div className="Create-story-chapter-block Create-story-chapter-block-add">
                                  <select className="Create-story-chapter-select">
                                      {
                                          chaptersOptions
@@ -60,22 +66,18 @@ const Story = observer((props) => {
                                  </select>
                                  <img src={addImg} alt="add" className="Create-story-chapter-add-button"
                                       onClick={el => {
-                                          const parent = el.target.parentNode.parentNode
-                                          const targetChapter = parent.getElementsByClassName('Create-story-chapter-select')[0]
-                                          console.log(targetChapter.value)
-                                          parent.removeChild(el.target.parentNode)
-                                          //parent.append()
+                                          const targetChapterId = el.target.parentNode.getElementsByTagName('select')[0].value
+                                          chaptersSection.removeChild(chaptersSection.getElementsByClassName('Create-story-chapter-block-add')[0])
+                                          template.addChapterToStoryLevel(props.id, targetChapterId)
                                       }}
                                  />
                              </div>
                          )
 
-                         let a = chapters
-
-                         a.push(element)
-                         console.log(a)
-                         setChapters(a)
-                         //chaptersSectionRef.appendChild(element)
+                         let tmpChapters = chapters
+                         tmpChapters.push()
+                         const idx = template.story.findIndex(st => st.id === props.id)
+                         template.story[idx].chapters = tmpChapters
                      }}
                 >
                     {localization.create.story.addChapter}
