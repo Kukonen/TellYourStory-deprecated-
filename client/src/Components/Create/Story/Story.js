@@ -6,8 +6,13 @@ import user from "../../../Store/UserState";
 import template from '../../../Store/TemplateState'
 import Chapter from "./Chapter";
 import addImg from '../Img/add.svg'
+import {configure} from "mobx";
 
 const Story = observer((props) => {
+
+    configure({
+        enforceActions: "never",
+    })
 
     const localization = user.text
 
@@ -26,7 +31,7 @@ const Story = observer((props) => {
     })
 
     const [chapters, setChapters] = useState(props.chapters.map(chapter => {
-        return <Chapter {...chapter} />
+        return <Chapter {...chapter} deleteFunc={deleteFunc} />
     }))
 
     if (chapters.length === 0) {
@@ -41,6 +46,15 @@ const Story = observer((props) => {
 
     const chaptersSectionRef= React.createRef();
 
+    function deleteFunc(chapterId) {
+
+        let tmpChapters = chapters
+        tmpChapters = tmpChapters.filter(tmpChapter =>
+            tmpChapter.props.chapterId !== chapterId
+        )
+        setChapters(tmpChapters)
+    }
+    
     return (
 
         <div className="Create-story-level">
@@ -65,7 +79,7 @@ const Story = observer((props) => {
                                  <img src={addImg} alt="add" className="Create-story-chapter-button"
                                       onClick={el => {
                                           const targetChapterId = el.target.parentNode.getElementsByTagName('select')[0].value
-                                          const createdElement = <Chapter {...{chapterId: targetChapterId}} />
+                                          const createdElement = <Chapter {...{levelId : props.id, chapterId: targetChapterId}} deleteFunc={deleteFunc}/>
                                           let tmpNewChapters = chapters
                                           tmpNewChapters.push(createdElement)
                                           const idx = template.story.findIndex(st => st.id === props.id)

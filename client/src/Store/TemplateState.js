@@ -51,6 +51,14 @@ class TemplateState {
         })
     }
 
+    async deleteChapterInStoryLevel(levelId, chapterId) {
+        axios.post('/api/template/deletechapterinstorylevel', {levelId, chapterId}).then(response => {
+            if (response.status === 200) {
+                this.story = response.data.story
+            }
+        })
+    }
+
     async createChapter(title) {
         axios.post('/api/template/createchapter', {title}).then(response =>{
             if (response.status === 200) {

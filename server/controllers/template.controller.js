@@ -66,6 +66,7 @@ class templateController {
         let levels = template.story
         const storyIdx = levels.findIndex(level => level.id === levelId)
         levels[storyIdx].chapters.push({
+            levelId: levelId,
             chapterId: chapterId
         })
 
@@ -75,6 +76,29 @@ class templateController {
             story: levels
         }
         ctx.status = 200
+    }
+
+    async deleteChapterInStoryLevel(ctx) {
+        try {
+            const {levelId, chapterId} = ctx.request.body
+            const key = ctx.cookies.get('key')
+            const template = await Template.findOne({key})
+            let levels = template.story
+            const storyIdx = levels.findIndex(level => level.id === levelId)
+            levels[storyIdx].chapters =
+                levels[storyIdx].chapters.filter(chapters =>
+                    chapters.chapterId !== chapterId
+                )
+
+            await Template.updateOne({key}, {story: levels})
+
+            ctx.body = {
+                story: levels
+            }
+            ctx.status = 200
+        } catch (e) {
+            console.log(e)
+        }
     }
 
     async createChapter(ctx) {
