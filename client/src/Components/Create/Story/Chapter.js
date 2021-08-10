@@ -24,8 +24,9 @@ const Chapter = observer((props) => {
             <div className="Create-story-chapter-title">{chapterTitle}</div>
             <img src={deleteImg} alt="delete" className="Create-story-chapter-button"
                  onClick={deleteChapter => {
-                     template.deleteChapterInStoryLevel(props.levelId, props.chapterId)
-                     props.deleteFunc(props.chapterId)
+                    template.deleteChapterInStoryLevel(props.levelId, props.chapterId).then(() => {
+                        props.deleteFunc(props.levelId, props.chapterId)
+                    })
                  }}
             />
 

@@ -46,13 +46,39 @@ const Story = observer((props) => {
 
     const chaptersSectionRef= React.createRef();
 
-    function deleteFunc(chapterId) {
+    /*
+    this function (deleteFunc) crush!!
+    can't removeChild by the hooks
+    can't resolve problem with try / catch, because code is async
+     */
 
-        let tmpChapters = chapters
-        tmpChapters = tmpChapters.filter(tmpChapter =>
-            tmpChapter.props.chapterId !== chapterId
-        )
-        setChapters(tmpChapters)
+    // function deleteFunc(levelId, chapterId) {
+    //     try {
+    //         const idx = template.story.findIndex(story => story.id === levelId)
+    //         if (template.story[idx].chapters.length <= 1) {
+    //             setChapters([(
+    //                 <div className="Create-story-chapter-block Create-story-chapter-not-found-block">
+    //                     <span
+    //                         className="Create-story-chapter-not-found-text">{localization.create.story.noChapterFirst}</span>
+    //                     <hr className="Create-story-chapter-not-found-hr"/>
+    //                     <span
+    //                         className="Create-story-chapter-not-found-text">{localization.create.story.noChapterSecond}</span>
+    //                 </div>
+    //             )])
+    //         } else {
+    //
+    //             const tmpChapters = chapters.filter(tmpChapter =>
+    //                 tmpChapter.props.chapterId !== chapterId && tmpChapter.type !== 'div'
+    //             )
+    //             setChapters(tmpChapters)
+    //         }
+    //     } catch (e) {
+    //
+    //     }
+    // }
+
+    function deleteFunc(levelId, chapterId) {
+        window.location.reload(); // !!! this solve was taken for top mistake !!!
     }
     
     return (
@@ -66,7 +92,10 @@ const Story = observer((props) => {
                      onClick={targetElement => {
                          const chaptersSection = targetElement.target.parentNode.parentNode.getElementsByClassName('Create-story-chapters-section')[0]
                          if (chaptersSection.getElementsByClassName('Create-story-chapter-not-found-block').length > 0)
+                         {
                              chaptersSection.removeChild(chaptersSection.getElementsByClassName('Create-story-chapter-not-found-block')[0])
+
+                         }
                         if (chaptersSection.getElementsByClassName('Create-story-chapter-block-add').length > 0)
                             return
                          const element = (
@@ -84,7 +113,9 @@ const Story = observer((props) => {
                                           tmpNewChapters.push(createdElement)
                                           const idx = template.story.findIndex(st => st.id === props.id)
                                           template.story[idx].chapters = tmpNewChapters
-                                          chaptersSection.removeChild(chaptersSection.getElementsByClassName('Create-story-chapter-block-add')[0])
+                                          if(chaptersSection.getElementsByClassName('Create-story-chapter-block-add').length > 0)
+                                            chaptersSection.removeChild(chaptersSection.getElementsByClassName('Create-story-chapter-block-add')[0])
+                                          setChapters(tmpNewChapters)
                                           template.addChapterToStoryLevel(props.id, targetChapterId)
                                       }}
                                  />
