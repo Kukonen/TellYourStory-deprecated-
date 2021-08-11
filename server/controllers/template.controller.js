@@ -111,6 +111,7 @@ class templateController {
             id: id,
             title: title,
             text: "",
+            need: [],
             decision: []
         })
 
@@ -209,6 +210,45 @@ class templateController {
         } catch (e) {
             console.log(e)
         }
+    }
+
+    async refreshNeed(ctx) {
+        try {
+            const key = ctx.cookies.get('key');
+            const template = await Template.findOne({key})
+            let chapters = template.chapter
+            chapters.forEach((chapter) => {
+                let tmpNeed = template.counter.map(counter => {
+                    return {
+                        "id": counter.id,
+                        "name": counter.name,
+                        "count": 0
+                    }
+                })
+                tmpNeed.forEach(need => {
+                        const idx = chapter.need.findIndex(count => count.id === need.id)
+                        if (idx > -1) {
+                            need.count = template.counter[idx].count
+                        }
+                })
+                chapter.need = tmpNeed
+            })
+
+            await Template.updateOne({key}, {
+                chapter: chapters
+            })
+
+            ctx.body = {
+                chapters: chapters
+            }
+            ctx.status = 200
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    async changeNeed(ctx) {
+
     }
 
     async refreshDecision(ctx) {

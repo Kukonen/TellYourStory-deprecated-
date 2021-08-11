@@ -91,6 +91,22 @@ class TemplateState {
         })
     }
 
+    async refreshNeed() {
+        axios.get('/api/template/refreshneed').then(response => {
+            if (response.status === 200) {
+                this.chapter = response.data.chapters
+            }
+        })
+    }
+
+    async changeNeed(id, title, count) {
+        axios.post('/api/template/changeneed', {id, title, count}).then(response => {
+            if (response.status === 200) {
+                this.chapter = response.data.chapters
+            }
+        })
+    }
+
     async refreshDecision() {
         axios.get('/api/template/refreshdevision').then(response => {
             if (response.status === 200) {

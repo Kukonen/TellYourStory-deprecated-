@@ -5,11 +5,13 @@ import {observer} from "mobx-react-lite";
 import arrowDownImg from "../Img/arrowdown.svg";
 import saveImg from "../Img/save.svg";
 import deleteImg from "../Img/trash.svg";
-import addImg from "../Img/add.svg"
+import Need from './Need'
 import user from "../../../Store/UserState";
 import template from "../../../Store/TemplateState";
+import {v4} from "uuid";
+import addImg from '../Img/add.svg'
 import Decision from "./Decision";
-import {v4} from "uuid"
+
 
 const Chapter = observer((props) => {
     const localization = user.text
@@ -18,10 +20,14 @@ const Chapter = observer((props) => {
     const [text, setText] = useState(props.text)
     const [addDecisionTitle, setAddDecisionTitle] = useState('')
     const [decision, setDecision] = useState(props.decision)
+    let need = props.need
+
+    need = need.map(need => <Need key={need.id} {...need}/>)
 
     function updateDecision(newDecision) {
         setDecision(newDecision)
     }
+
 
     return (
         <div>
@@ -62,6 +68,16 @@ const Chapter = observer((props) => {
                         }}
                     />
                 </div>
+                <div className={hide ? "Create-chapter-headline-block Create-chapter-hide-section" : "Create-chapter-headline-block"}>
+                    {localization.create.chapters.need}
+                </div>
+                <div className={hide ? "Create-chapters-section-footer Create-chapter-hide-section" : "Create-chapters-section-footer"}>
+
+                    {
+
+                        need.map(need => <Need key={need.id} {...need}/>)
+                    }
+                </div>
                 <div className={hide ? "Create-chapters-section-footer Create-chapter-hide-section" : "Create-chapters-section-footer"}>
                     <div className="Create-chapters-decision-title-block">
                         <input type="text"
@@ -93,7 +109,6 @@ const Chapter = observer((props) => {
                             setDecision(addDecision)
                             setAddDecisionTitle('')
                         }}/>
-
                     </div>
                     {
                         decision.map(decision => {

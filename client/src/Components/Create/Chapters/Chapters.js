@@ -26,6 +26,7 @@ const Chapters = observer(() => {
     const chapters = template.chapter
 
     template.refreshDecision().then()
+    template.refreshNeed().then()
 
     const chaptersElements = chapters.map((chapter, index) => {
 
@@ -33,6 +34,7 @@ const Chapters = observer(() => {
             id: chapter.id,
             title: chapter.title,
             text: chapter.text,
+            need: chapter.need,
             decision: chapter.decision
         }}/>
     })
@@ -41,7 +43,7 @@ const Chapters = observer(() => {
         <div>
             <div className="Create-chapters-add-section">
                 <input type="text" className="Create-chapters-add-input-title"
-                placeholder={localization.create.chapters.addTitle}
+                       placeholder={localization.create.chapters.addTitle}
                        value={addTitle}
                        onChange={value => {
                            setAddTitle(value.target.value)
@@ -63,6 +65,7 @@ const Chapters = observer(() => {
                 </div>
             </div>
         </div>
+
     )
 });
 

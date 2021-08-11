@@ -20,7 +20,8 @@
             "savedHeadline": "Saved",
             "title": "title of chapter",
             "text": "text of chapter",
-            "decisionPlaceholder": "name of decision"
+            "decisionPlaceholder": "name of decision",
+            "need": "required for the appearance"
         },
         "story": {
             "addLevel": "Add Level",
@@ -53,7 +54,8 @@
             "savedHeadline": "Сохранённые",
             "title": "название главы",
             "text": "текст главы",
-            "decisionPlaceholder": "названия решения"
+            "decisionPlaceholder": "названия решения",
+            "need": "требуется для появления"
         },
         "story": {
             "addLevel": "Добавить Уровень",
