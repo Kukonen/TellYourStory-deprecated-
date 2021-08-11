@@ -75,7 +75,10 @@ const Chapter = observer((props) => {
 
                     {
 
-                        need.map(need => <Need key={need.id} {...need}/>)
+                        need.map(need => {
+                            const needParams = Object.assign(JSON.parse(JSON.stringify(need.props)), {"chapterId": props.id})
+                            return <Need key={need.id} {...needParams}/>
+                        })
                     }
                 </div>
                 <div className={hide ? "Create-chapters-section-footer Create-chapter-hide-section" : "Create-chapters-section-footer"}>

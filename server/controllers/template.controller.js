@@ -227,8 +227,9 @@ class templateController {
                 })
                 tmpNeed.forEach(need => {
                         const idx = chapter.need.findIndex(count => count.id === need.id)
+                        //console.log()
                         if (idx > -1) {
-                            need.count = template.counter[idx].count
+                            need.count = chapter.need[idx].count
                         }
                 })
                 chapter.need = tmpNeed
@@ -248,7 +249,23 @@ class templateController {
     }
 
     async changeNeed(ctx) {
+        const {chapterId, id, count} = ctx.request.body
+        const key = ctx.cookies.get('key');
+        const template = await Template.findOne({key})
+        let chapters = template.chapter
 
+        const chapterIdx = chapters.findIndex(chapter => chapter.id === chapterId)
+        const needIdx = chapters[chapterIdx].need.findIndex(need => need.id === id)
+        chapters[chapterIdx].need[needIdx].count = count
+
+        await Template.updateOne({key}, {
+            chapter: chapters
+        })
+
+        ctx.body = {
+            chapters: chapters
+        }
+        ctx.status = 200
     }
 
     async refreshDecision(ctx) {

@@ -99,8 +99,8 @@ class TemplateState {
         })
     }
 
-    async changeNeed(id, title, count) {
-        axios.post('/api/template/changeneed', {id, title, count}).then(response => {
+    async changeNeed(chapterId, id, count) {
+        axios.post('/api/template/changeneed', {chapterId, id, count}).then(response => {
             if (response.status === 200) {
                 this.chapter = response.data.chapters
             }
