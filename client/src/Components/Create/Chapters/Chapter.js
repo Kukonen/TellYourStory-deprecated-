@@ -3,6 +3,7 @@ import './Chapters.scss'
 import {useState} from "react";
 import {observer} from "mobx-react-lite";
 import arrowDownImg from "../Img/arrowdown.svg";
+import arrowUpImg from '../Img/arrowup.svg'
 import saveImg from "../Img/save.svg";
 import deleteImg from "../Img/trash.svg";
 import Need from './Need'
@@ -40,16 +41,9 @@ const Chapter = observer((props) => {
                                setTitle(value.target.value)
                            }}
                     />
-                    <img src={arrowDownImg} alt="add" className="Create-chapters-input-button" onClick={ element => {
-                        if(element.target.src === "http://localhost:3000/static/media/arrowdown.1027ea01.svg") {
-                            setHide(false)
-                            element.target.src = "http://localhost:3000/static/media/arrowup.5bf18927.svg"
-                        }
-                        else if (element.target.src === "http://localhost:3000/static/media/arrowup.5bf18927.svg") {
-                            setHide(true)
-                            element.target.src = "http://localhost:3000/static/media/arrowdown.1027ea01.svg"
-                        }
-                    }}/>
+                    <img src={hide ? arrowDownImg : arrowUpImg} alt="hide" className="Create-chapters-input-button" onClick={ () => {
+                        setHide(!hide)
+                    }} />
                     <img src={saveImg} alt="save" className="Create-chapters-input-button" onClick = {() => {
                         template.changeChapter(props.id, title, text, decision)
                     }} />
