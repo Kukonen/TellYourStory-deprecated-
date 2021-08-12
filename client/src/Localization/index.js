@@ -6,6 +6,7 @@ import auth from './json/auth.json'
 import questions from './json/questions.json'
 import footer from './json/footer.json'
 import create from './json/create.json'
+import profile from './json/profile.json'
 
 let text = {}
 
@@ -21,7 +22,8 @@ text = {
         auth: auth.en,
         questions: questions.en,
         footer: footer.en,
-        create: create.en
+        create: create.en,
+        profile: profile.en
     }
 
 }
@@ -35,7 +37,8 @@ text = {
         auth: auth.ru,
         questions: questions.ru,
         footer: footer.ru,
-        create: create.ru
+        create: create.ru,
+        profile: profile.ru
     }
 }
 

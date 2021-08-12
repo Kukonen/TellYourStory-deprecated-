@@ -43,7 +43,8 @@ const Chapter = observer((props) => {
                     />
                     <img src={hide ? arrowDownImg : arrowUpImg} alt="hide" className="Create-chapters-input-button" onClick={ () => {
                         setHide(!hide)
-                    }} />
+                    }}
+                    />
                     <img src={saveImg} alt="save" className="Create-chapters-input-button" onClick = {() => {
                         template.changeChapter(props.id, title, text, decision)
                     }} />

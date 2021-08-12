@@ -9,6 +9,7 @@ import Login from '../../Pages/LoginPage/LoginPage'
 import Questions from "../../Pages/Questions/Questions";
 import ContactUs from "../../Pages/ContactUsPage/ContactUsPage"
 import Create from '../../Pages/CreatePage/CreatePage'
+import Profile from "../../Pages/ProfilePage/ProfilePage";
 
 const Content = () => {
     return (
@@ -22,6 +23,7 @@ const Content = () => {
                     <Route path="/questions" exact component={Questions} />
                     <Route path="/contact" exact component={ContactUs}/>
                     <Route path="/create" exact component={Create} />
+                    <Route path="/profile" exact component={Profile} />
                 </BrowserRouter>
             </div>
             <div className="Main-section-side" />

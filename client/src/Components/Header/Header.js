@@ -63,7 +63,7 @@ const Header = observer(() => {
                             </div>
                             <div className="Header-profile-links-block">
                                 <div className="Header-profile-block">
-                                    <a href="/pofile" className="Header-profile-link">{localization.header.profile}</a>
+                                    <a href="/profile" className="Header-profile-link">{localization.header.profile}</a>
                                 </div>
                                 <div className="Header-profile-block">
                                     <a href="/" className="Header-profile-link"

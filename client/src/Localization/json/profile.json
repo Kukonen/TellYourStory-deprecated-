@@ -1,0 +1,16 @@
+{
+  "en": {
+    "noLogin":  {
+      "headline": "Please, login or register for save stories",
+      "login": "login",
+      "register": "register"
+    }
+  },
+  "ru": {
+    "noLogin":  {
+      "headline": "Пожалуйста, войдите или зарегистрируйтесь, чтобы сохранять истории",
+      "login": "войти",
+      "register": "зарегистрироваться"
+    }
+  }
+}
