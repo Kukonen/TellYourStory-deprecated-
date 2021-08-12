@@ -2,11 +2,11 @@ import React, {useState} from 'react'
 import './Stories.scss'
 import {observer} from "mobx-react-lite";
 import './Chapter'
-import user from "../../../Store/UserState";
 import template from '../../../Store/TemplateState'
 import Chapter from "./Chapter";
 import addImg from '../Img/add.svg'
 import {configure} from "mobx";
+import localizationState from "../../../Store/LocalizationState";
 
 const Story = observer((props) => {
 
@@ -14,7 +14,7 @@ const Story = observer((props) => {
         enforceActions: "never",
     })
 
-    const localization = user.text
+    const localization = localizationState.text
 
     const chaptersOptionsJSON = template.chapter.map(chapter => {
         return ({

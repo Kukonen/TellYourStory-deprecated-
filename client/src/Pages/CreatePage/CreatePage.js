@@ -8,10 +8,11 @@ import template from '../../Store/TemplateState'
 import Chapters from '../../Components/Create/Chapters/Chapters'
 import Counters from '../../Components/Create/Counters/Counters'
 import Stories from '../../Components/Create/Story/Stories'
+import localizationState from "../../Store/LocalizationState";
 
 
 const CreatePage = observer(() => {
-    const localization = user.text
+    const localization = localizationState.text
 
     if (user.isLogged === "yes")
         template.openOrCreate().then()

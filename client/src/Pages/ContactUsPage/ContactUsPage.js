@@ -3,10 +3,11 @@ import './ContactUsPage.scss'
 import {useState} from "react";
 import {observer} from "mobx-react-lite";
 import user from '../../Store/UserState'
+import localizationState from "../../Store/LocalizationState";
 
 const ContactUsPage = observer(() => {
 
-    const localization = user.text
+    const localization = localizationState.text
 
     const [titleProblem, setTitleProblem] = useState('')
     const [textProblem, setTextProblem] = useState('')

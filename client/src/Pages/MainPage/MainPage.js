@@ -1,10 +1,10 @@
 import React from 'react';
-import user from '../../Store/UserState'
 import {observer} from "mobx-react-lite";
+import localizationState from "../../Store/LocalizationState";
 
 const MainPage = observer(() => {
 
-    const localization = user.text
+    const localization = localizationState.text
 
     return (
         <div>

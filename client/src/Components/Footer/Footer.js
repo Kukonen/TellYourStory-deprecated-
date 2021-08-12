@@ -1,11 +1,11 @@
 import React from 'react';
 import './Footer.scss'
 import {observer} from "mobx-react-lite";
-import user from '../../Store/UserState'
+import localizationState from "../../Store/LocalizationState";
 
 const Footer = observer(() => {
 
-    const localization = user.text
+    const localization = localizationState.text
 
     return (
         <div className="Footer">

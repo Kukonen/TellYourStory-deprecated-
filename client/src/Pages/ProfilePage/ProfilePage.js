@@ -3,9 +3,10 @@ import './ProfilePage.scss'
 import {observer} from "mobx-react-lite";
 import user from '../../Store/UserState'
 import Profile from '../../Components/Profile/Profile'
+import localizationState from "../../Store/LocalizationState";
 
 const ProfilePage = observer(() => {
-    const localization = user.text
+    const localization = localizationState.text
 
     return (
         <div>

@@ -7,15 +7,15 @@ import arrowUpImg from '../Img/arrowup.svg'
 import saveImg from "../Img/save.svg";
 import deleteImg from "../Img/trash.svg";
 import Need from './Need'
-import user from "../../../Store/UserState";
 import template from "../../../Store/TemplateState";
 import {v4} from "uuid";
 import addImg from '../Img/add.svg'
 import Decision from "./Decision";
+import localizationState from '../../../Store/LocalizationState'
 
 
 const Chapter = observer((props) => {
-    const localization = user.text
+    const localization = localizationState.text
     const [hide, setHide] = useState(true)
     const [title, setTitle] = useState(props.title)
     const [text, setText] = useState(props.text)

@@ -4,7 +4,7 @@ import {observer} from "mobx-react-lite";
 import {configure} from "mobx";
 import {useState} from "react";
 import auth from "../../Store/AuthState";
-import user from "../../Store/UserState"
+import localizationState from "../../Store/LocalizationState";
 
 const RegisterPage = observer(() => {
 
@@ -12,7 +12,7 @@ const RegisterPage = observer(() => {
         enforceActions: "never",
     })
 
-    const localization = user.text
+    const localization = localizationState.text
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')

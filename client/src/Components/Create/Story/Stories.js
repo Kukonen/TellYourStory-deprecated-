@@ -1,13 +1,13 @@
 import React from 'react';
 import './Stories.scss'
 import {observer} from "mobx-react-lite";
-import user from '../../../Store/UserState'
 import template from '../../../Store/TemplateState'
 import Story from "./Story";
+import localizationState from "../../../Store/LocalizationState";
 
 const Stories = observer(() => {
 
-    const localization = user.text
+    const localization = localizationState.text
 
     const storyElements = template.story.map(story => {
         return <Story key={story.id} {...story}/>

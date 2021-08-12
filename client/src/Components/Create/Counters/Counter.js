@@ -1,15 +1,13 @@
 import React from 'react';
-
+import localizationState from '../../../Store/LocalizationState'
 import {observer} from "mobx-react-lite";
 import saveImg from "../Img/save.svg";
 import template from "../../../Store/TemplateState";
 import deleteIcon from "../Img/trash.svg";
-import user from "../../../Store/UserState";
 
 const Counter = observer((props) => {
-    const localization = user.text
-    // const [counterName, setCounterName] = useState(counter.name)
-    // const [counterNumber, setCounterNumber] = useState(counter.count)
+    const localization = localizationState.text
+
     const counterName = props.name
     const counterNumber = props.count
     return (
@@ -29,7 +27,6 @@ const Counter = observer((props) => {
                     const childes = parent.childNodes
                     const text = childes[0].value
                     const number = childes[1].value
-                    //const id = parent.key
 
                     template.changeCounter(text, number, props.id).then()
                 }
@@ -47,12 +44,6 @@ const Counter = observer((props) => {
                     template.deleteCounter(props.id).then(() => {
 
                     })
-                    //console.log(template.chapter[0].decision[0].counters)
-                    // for (let i = 0; i < template.chapter.length; ++i) {
-                    //     for (let j = 0; j < template.counter[i].decision.length; ++j) {
-                    //         fo
-                    //     }
-                    // }
                 }
                 } />
             </div>

@@ -4,10 +4,11 @@ import {observer} from "mobx-react-lite";
 import user from "../../Store/UserState"
 import enFlag from './flags/en.svg'
 import ruFlag from './flags/ru.svg'
+import localizationState from "../../Store/LocalizationState";
 
 const Header = observer(() => {
 
-    const localization = user.text
+    const localization = localizationState.text
 
     return (
         <div className="Header">
@@ -75,8 +76,8 @@ const Header = observer(() => {
                         <div className="Header-profile-section-no-information" />
                 }
                 <div className="Header-flags-block" >
-                    <img src={enFlag} alt="en" className="Header-flag" onClick={() => user.changeLanguage("en")}/>
-                    <img src={ruFlag} alt="ru" className="Header-flag" onClick={() => user.changeLanguage("ru")}/>
+                    <img src={enFlag} alt="en" className="Header-flag" onClick={() => localizationState.changeLanguage("en")}/>
+                    <img src={ruFlag} alt="ru" className="Header-flag" onClick={() => localizationState.changeLanguage("ru")}/>
                 </div>
             </div>
         </div>

@@ -1,20 +1,11 @@
 import {makeAutoObservable} from "mobx";
 import axios from "axios";
-import jsonText from '../Localization/index'
-import Cookies from 'js-cookie'
 
 class UserState {
     name = null
     avatar = undefined
     isLogged = null
-    language = Cookies.get('language') === "en" ? "en" :
-        Cookies.get('language') === "ru" ? "ru" :
-            "en"
-    text = this.language === "en" ? {
-        ...jsonText.en
-    } : this.language === "ru" ? {
-        ...jsonText.ru
-    } : null
+
 
 
     problemError = false
@@ -64,23 +55,6 @@ class UserState {
                 console.log(e)
                 this.problemError = true
             })
-    }
-
-    changeLanguage(lang) {
-        if (lang === "en") {
-            this.language = "en"
-            this.text = {
-                ...jsonText.en
-            }
-            Cookies.set('language', 'en')
-        }
-        else if (lang === "ru") {
-            this.language = "ru"
-            this.text = {
-                ...jsonText.ru
-            }
-            Cookies.set('language', 'ru')
-        }
     }
 }
 

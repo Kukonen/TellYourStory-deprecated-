@@ -1,16 +1,14 @@
 import React from 'react';
 import './Counters.scss'
 import {observer} from "mobx-react-lite";
-import user from '../../../Store/UserState'
 import {useState} from "react";
-import saveImg from '../Img/save.svg'
 import addIcon from '../Img/add.svg'
-import deleteIcon from '../Img/trash.svg'
 import template from '../../../Store/TemplateState'
 import Counter from './Counter'
+import localizationState from "../../../Store/LocalizationState";
 
 const Counters = observer(() => {
-    const localization = user.text
+    const localization = localizationState.text
 
     const [name, setName] = useState('')
     const [count, setCount] = useState(0)

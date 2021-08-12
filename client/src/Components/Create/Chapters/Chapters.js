@@ -1,14 +1,11 @@
 import React, {useState} from 'react';
 import './Chapters.scss'
 import {observer} from "mobx-react-lite";
-import user from '../../../Store/UserState'
 import addImg from '../Img/add.svg'
-import saveImg from '../Img/save.svg'
-import arrowUpImg from '../Img/arrowup.svg'
-import arrowDownImg from '../Img/arrowdown.svg'
 import template from "../../../Store/TemplateState";
 import Chapter from "./Chapter"
 import { configure } from "mobx"
+import localizationState from '../../../Store/LocalizationState'
 
 
 const Chapters = observer(() => {
@@ -17,7 +14,7 @@ const Chapters = observer(() => {
         enforceActions: "never",
     })
 
-    const localization = user.text
+    const localization = localizationState.text
 
     const counters = template.counter
 
