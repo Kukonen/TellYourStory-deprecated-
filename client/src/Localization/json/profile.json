@@ -4,6 +4,11 @@
       "headline": "Please, login or register for save stories",
       "login": "login",
       "register": "register"
+    },
+    "navBar": {
+      "savedStories": "Saved stories",
+      "ownStories": "Own stories",
+      "Settings": "Settings"
     }
   },
   "ru": {
@@ -11,6 +16,11 @@
       "headline": "Пожалуйста, войдите или зарегистрируйтесь, чтобы сохранять истории",
       "login": "войти",
       "register": "зарегистрироваться"
+    },
+    "navBar": {
+      "savedStories": "Сохранённые истории",
+      "ownStories": "Свои истории",
+      "Settings": "Настройки"
     }
   }
 }
