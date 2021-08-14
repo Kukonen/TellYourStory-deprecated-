@@ -19,5 +19,6 @@ router.post('/deletedecision', templateController.deleteDecision)
 router.post('/createcounter', templateController.createCounter)
 router.post('/changecounter', templateController.changeCounter)
 router.post('/deletecounter', templateController.deleteCounter)
+router.get('/chektemplateerrors', templateController.chekTemplateErrors)
 
 module.exports = router.routes()

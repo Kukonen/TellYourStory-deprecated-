@@ -438,6 +438,82 @@ class templateController {
         }
         ctx.status = 200
     }
+
+    async chekTemplateErrors(ctx) {
+        const key = ctx.cookies.get('key');
+        const template = await Template.findOne({key});
+
+        // chek story
+
+        let storyError = false
+
+        try {
+            let storyHasChapters = false
+
+            template.story.forEach(level => {
+                level.forEach(chapters => {
+                    if (chapters.length > 0) {
+                        storyHasChapters = true
+                    }
+                })
+            })
+
+            if (!storyHasChapters) {
+                storyError = true
+            }
+        } catch (e) {
+            storyError = true
+        }
+
+        // chek chapter
+
+        let chapterError = false
+
+        try {
+            template.chapter.forEach(chapter => {
+                if (chapter.title !== "") {
+                    chapterError = true
+                }
+                if (chapter.text !== "") {
+                    chapterError = true
+                }
+            })
+        } catch (e) {
+            chapterError = true
+        }
+
+        // chek counter
+
+        let counterError = false
+        try {
+            template.forEach(counter => {
+                if (!Number.isInteger(counter.count)) {
+                    counterError = true
+                }
+                if (!counter.name !== "") {
+                    counterError = true
+                }
+            })
+        } catch (e) {
+            counterError = true
+        }
+
+        if (storyError || chapterError || counterError) {
+            ctx.body = {
+                errors: {
+                    "storyError": storyError,
+                    "chapterError": chapterError,
+                    "counterError": counterError
+                }
+            }
+            ctx.status = 400
+        } else {
+            ctx.body = {
+                errors: null
+            }
+            ctx.status = 200
+        }
+    }
 }
 
 module.exports = new templateController();
