@@ -8,7 +8,8 @@
         "menu": {
             "story": "Story",
             "chapters": "Chapters",
-            "counters": "Counters"
+            "counters": "Counters",
+            "release": "Release"
         },
         "counters": {
             "addName": "name",
@@ -42,7 +43,8 @@
         "menu": {
             "story": "Истоия",
             "chapters": "Главы",
-            "counters": "Счётчики"
+            "counters": "Счётчики",
+            "release": "Выпуск"
         },
         "counters": {
             "addName": "название",

@@ -9,6 +9,8 @@ class TemplateState {
     chapter = []
     counter = []
 
+    Errors = undefined
+
     constructor() {
         makeAutoObservable(this)
     }

@@ -8,6 +8,7 @@ import template from '../../Store/TemplateState'
 import Chapters from '../../Components/Create/Chapters/Chapters'
 import Counters from '../../Components/Create/Counters/Counters'
 import Stories from '../../Components/Create/Story/Stories'
+import Release from "../../Components/Create/Release/Release";
 import localizationState from "../../Store/LocalizationState";
 
 
@@ -35,6 +36,8 @@ const CreatePage = observer(() => {
                          onClick={() => setMode(1)}>{localization.create.menu.chapters}</div>
                     <div className={mode === 2 ? menuStyleActive : menuStyle}
                          onClick={() => setMode(2)}>{localization.create.menu.counters}</div>
+                    <div className={mode === 3 ? menuStyleActive : menuStyle}
+                         onClick={() => setMode(3)}>{localization.create.menu.release}</div>
                 </div>
             </div>
             <div className="Create-content">
@@ -42,7 +45,8 @@ const CreatePage = observer(() => {
                     mode === 0 ? <Stories/> :
                         mode === 1 ? <Chapters/> :
                             mode === 2 ? <Counters/> :
-                                null
+                                mode === 3 ? <Release /> :
+                                    null
                 }
             </div>
         </div> : user.isLogged === "no" ?
