@@ -506,7 +506,7 @@ class templateController {
                     "counterError": counterError
                 }
             }
-            ctx.status = 400
+            ctx.status = 206
         } else {
             ctx.body = {
                 errors: null
