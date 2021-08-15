@@ -124,7 +124,7 @@ class templateController {
     }
 
     async changeChapter(ctx) {
-        const {id, title, text, decision} = ctx.request.body
+        const {id, title, text, need, decision} = ctx.request.body
         const key = ctx.cookies.get('key');
         const template = await Template.findOne({key})
         let chapters = template.chapter
@@ -134,7 +134,8 @@ class templateController {
                     id: id,
                     title: title,
                     text: text,
-                    decision: decision
+                    need: need,
+                    decision: decision,
                 }
             }
         }

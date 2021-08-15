@@ -46,9 +46,9 @@ const Chapter = observer((props) => {
                     }}
                     />
                     <img src={saveImg} alt="save" className="Create-chapters-input-button" onClick = {() => {
-                        template.changeChapter(props.id, title, text, decision)
+                        template.changeChapter(props.id, title, text, need, decision)
                     }} />
-                    <img src={deleteImg} alt="save" className="Create-chapters-input-button" onClick = {() => {
+                    <img src={deleteImg} alt="delete" className="Create-chapters-input-button" onClick = {() => {
                         template.deleteChapter(props.id)
                     }} />
                 </div>
