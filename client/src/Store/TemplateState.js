@@ -69,8 +69,8 @@ class TemplateState {
         })
     }
 
-    async changeChapter(id, title, text, decision) {
-        axios.post('/api/template/changechapter', {id, title, text, decision}).then(response => {
+    async changeChapter(id, title, text, need, decision) {
+        axios.post('/api/template/changechapter', {id, title, text, need, decision}).then(response => {
             if (response.status === 200) {
                 this.chapter = response.data.chapters
             }
@@ -156,6 +156,30 @@ class TemplateState {
             if (response.status === 200) {
                 this.counter = []
                 this.counter = response.data.counters
+            }
+        })
+    }
+
+    async checkTemplate() {
+        axios.get('/api/template/chektemplateerrors').then(response => {
+            if (response.status === 200) {
+                this.Errors = {
+                    status: false
+                }
+            }
+            if (response.status === 206) {
+                this.Errors = {
+                    status: false,
+                    description: {
+                        story: response.data.errors.storyError,
+                        chapter: response.data.errors.chapterError,
+                        counter: response.data.errors.counterError
+                    }
+                }
+            }
+        }).catch(e => {
+            this.Errors = {
+                status: false
             }
         })
     }

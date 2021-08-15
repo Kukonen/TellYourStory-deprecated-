@@ -32,6 +32,23 @@
             "deleteLevel": "Delete Level",
             "noChapterFirst": "not a single chapter was found",
             "noChapterSecond": "the chapter will be skipped"
+        },
+        "release": {
+            "chek": {
+                "headline": "Checking The Readiness Of The History",
+                "button": "Check",
+                "prepare": "If you are prepare, you can check story for mistakes"
+            },
+            "ready": {
+                "headline": "The Story Is Ready And Published",
+                "toHome": "To Story Profile Page"
+            },
+            "errors": {
+                "headline": "Errors Were Found During The Check",
+                "story": "Errors were found in the story's levels",
+                "chapter": "Errors were found in the chapters",
+                "counter": "Errors were found in the counters"
+            }
         }
     },
     "ru" : {
@@ -67,6 +84,24 @@
             "deleteLevel": "Удалить Уровень",
             "noChapterFirst": "ни одна глава не была найдена",
             "noChapterSecond": "глава будет пропущенна"
+        },
+        "release": {
+            "chek": {
+                "headline": "Проверка Готовности Истории",
+                "button": "Проверка",
+                "prepare": "Если вы готовы, вы можете проверить историю на наличие ошибок"
+
+            },
+            "ready": {
+                "headline": "История Готова И Опубликована",
+                "toHome": "К Странице Профиля С Историями"
+            },
+            "errors": {
+                "headline": "При Проверке Были Найдены Ошибки",
+                "story": "В истории были найдены ошибки",
+                "chapter": "В главах были найдены ошибки",
+                "counter": "В Счётчиках были найдены ошибки"
+            }
         }
     }
 }

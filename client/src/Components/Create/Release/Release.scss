@@ -1,1 +1,47 @@
 @import "src/Style/index.scss";
+
+@mixin create-release-block($bg-color) {
+	font-family: $font-family;
+	font-size: $headline-font-size;
+	background-color: $bg-color;
+	height: 10%;
+	text-align: center;
+	padding: 10px;
+	border: 1px solid $headline-border-color;
+	margin-bottom: 5%;
+}
+
+.Create-release-button-section {
+	display: flex;
+}
+
+.Create-release-button {
+	background-color: $create-background-color;
+	border: 1px solid $create-border-color;
+	padding: 10px;
+	display: flex;
+	margin: auto;
+	cursor: pointer;
+	font-family: $font-family;
+	font-size: $create-release-check-button-font-size;
+}
+
+.Create-error-block {
+	margin-right: auto;
+	@include create-release-block($create-error-color);
+	color: white;
+}
+
+.Create-release-error-section {
+	display: flex;
+	flex-direction: column;
+}
+
+.Create-release-headline-success {
+	@include create-release-block($create-success-color);
+}
+
+.Create-release-headline-error {
+	@include create-release-block($create-error-color);
+	color: white;
+}
