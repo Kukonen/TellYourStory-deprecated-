@@ -46,7 +46,9 @@ const Chapter = observer((props) => {
                     }}
                     />
                     <img src={saveImg} alt="save" className="Create-chapters-input-button" onClick = {() => {
-                        template.changeChapter(props.id, title, text, need, decision)
+                        const changeDecision = JSON.parse(JSON.stringify(decision))
+                        const changeNeed = need.map(needProps => JSON.parse(JSON.stringify(needProps.props)))
+                        template.changeChapter(props.id, title, text, changeNeed, changeDecision)
                     }} />
                     <img src={deleteImg} alt="delete" className="Create-chapters-input-button" onClick = {() => {
                         template.deleteChapter(props.id)

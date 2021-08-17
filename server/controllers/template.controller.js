@@ -124,28 +124,33 @@ class templateController {
     }
 
     async changeChapter(ctx) {
-        const {id, title, text, need, decision} = ctx.request.body
-        const key = ctx.cookies.get('key');
-        const template = await Template.findOne({key})
-        let chapters = template.chapter
-        for (let i = 0; i < chapters.length; ++i) {
-            if(chapters[i].id === id) {
-                chapters[i] = {
-                    id: id,
-                    title: title,
-                    text: text,
-                    need: need,
-                    decision: decision,
+        try {
+            const {id, title, text, need, decision} = ctx.request.body
+
+            const key = ctx.cookies.get('key');
+            const template = await Template.findOne({key})
+            let chapters = template.chapter
+            for (let i = 0; i < chapters.length; ++i) {
+                if (chapters[i].id === id) {
+                    chapters[i] = {
+                        id: id,
+                        title: title,
+                        text: text,
+                        need: need,
+                        decision: decision,
+                    }
                 }
             }
-        }
 
-        await Template.updateOne({key}, {chapter: chapters})
+            await Template.updateOne({key}, {chapter: chapters})
 
-        ctx.body = {
-            chapters: chapters
+            ctx.body = {
+                chapters: chapters
+            }
+            ctx.status = 200
+        } catch (e) {
+            console.log(e)
         }
-        ctx.status = 200
     }
 
     async deleteChapter(ctx) {
@@ -452,11 +457,9 @@ class templateController {
             let storyHasChapters = false
 
             template.story.forEach(level => {
-                level.forEach(chapters => {
-                    if (chapters.length > 0) {
-                        storyHasChapters = true
-                    }
-                })
+               if (level.chapters.length > 0) {
+                   storyHasChapters = true
+               }
             })
 
             if (!storyHasChapters) {
@@ -472,10 +475,10 @@ class templateController {
 
         try {
             template.chapter.forEach(chapter => {
-                if (chapter.title !== "") {
+                if (chapter.title === "") {
                     chapterError = true
                 }
-                if (chapter.text !== "") {
+                if (chapter.text === "") {
                     chapterError = true
                 }
             })
@@ -486,16 +489,19 @@ class templateController {
         // chek counter
 
         let counterError = false
+
         try {
-            template.forEach(counter => {
-                if (!Number.isInteger(counter.count)) {
+            template.counter.forEach(counter => {
+                const num = Number(counter.count)
+                if (!Number.isInteger(num)) {
                     counterError = true
                 }
-                if (!counter.name !== "") {
+                if (!counter.name === "") {
                     counterError = true
                 }
             })
         } catch (e) {
+            console.log(e)
             counterError = true
         }
 

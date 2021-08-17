@@ -162,6 +162,7 @@ class TemplateState {
 
     async checkTemplate() {
         axios.get('/api/template/chektemplateerrors').then(response => {
+            console.log(response.status === 200)
             if (response.status === 200) {
                 this.Errors = {
                     status: false
@@ -169,7 +170,7 @@ class TemplateState {
             }
             if (response.status === 206) {
                 this.Errors = {
-                    status: false,
+                    status: true,
                     description: {
                         story: response.data.errors.storyError,
                         chapter: response.data.errors.chapterError,
