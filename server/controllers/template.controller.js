@@ -1,5 +1,5 @@
 const Template = require('../models/Template')
-
+const Story = require('../models/Story')
 const uuid = require('uuid')
 
 
@@ -538,7 +538,8 @@ class templateController {
             }
             ctx.status = 206
         } else {
-
+            const id = uuid.v4()
+            await new Story({id, key, struct: template}).save()
 
             ctx.body = {
                 errors: null
