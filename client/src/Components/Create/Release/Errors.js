@@ -31,6 +31,11 @@ const Errors = observer(() => {
                         <div className="Create-error-block">{localization.create.release.errors.counter}</div> :
                         null
                 }
+                <div className="Create-release-button"
+                     onClick={() => template.Errors = undefined}
+                >
+                    {localization.create.release.errors.refresh}
+                </div>
             </div>
         </div>
     )
