@@ -5,6 +5,7 @@
             "login": "login",
             "register": "register"
         },
+        "title": "Title",
         "menu": {
             "story": "Story",
             "chapters": "Chapters",
@@ -45,6 +46,7 @@
             },
             "errors": {
                 "headline": "Errors Were Found During The Check",
+                "title": "Errors were found in the story's title",
                 "story": "Errors were found in the story's levels",
                 "chapter": "Errors were found in the chapters",
                 "counter": "Errors were found in the counters"
@@ -57,6 +59,7 @@
             "login": "войти",
             "register": "зарегистрироваться"
         },
+        "title": "Название",
         "menu": {
             "story": "Истоия",
             "chapters": "Главы",
@@ -98,6 +101,7 @@
             },
             "errors": {
                 "headline": "При Проверке Были Найдены Ошибки",
+                "title": "В названии были найдены ошибки",
                 "story": "В истории были найдены ошибки",
                 "chapter": "В главах были найдены ошибки",
                 "counter": "В Счётчиках были найдены ошибки"

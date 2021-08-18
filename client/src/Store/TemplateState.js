@@ -29,6 +29,14 @@ class TemplateState {
         })
     }
 
+    async changeTitle(title) {
+        axios.post('/api/template/changetitle', {title}).then(response => {
+            if (response.status === 200) {
+                this.title = response.data.title
+            }
+        })
+    }
+
     async createStoryLevel() {
         axios.get('/api/template/createstorylevel').then(response => {
             if (response.status === 200) {
@@ -161,7 +169,7 @@ class TemplateState {
     }
 
     async checkTemplate() {
-        axios.get('/api/template/chektemplateerrors').then(response => {
+        axios.get('/api/template/checktemplateerrors').then(response => {
             console.log(response.status === 200)
             if (response.status === 200) {
                 this.Errors = {
@@ -172,6 +180,7 @@ class TemplateState {
                 this.Errors = {
                     status: true,
                     description: {
+                        title: response.data.errors.titleError,
                         story: response.data.errors.storyError,
                         chapter: response.data.errors.chapterError,
                         counter: response.data.errors.counterError

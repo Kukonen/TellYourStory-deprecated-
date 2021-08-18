@@ -12,6 +12,11 @@ const Errors = observer(() => {
             <div className="Create-release-headline-error">{localization.create.release.errors.headline}</div>
             <div className="Create-release-error-section">
                 {
+                    template.Errors.description.title ?
+                        <div className="Create-error-block">{localization.create.release.errors.title}</div> :
+                        null
+                }
+                {
                     template.Errors.description.story ?
                         <div className="Create-error-block">{localization.create.release.errors.story}</div> :
                             null

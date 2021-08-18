@@ -1,5 +1,7 @@
 const Template = require('../models/Template')
+
 const uuid = require('uuid')
+
 
 class templateController {
 
@@ -19,6 +21,18 @@ class templateController {
             await new Template({id, key}).save()
             ctx.status = 201
         }
+    }
+
+    async changeTitle(ctx) {
+        const {title} = ctx.request.body
+        const key = ctx.cookies.get('key')
+
+        await Template.updateOne({key}, {title: title})
+
+        ctx.body = {
+            title: title
+        }
+        ctx.status = 200
     }
 
     async createStoryLevel(ctx) {
@@ -445,11 +459,19 @@ class templateController {
         ctx.status = 200
     }
 
-    async chekTemplateErrors(ctx) {
+    async checkTemplateErrors(ctx) {
         const key = ctx.cookies.get('key');
         const template = await Template.findOne({key});
 
-        // chek story
+        // check title
+
+        let titleError = false
+
+        if (template.title === "") {
+            titleError = true
+        }
+
+        // check story
 
         let storyError = false
 
@@ -469,7 +491,7 @@ class templateController {
             storyError = true
         }
 
-        // chek chapter
+        // check chapter
 
         let chapterError = false
 
@@ -486,7 +508,7 @@ class templateController {
             chapterError = true
         }
 
-        // chek counter
+        // check counter
 
         let counterError = false
 
@@ -505,9 +527,10 @@ class templateController {
             counterError = true
         }
 
-        if (storyError || chapterError || counterError) {
+        if (titleError || storyError || chapterError || counterError) {
             ctx.body = {
                 errors: {
+                    "titleError": titleError,
                     "storyError": storyError,
                     "chapterError": chapterError,
                     "counterError": counterError
@@ -515,6 +538,8 @@ class templateController {
             }
             ctx.status = 206
         } else {
+
+
             ctx.body = {
                 errors: null
             }
