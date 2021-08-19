@@ -22,6 +22,18 @@ const problemsSchema = new Schema({
             required: false,
             default: ""
         },
+        images: {
+            avatar: {
+                type: String,
+                required: false,
+                default: null
+            },
+            background: {
+                type: String,
+                required: false,
+                default: null
+            }
+        },
         story: {
             type: Array,
             required: false,

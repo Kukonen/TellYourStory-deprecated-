@@ -9,6 +9,7 @@ import Chapters from '../../Components/Create/Chapters/Chapters'
 import Counters from '../../Components/Create/Counters/Counters'
 import Stories from '../../Components/Create/Story/Stories'
 import Release from "../../Components/Create/Release/Release";
+import Images from "../../Components/Create/Imges/Imges";
 import localizationState from "../../Store/LocalizationState";
 
 
@@ -33,20 +34,23 @@ const CreatePage = observer(() => {
                     <div className={mode === 0 ? menuStyleActive : menuStyle}
                          onClick={() => setMode(0)}>{localization.create.menu.story}</div>
                     <div className={mode === 1 ? menuStyleActive : menuStyle}
-                         onClick={() => setMode(1)}>{localization.create.menu.chapters}</div>
+                         onClick={() => setMode(1)}>{localization.create.menu.images}</div>
                     <div className={mode === 2 ? menuStyleActive : menuStyle}
-                         onClick={() => setMode(2)}>{localization.create.menu.counters}</div>
+                         onClick={() => setMode(2)}>{localization.create.menu.chapters}</div>
                     <div className={mode === 3 ? menuStyleActive : menuStyle}
-                         onClick={() => setMode(3)}>{localization.create.menu.release}</div>
+                         onClick={() => setMode(3)}>{localization.create.menu.counters}</div>
+                    <div className={mode === 4 ? menuStyleActive : menuStyle}
+                         onClick={() => setMode(4)}>{localization.create.menu.release}</div>
                 </div>
             </div>
             <div className="Create-content">
                 {
                     mode === 0 ? <Stories/> :
-                        mode === 1 ? <Chapters/> :
-                            mode === 2 ? <Counters/> :
-                                mode === 3 ? <Release /> :
-                                    null
+                        mode === 1 ? <Images /> :
+                            mode === 2 ? <Chapters/> :
+                                mode === 3 ? <Counters/> :
+                                    mode === 4 ? <Release /> :
+                                        null
                 }
             </div>
         </div> : user.isLogged === "no" ?

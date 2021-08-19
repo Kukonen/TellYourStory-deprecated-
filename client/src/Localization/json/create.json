@@ -8,9 +8,16 @@
         "title": "Title",
         "menu": {
             "story": "Story",
+            "images": "Images",
             "chapters": "Chapters",
             "counters": "Counters",
             "release": "Release"
+        },
+        "images": {
+            "headline": "Change Images",
+            "avatar": "Avatar",
+            "background": "Background",
+            "selectFile": "select file"
         },
         "counters": {
             "addName": "name",
@@ -63,9 +70,16 @@
         "title": "Название",
         "menu": {
             "story": "Истоия",
+            "images": "Изображения",
             "chapters": "Главы",
             "counters": "Счётчики",
             "release": "Выпуск"
+        },
+        "images": {
+            "headline": "Изменение Изображений",
+            "avatar": "Аватар",
+            "background": "Задний фон",
+            "selectFile": "выберете файл"
         },
         "counters": {
             "addName": "название",

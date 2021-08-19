@@ -1,0 +1,54 @@
+@import "src/Style/index.scss";
+
+.Create-images-section {
+	display: flex;
+	margin-bottom: 3%;
+	&:last-of-type{
+		margin-bottom: 0;
+	}
+}
+
+.Create-images-block {
+	background-color: $create-background-color;
+	border: 1px solid $create-border-color;
+	font-size: $create-images-font-size;
+	font-family: $font-family;
+	text-align: center;
+	padding: 5px;
+	width: 20%;
+	margin-right: 2%;
+}
+
+.Create-images-input {
+	width: 0;
+}
+
+.Create-images-input-block {
+	background-color: $create-background-color;
+	border: 1px solid $create-border-color;
+	font-size: $create-images-font-size;
+	font-family: $font-family;
+	text-align: center;
+	padding: 5px;
+	width: 20%;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.Create-images-button {
+	background-color: $create-background-color;
+	border: 1px solid $create-border-color;
+	cursor: pointer;
+	text-align: center;
+	height: 5%;
+	width: 5%;
+	margin-left: 2%;
+}
+
+.Create-images-button-found {
+	background-color: $create-success-color;
+}
+
+.Create-images-button-not-found {
+	background-color: $create-intermediate-color;
+}

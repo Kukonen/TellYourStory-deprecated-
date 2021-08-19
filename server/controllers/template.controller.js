@@ -9,8 +9,17 @@ class templateController {
         const key = ctx.cookies.get('key')
         const template = await Template.findOne({key})
         if(template) {
+            let images = {
+                avatar: false,
+                background: false
+            }
+            if (template.images.avatar !== null && template.images.avatar !== "")
+                images.avatar = true
+            if (template.images.background !== null && template.images.background !== "")
+                images.background = true
             ctx.body = {
                 "title": template.title,
+                "images": images,
                 "story": template.story,
                 "chapter": template.chapter,
                 "counter": template.counter
@@ -33,6 +42,14 @@ class templateController {
             title: title
         }
         ctx.status = 200
+    }
+
+    async changeAvatar(ctx) {
+
+    }
+
+    async changeBackground(ctx) {
+
     }
 
     async createStoryLevel(ctx) {

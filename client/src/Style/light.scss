@@ -9,7 +9,7 @@ $default-primary-color: #828fff;
 $default-secondary-color: black;
 $headline-background-color: white;
 $headline-border-color: #e5e5e5;
-
+$default-intermediate-color: #FFC440;
 
 
 // Header
@@ -57,7 +57,7 @@ $create-border-color: $default-border-color;
 $create-active-background-color: $default-primary-color;
 $create-success-color: $default-success-color;
 $create-error-color: $default-error-background-color;
-
+$create-intermediate-color: $default-intermediate-color;
 // Profile
 
 $profile-background-color: $default-background-color;

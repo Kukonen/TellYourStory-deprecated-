@@ -5,6 +5,10 @@ import axios from "axios";
 class TemplateState {
 
     title = ""
+    images = {
+        avatar: false,
+        background: false
+    }
     story = []
     chapter = []
     counter = []
@@ -22,6 +26,7 @@ class TemplateState {
             }
             else if (response.status === 200) {
                 this.title = response.data.title
+                this.images = response.data.images
                 this.story = response.data.story
                 this.chapter = response.data.chapter
                 this.counter = response.data.counter
