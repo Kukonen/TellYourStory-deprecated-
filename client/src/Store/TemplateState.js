@@ -42,6 +42,26 @@ class TemplateState {
         })
     }
 
+    async changeImage(mode, file) {
+        try {
+            let formData = new FormData();
+            formData.append("mode", mode)
+            formData.append("file", file);
+            await axios.post('/api/template/changeimage', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }).then((result) => {
+                if (mode === "avatar")
+                    this.images.avatar = true
+                if (mode === "background")
+                    this.images.background = true
+            })
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     async createStoryLevel() {
         axios.get('/api/template/createstorylevel').then(response => {
             if (response.status === 200) {

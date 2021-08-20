@@ -1,7 +1,7 @@
 const Template = require('../models/Template')
 const Story = require('../models/Story')
 const uuid = require('uuid')
-
+const fs = require('fs')
 
 class templateController {
 
@@ -44,12 +44,39 @@ class templateController {
         ctx.status = 200
     }
 
-    async changeAvatar(ctx) {
-
-    }
-
-    async changeBackground(ctx) {
-
+    async changeImage(ctx) {
+        try {
+            const key = ctx.cookies.get('key')
+            const data = ctx.request.fields
+            const fileName = uuid.v4() + '.jpg'
+            const template = await Template.findOne({key})
+            if (data.mode === "avatar") {
+                fs.rename(data.file[0].path,
+                    "C:\\Users\\evgen\\Desktop\\react-apps\\TellYourStory\\server\\static\\story\\avatar" + "\\" + fileName,
+                    async () => {
+                        let newFileNames = template.images
+                        newFileNames.avatar = fileName
+                        await Template.updateOne({key}, {images: newFileNames})
+                    })
+                ctx.body = "ok"
+                ctx.status = 200
+            } else if (data.mode === "background") {
+                fs.rename(data.file[0].path,
+                    "C:\\Users\\evgen\\Desktop\\react-apps\\TellYourStory\\server\\static\\story\\background" + "\\" + fileName,
+                    async () => {
+                        let newFileNames = template.images
+                        newFileNames.background = fileName
+                        await Template.updateOne({key}, {images: newFileNames})
+                    })
+                ctx.body = "ok"
+                ctx.status = 200
+            } else {
+                ctx.body = "not found mode"
+                ctx.status = 404
+            }
+        } catch (e) {
+            console.log(e)
+        }
     }
 
     async createStoryLevel(ctx) {

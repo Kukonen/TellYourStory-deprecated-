@@ -12,6 +12,7 @@ const Images = observer(() => {
 
     const buttonFoundStyle = "Create-images-button Create-images-button-found"
     const buttonNotFoundStyle = "Create-images-button Create-images-button-not-found"
+    const buttonHidden = "Create-images-button-hidden"
 
     const avatarRef = useRef()
     const [avatarTitle, setAvatarTitle] = useState('')
@@ -28,6 +29,7 @@ const Images = observer(() => {
                 </div>
                 <input type="file" className="Create-images-input"
                        ref={avatarRef}
+                       accept="image/*"
                        onChange={() => {
                            if (avatarRef.current.files[0].name)
                             setAvatarTitle(avatarRef.current.files[0].name)
@@ -42,10 +44,23 @@ const Images = observer(() => {
                                 avatarTitle
                     }
                 </div>
-                <img src={saveImg} alt="save" className="Create-images-button"/>
+                <img src={saveImg} alt="save" className="Create-images-button"
+                     onClick={() => {
+                         if (avatarRef.current.files[0]) {
+                             if (avatarRef.current.files[0].size > 0) {
+                                 template.changeImage("avatar", avatarRef.current.files[0])
+                             }
+                         }
+
+                     }}
+                />
                 <img alt="status"
-                     src={template.images.avatar ? okeyImg : questionImg}
-                     className={template.images.avatar ? buttonFoundStyle : buttonNotFoundStyle}
+                     src={questionImg}
+                     className={template.images.avatar ? buttonHidden : buttonNotFoundStyle}
+                />
+                <img alt="status"
+                     src={okeyImg}
+                     className={template.images.avatar ? buttonFoundStyle : buttonHidden}
                 />
             </div>
             <div className="Create-images-section">
@@ -54,6 +69,7 @@ const Images = observer(() => {
                 </div>
                 <input type="file" className="Create-images-input"
                        ref={backgroundRef}
+                       accept="image/*"
                        onChange={() => {
                            if (backgroundRef.current.files[0].name)
                                setBackgroundTitle(backgroundRef.current.files[0].name)
@@ -68,10 +84,23 @@ const Images = observer(() => {
                                 backgroundTitle
                     }
                 </div>
-                <img src={saveImg} alt="save" className="Create-images-button"/>
+                <img src={saveImg} alt="save" className="Create-images-button"
+                     onClick={() => {
+                         if (backgroundRef.current.files[0]) {
+                             if (backgroundRef.current.files[0].size > 0) {
+                                 template.changeImage("background", backgroundRef.current.files[0])
+                             }
+                         }
+
+                     }}
+                />
                 <img alt="status"
-                     src={template.images.avatar ? okeyImg : questionImg}
-                     className={template.images.avatar ? buttonFoundStyle : buttonNotFoundStyle}
+                     src={questionImg}
+                     className={template.images.background ? buttonHidden : buttonNotFoundStyle}
+                />
+                <img alt="status"
+                     src={okeyImg}
+                     className={template.images.background ? buttonFoundStyle : buttonHidden}
                 />
             </div>
         </div>
