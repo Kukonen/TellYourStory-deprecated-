@@ -1,11 +1,9 @@
 const Router = require('koa-router')
 const router = new Router().prefix('/template')
 const templateController = require('../controllers/template.controller')
-const body = require('koa-better-body');
 
 router.get('/openorcreate', templateController.openOrCreate)
 router.post('/changetitle', templateController.changeTitle)
-router.post('/changeimage', templateController.changeImage)
 router.get('/createstorylevel', templateController.createStoryLevel)
 router.post('/deletelevel', templateController.deleteLevel)
 router.post('/addchaptertostorylevel', templateController.addChapterToStoryLevel)
