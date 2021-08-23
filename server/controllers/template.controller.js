@@ -2,7 +2,6 @@ const Template = require('../models/Template')
 const Story = require('../models/Story')
 const uuid = require('uuid')
 const fs = require('fs')
-const body = require('koa-better-body');
 
 class templateController {
 
