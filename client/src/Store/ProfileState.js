@@ -9,8 +9,10 @@ class ProfileState {
     }
 
     async getOwnStories() {
-        await axios.get('/api/profile/getownstories', response => {
-            
+        await axios.get('/api/profile/getownstories').then(response => {
+           if (response.status === 200) {
+                 this.ownStories = response.data
+            }
         })
     }
 }

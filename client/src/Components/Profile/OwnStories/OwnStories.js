@@ -13,7 +13,7 @@ const OwnStories = observer(() => {
     })
 
     return (
-        <div>
+        <div className = "Profile-OwnStories">
             {ownStories}
         </div>
     )
