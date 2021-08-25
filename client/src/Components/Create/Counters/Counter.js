@@ -1,9 +1,9 @@
 import React from 'react';
 import localizationState from '../../../Store/LocalizationState'
 import {observer} from "mobx-react-lite";
-import saveImg from "../Img/save.svg";
+import saveImg from "../../../Images/save.svg";
 import template from "../../../Store/TemplateState";
-import deleteIcon from "../Img/trash.svg";
+import deleteIcon from "../../../Images/trash.svg";
 
 const Counter = observer((props) => {
     const localization = localizationState.text

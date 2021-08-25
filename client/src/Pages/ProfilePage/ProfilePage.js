@@ -5,7 +5,7 @@ import user from '../../Store/UserState'
 import localizationState from "../../Store/LocalizationState";
 import SavedStories from "../../Components/Profile/SavedStories/SavedStories";
 import OwnStories from "../../Components/Profile/OwnStories/OwnStories";
-import Settings from "../../Components/Profile/Settings/Settings";
+import Settings from "../../Components/Settings/Main/Main";
 
 const ProfilePage = observer(() => {
     const localization = localizationState.text
@@ -39,8 +39,10 @@ const ProfilePage = observer(() => {
                             <div className={mode === 1 ? activeMenuStyle : menuStyle}
                                  onClick={() => setMode(1)}
                             >{localization.profile.navBar.ownStories}</div>
-                            <div className={mode === 2 ? activeMenuStyle : menuStyle}
-                                 onClick={() => setMode(2)}
+                            <div className="Profile-Settings-Menu-Block"
+                                 onClick={
+                                     () => window.location.href = '/settings'
+                                 }
                             >{localization.profile.navBar.Settings}</div>
 
                         </div>
@@ -50,8 +52,6 @@ const ProfilePage = observer(() => {
                                     <SavedStories /> :
                                 mode === 1 ?
                                     <OwnStories /> :
-                                mode === 2 ?
-                                    <Settings /> :
                                     null
                             }
                         </div>

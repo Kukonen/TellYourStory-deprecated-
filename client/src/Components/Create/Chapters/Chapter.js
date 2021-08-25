@@ -2,14 +2,14 @@ import React from 'react';
 import './Chapters.scss'
 import {useState} from "react";
 import {observer} from "mobx-react-lite";
-import arrowDownImg from "../Img/arrowdown.svg";
-import arrowUpImg from '../Img/arrowup.svg'
-import saveImg from "../Img/save.svg";
-import deleteImg from "../Img/trash.svg";
+import arrowDownImg from "../../../Images/arrowdown.svg";
+import arrowUpImg from '../../../Images/arrowup.svg'
+import saveImg from "../../../Images/save.svg";
+import deleteImg from "../../../Images/trash.svg";
 import Need from './Need'
 import template from "../../../Store/TemplateState";
 import {v4} from "uuid";
-import addImg from '../Img/add.svg'
+import addImg from '../../../Images/add.svg'
 import Decision from "./Decision";
 import localizationState from '../../../Store/LocalizationState'
 

@@ -4,7 +4,7 @@ import {observer} from "mobx-react-lite";
 import './Chapter'
 import template from '../../../Store/TemplateState'
 import Chapter from "./Chapter";
-import addImg from '../Img/add.svg'
+import addImg from '../../../Images/add.svg'
 import {configure} from "mobx";
 import localizationState from "../../../Store/LocalizationState";
 

@@ -2,7 +2,7 @@ import React from 'react'
 import './Stories.scss'
 import {observer} from "mobx-react-lite";
 import template from '../../../Store/TemplateState'
-import deleteImg from '../Img/trash.svg'
+import deleteImg from '../../../Images/trash.svg'
 
 const Chapter = observer((props) => {
 

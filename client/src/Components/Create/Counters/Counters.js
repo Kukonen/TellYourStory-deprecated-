@@ -2,7 +2,7 @@ import React from 'react';
 import './Counters.scss'
 import {observer} from "mobx-react-lite";
 import {useState} from "react";
-import addIcon from '../Img/add.svg'
+import addIcon from '../../../Images/add.svg'
 import template from '../../../Store/TemplateState'
 import Counter from './Counter'
 import localizationState from "../../../Store/LocalizationState";

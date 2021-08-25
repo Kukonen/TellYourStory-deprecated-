@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {observer} from "mobx-react-lite";
-import saveImg from '../Img/save.svg'
+import saveImg from '../../../Images/save.svg'
 import template from '../../../Store/TemplateState'
 
 const Need = observer((props) => {

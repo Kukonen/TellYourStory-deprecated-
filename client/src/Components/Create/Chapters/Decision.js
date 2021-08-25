@@ -3,8 +3,8 @@ import React, {useState} from 'react';
 import {observer} from "mobx-react-lite";
 import template from '../../../Store/TemplateState'
 import Counters from './Counters'
-import saveImg from '../Img/save.svg'
-import deleteImg from '../Img/trash.svg'
+import saveImg from '../../../Images/save.svg'
+import deleteImg from '../../../Images/trash.svg'
 
 const Decision = observer((props) => {
     const [title, setTitle] = useState(props.title)

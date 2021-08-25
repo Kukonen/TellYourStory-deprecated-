@@ -1,7 +1,7 @@
 @import "src/Style/index.scss";
 
-@mixin profile-block() {
-	background-color: $profile-background-color;
+@mixin profile-block($bg-color) {
+	background-color: $bg-color;
 	border: 1px solid $profile-border-color;
 	font-family: $font-family;
 	font-size: $profile-font-size;
@@ -17,14 +17,11 @@
 	padding: 5px;
 }
 .Profile-Menu-Block {
-	@include profile-block();
+	@include profile-block($profile-background-color);
 	margin-bottom: 5%;
 	padding: 10px;
 	text-align: center;
 	cursor: pointer;
-	&:last-of-type {
-		margin-bottom: 0;
-	}
 }
 
 .Profile-Menu-Block-Active {
@@ -33,4 +30,11 @@
 
 .Profile-Content {
 	width: 80%;
+}
+
+.Profile-Settings-Menu-Block {
+	@include profile-block($profile-settings-background-color);
+	padding: 10px;
+	text-align: center;
+	cursor: pointer;
 }

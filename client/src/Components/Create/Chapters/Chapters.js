@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './Chapters.scss'
 import {observer} from "mobx-react-lite";
-import addImg from '../Img/add.svg'
+import addImg from '../../../Images/add.svg'
 import template from "../../../Store/TemplateState";
 import Chapter from "./Chapter"
 import { configure } from "mobx"

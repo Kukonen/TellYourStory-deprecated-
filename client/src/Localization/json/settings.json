@@ -1,0 +1,42 @@
+{
+  "en": {
+    "noLogin":  {
+      "headline": "Please, login or register for save stories",
+      "login": "login",
+      "register": "register"
+    },
+    "navBar": {
+      "main": "Basic",
+      "password": "Security"
+    },
+    "main": {
+      "name": "Change Name",
+      "newName": "New name"
+    },
+    "password": {
+      "password": "Change Password",
+      "oldPassword": "old password",
+      "newPassword": "new password"
+    }
+  },
+  "ru": {
+    "noLogin":  {
+      "headline": "Пожалуйста, войдите или зарегистрируйтесь, чтобы сохранять истории",
+      "login": "войти",
+      "register": "зарегистрироваться"
+    },
+    "navBar": {
+      "main": "Основные",
+      "password": "Безопастность"
+    },
+    "main": {
+      "name": "Изменить Имя",
+      "newName": "Новое имя"
+    },
+    "password": {
+      "password": "Изменить Пароль",
+      "oldPassword": "старый пароль",
+      "newPassword": "новый пароль"
+    }
+  }
+}

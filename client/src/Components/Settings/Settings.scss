@@ -1,0 +1,38 @@
+@import "src/Style/index.scss";
+
+.Settings-section {
+	display: flex;
+	flex-direction: column;
+}
+
+.Settings-headline {
+	display: inline-block;
+	font-family: $font-family;
+	background-color: $settings-background-color;
+	border: 1px solid $settings-border-color;
+	font-size: $settings-font-size-input;
+	padding: 10px;
+}
+
+.Settings-input-block {
+	display: flex;
+	margin-top: 2%;
+}
+
+.Settings-input {
+	font-family: $font-family;
+	background-color: $settings-background-color;
+	border: 1px solid $settings-border-color;
+	font-size: $settings-font-size-input;
+	padding: 2px;
+	outline: none;
+}
+
+.Settings-input-img {
+	width: 5%;
+	height: 5%;
+	background-color: $settings-background-color;
+	border: 1px solid $settings-border-color;
+	padding: 2px;
+	cursor: pointer;
+}

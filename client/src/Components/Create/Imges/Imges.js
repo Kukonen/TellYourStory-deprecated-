@@ -3,9 +3,9 @@ import './Imgs.scss'
 import {observer} from "mobx-react-lite";
 import localizationState from "../../../Store/LocalizationState";
 import template from '../../../Store/TemplateState'
-import saveImg from '../Img/save.svg'
-import questionImg from '../Img/question.svg'
-import okeyImg from '../Img/okey.svg'
+import saveImg from '../../../Images/save.svg'
+import questionImg from '../../../Images/question.svg'
+import okeyImg from '../../../Images/okey.svg'
 
 const Images = observer(() => {
     const localization = localizationState.text

@@ -4,7 +4,7 @@ import {observer} from "mobx-react-lite";
 import template from '../../../Store/TemplateState'
 import Story from "./Story";
 import localizationState from "../../../Store/LocalizationState";
-import saveImg from '../Img/save.svg'
+import saveImg from '../../../Images/save.svg'
 
 const Stories = observer(() => {
 
