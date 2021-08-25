@@ -11,7 +11,9 @@
     },
     "main": {
       "name": "Change Name",
-      "newName": "New name"
+      "newName": "New name",
+      "avatar": "Change avatar",
+      "selectAvatar": "Select avatar"
     },
     "password": {
       "password": "Change Password",
@@ -31,7 +33,9 @@
     },
     "main": {
       "name": "Изменить Имя",
-      "newName": "Новое имя"
+      "newName": "Новое имя",
+      "avatar": "Изменить аватарку",
+      "selectAvatar": "Выберете аватарку"
     },
     "password": {
       "password": "Изменить Пароль",

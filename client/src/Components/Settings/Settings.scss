@@ -5,6 +5,13 @@
 	flex-direction: column;
 }
 
+.Settings-block {
+	margin-bottom: 5%;
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
 .Settings-headline {
 	display: inline-block;
 	font-family: $font-family;
@@ -34,5 +41,20 @@
 	background-color: $settings-background-color;
 	border: 1px solid $settings-border-color;
 	padding: 2px;
+	cursor: pointer;
+}
+
+.Settings-input-file {
+	display: none;
+}
+
+.Settings-input-instead-of-block {
+	font-family: $font-family;
+	background-color: $settings-background-color;
+	border: 1px solid $settings-border-color;
+	font-size: $settings-font-size-input;
+	width: 33%;
+	padding: 5px;
+	text-align: center;
 	cursor: pointer;
 }

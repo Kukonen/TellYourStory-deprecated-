@@ -22,6 +22,18 @@ class SettingsState {
 
         })
     }
+
+    async changeAvatar(file) {
+        let formData = new FormData();
+        formData.append("file", file);
+        await axios.post('/api/settings/changeavatar', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }).then(response => {
+
+        })
+    }
 }
 
 export default new SettingsState();

@@ -1,5 +1,7 @@
 const User = require('../models/User')
 const bcrypt = require('bcryptjs')
+const uuid = require("uuid");
+const fs = require("fs");
 
 class SettingsController {
 
@@ -43,6 +45,19 @@ class SettingsController {
         } catch (e) {
             console.log(e)
         }
+    }
+
+    async changeAvatar(ctx) {
+        const key = ctx.cookies.get('key')
+        const data = ctx.request.fields
+        const fileName = uuid.v4() + '.jpg'
+        fs.rename(data.file[0].path,
+            "C:\\Users\\evgen\\Desktop\\react-apps\\TellYourStory\\server\\static\\avatars" + "\\" + fileName,
+            async () => {
+                await User.updateOne({key}, {avatar: fileName})
+            })
+        ctx.body = "ok"
+        ctx.status = 200
     }
 }
 
