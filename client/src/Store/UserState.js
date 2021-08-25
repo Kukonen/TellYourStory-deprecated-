@@ -56,6 +56,10 @@ class UserState {
                 this.problemError = true
             })
     }
+
+    changeAvatar(ULR) {
+        this.avatar = ULR
+    }
 }
 
 export default new UserState();

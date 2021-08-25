@@ -1,5 +1,6 @@
 import {makeAutoObservable} from "mobx";
 import axios from "axios";
+import UserState from "./UserState";
 
 class SettingsState {
     constructor() {
@@ -31,7 +32,9 @@ class SettingsState {
                 'Content-Type': 'multipart/form-data'
             }
         }).then(response => {
-
+            if(response.status === 200) {
+                UserState.changeAvatar(response.data.avatar)
+            }
         })
     }
 }

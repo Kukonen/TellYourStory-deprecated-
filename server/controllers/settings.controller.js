@@ -56,7 +56,9 @@ class SettingsController {
             async () => {
                 await User.updateOne({key}, {avatar: fileName})
             })
-        ctx.body = "ok"
+        ctx.body = {
+            "avatar": fileName
+        }
         ctx.status = 200
     }
 }
