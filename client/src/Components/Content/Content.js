@@ -11,6 +11,7 @@ import ContactUs from "../../Pages/ContactUsPage/ContactUsPage"
 import Create from '../../Pages/CreatePage/CreatePage'
 import Profile from "../../Pages/ProfilePage/ProfilePage";
 import Setting from "../../Pages/SettingsPage/SettingsPage"
+import Story from "../../Pages/StoryPage/StoryPage";
 
 const Content = () => {
     return (
@@ -26,6 +27,7 @@ const Content = () => {
                     <Route path="/create" exact component={Create} />
                     <Route path="/profile" exact component={Profile} />
                     <Route path="/settings" exact component={Setting} />
+                    <Route path="/story" component={Story} />
                 </BrowserRouter>
             </div>
             <div className="Main-section-side" />
