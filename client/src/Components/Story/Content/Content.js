@@ -2,7 +2,7 @@ import React from 'react'
 
 import {observer} from "mobx-react-lite";
 
-const Story = observer(() => {
+const Content = observer(() => {
     return (
         <div>
 
@@ -10,4 +10,4 @@ const Story = observer(() => {
     )
 })
 
-export default Story;
+export default Content;
