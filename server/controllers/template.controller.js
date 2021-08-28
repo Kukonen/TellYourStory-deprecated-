@@ -582,14 +582,26 @@ class templateController {
             }
             ctx.status = 206
         } else {
-            const id = uuid.v4()
-            await new Story({id, key, struct: template}).save()
+            try {
+                const id = uuid.v4()
+                await new Story({id, key, struct: template}).save()
 
-            ctx.body = {
-                errors: null
+                ctx.body = {
+                    errors: null
+                }
+                ctx.status = 200 
+            } catch (e) {
+                console.log(e)
             }
-            ctx.status = 200
+            
         }
+    }
+
+    async deleteTemplate(ctx) {
+        const key = ctx.cookies.get('key');
+        await Template.deleteOne({key})
+
+        ctx.status = 200
     }
 }
 

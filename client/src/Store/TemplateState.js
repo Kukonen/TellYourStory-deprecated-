@@ -194,12 +194,21 @@ class TemplateState {
     }
 
     async checkTemplate() {
-        axios.get('/api/template/checktemplateerrors').then(response => {
-            console.log(response.status === 200)
+        await axios.get('/api/template/checktemplateerrors').then(response => {
             if (response.status === 200) {
                 this.Errors = {
                     status: false
                 }
+                axios.get('/api/template/deletetemplate').then(()=> {
+                    this.title = ""
+                    this.images = {
+                        avatar: false,
+                        background: false
+                    }
+                    this.story = []
+                    this.chapter = []
+                    this.counter = []
+                })
             }
             if (response.status === 206) {
                 this.Errors = {
