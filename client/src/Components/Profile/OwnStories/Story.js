@@ -9,7 +9,9 @@ const Story = observer((props) => {
 
 
     return (
-        <div className="Profile-OwnStories-block">
+        <div className="Profile-OwnStories-block" onClick={() => {
+            window.location.href = "http://localhost:3000/story/" + props.id
+        }}>
             <img src={URL} alt="avatar" className="Profile-OwnStories-avatar" />
             <div className="Profile-OwnStories-title">{props.title}</div>
         </div>

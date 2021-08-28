@@ -8,7 +8,8 @@ class ProfileController {
             const sendStory = story.map(story => {
                 return {
                     "avatar": story.struct.images.avatar,
-                    "title": story.struct.title
+                    "title": story.struct.title,
+                    "id": story.id
                 }
             })
 
