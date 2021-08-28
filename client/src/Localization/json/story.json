@@ -1,0 +1,12 @@
+{
+  "en": {
+    "notFound": {
+      "headline": "Story has not found"
+    }
+  },
+  "ru": {
+    "notFound": {
+      "headline": "История не найдена"
+    }
+  }
+}

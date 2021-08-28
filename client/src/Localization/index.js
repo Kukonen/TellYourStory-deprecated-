@@ -8,6 +8,7 @@ import footer from './json/footer.json'
 import create from './json/create.json'
 import profile from './json/profile.json'
 import settings from './json/settings.json'
+import story from './json/story.json'
 
 let text = {}
 
@@ -25,7 +26,8 @@ text = {
         footer: footer.en,
         create: create.en,
         profile: profile.en,
-        settings: settings.en
+        settings: settings.en,
+        story: story.en
     }
 
 }
@@ -41,7 +43,8 @@ text = {
         footer: footer.ru,
         create: create.ru,
         profile: profile.ru,
-        settings: settings.ru
+        settings: settings.ru,
+        story: story.ru
     }
 }
 

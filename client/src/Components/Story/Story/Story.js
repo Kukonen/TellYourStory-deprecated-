@@ -18,10 +18,21 @@ const Story = observer((props) => {
 
     return (
         <div>
-            <div className="Headline-block">
-                {storyState.struct.title}
-            </div>
-            <Content />
+            {
+                storyState.notFoundError ?
+                    <div>
+                        <div className="Headline-block">
+                            {localization.story.notFound.headline}
+                        </div>
+                    </div> :
+                    <div>
+                        <div className="Headline-block">
+                            {storyState.struct.title}
+                        </div>
+                        <Content />
+                    </div>
+            }
+
         </div>
     )
 })

@@ -27,7 +27,7 @@ const Content = () => {
                     <Route path="/create" exact component={Create} />
                     <Route path="/profile" exact component={Profile} />
                     <Route path="/settings" exact component={Setting} />
-                    <Route path="/story" component={Story} />
+                    <Route path="/story/" component={Story} />
                 </BrowserRouter>
             </div>
             <div className="Main-section-side" />
