@@ -31,8 +31,19 @@ const Level = observer((props) => {
         return 0
     })
 
+    const reducer = (accumulator, currentValue) => {
+        accumulator = Number(accumulator.count)
+        currentValue = Number(currentValue.count)
+        return accumulator + currentValue
+    }
+
+    const counters = storyState.counters.reduce(reducer)
+    
+    const chapter = chapters.find(it => Math.abs(it - counters) === Math.min(...chapters.map(it => Math.abs(it - counters))))
+
     return (
         <div>
+
         </div>
     )
 })
