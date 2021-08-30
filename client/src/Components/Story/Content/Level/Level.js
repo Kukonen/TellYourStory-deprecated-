@@ -43,11 +43,34 @@ const Level = observer((props) => {
         chapter.text :
         null
     
+    const decision = chapter !== undefined ?
+        chapter.decision :
+        null
+
+    const decisionElements = decision !== null ?
+        decision.map(decisionElement => {
+            return (
+                <div key={decisionElement.id}>
+                    {decisionElement.title}
+                </div>
+            )
+        }) :
+        null
+
+    
     return (
         <div>
-            {
-                text
-            }
+            <div>
+                {
+                    text
+                }
+            </div>
+            <div>
+                {
+                    decisionElements
+                }
+            </div>
+
         </div>
     )
 })
