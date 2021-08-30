@@ -14,6 +14,8 @@ const Story = observer((props) => {
     const localization = localizationState.text
     const id = props.props.id
 
+    let undefinedError = false
+
     storyState.getStory(id).then()
 
     return (
@@ -29,6 +31,11 @@ const Story = observer((props) => {
                         <div className="Headline-block">
                             {storyState.struct.title}
                         </div>
+                        {
+                            undefinedError ?
+                                <Content /> :
+                                null
+                        }
                         <Content />
                     </div>
             }

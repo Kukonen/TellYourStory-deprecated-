@@ -5,24 +5,12 @@ import storyState from '../../../../Store/StoryState'
 
 const Level = observer((props) => {
     
-    let chapters = storyState.struct.chapter.map(chapter => {
-        for (let i = 0; i < props.chapters.length; ++i) {
-            if (props.chapters[i].chapterId === chapter.id) {
-                return JSON.parse(JSON.stringify(chapter))
-            }
-        }
-    })
-
+    let chapters = JSON.parse(JSON.stringify(storyState.struct.chapter))
+    
     chapters.sort((a, b) => {
-        let aNeed = 0
-        for (let i = 0; i < a.need.length; ++i) {
-            aNeed += a.need[i].count
-        }
+        let aNeed = a.need
 
-        let bNeed = 0
-        for (let i = 0; i < b.need.length; ++i) {
-            bNeed += b.need[i].count
-        }
+        let bNeed = b.need
 
         if (aNeed > bNeed)
             return 1
@@ -31,19 +19,35 @@ const Level = observer((props) => {
         return 0
     })
 
-    const reducer = (accumulator, currentValue) => {
-        accumulator = Number(accumulator.count)
+    let counters = JSON.parse(JSON.stringify(storyState.counters))
+
+    counters = counters.length > 0 ? counters.reduce((allValues, currentValue) => {
+        allValues = Number(allValues.count)
         currentValue = Number(currentValue.count)
-        return accumulator + currentValue
+        return allValues + currentValue
+    }) : []
+    
+    let chapter = null
+
+    let delta = 999, itemId = -1;
+    for (let key in chapters) {
+        if (Math.abs(chapters[key].need - counters) < delta) {
+            itemId = key;
+            delta = Math.abs(chapters[key].need - counters);
+        }
     }
 
-    const counters = storyState.counters.reduce(reducer)
-    
-    const chapter = chapters.find(it => Math.abs(it - counters) === Math.min(...chapters.map(it => Math.abs(it - counters))))
+     chapter = chapters[itemId];
 
+    const text = chapter !== undefined ?
+        chapter.text :
+        null
+    
     return (
         <div>
-
+            {
+                text
+            }
         </div>
     )
 })

@@ -17,6 +17,13 @@ class StoryState {
                 this.struct = response.data.struct
                 this.rating = response.data.rating
                 this.counters = response.data.struct.counter
+                this.struct.chapter.forEach(chapter => {
+                    chapter.need = chapter.need.reduce((allValues, currentValue) => {
+                        allValues = Number(allValues.count)
+                        currentValue = Number(currentValue.count)
+                        return allValues + currentValue
+                    })
+                })
             } else {
                 this.notFoundError = true
             }
