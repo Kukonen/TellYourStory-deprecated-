@@ -12,12 +12,12 @@ const Story = observer((props) => {
     })
 
     const localization = localizationState.text
-    const id = props.props.id
+    const id = storyState.id
 
     let undefinedError = false
 
     storyState.getStory(id).then()
-
+    
     return (
         <div>
             {

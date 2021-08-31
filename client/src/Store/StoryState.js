@@ -6,6 +6,7 @@ class StoryState {
     rating = null
     notFoundError = false
     counters = []
+    id = null
 
     constructor() {
         makeAutoObservable(this)

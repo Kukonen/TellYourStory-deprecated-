@@ -1,12 +1,14 @@
 {
   "en": {
     "notFound": {
-      "headline": "Story has not found"
+      "headline": "Story has not found",
+      "page": "Story page has not found"
     }
   },
   "ru": {
     "notFound": {
-      "headline": "История не найдена"
+      "headline": "История не найдена",
+      "page": "Страница истории не найдена"
     }
   }
 }
