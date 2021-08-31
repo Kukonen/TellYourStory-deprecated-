@@ -13,7 +13,7 @@ const Content = observer(() => {
 
     return (
         <div>
-            {levels}
+            {levels !== null ? levels[0] : null}
         </div>
     )
 })

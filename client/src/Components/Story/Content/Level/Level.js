@@ -50,7 +50,7 @@ const Level = observer((props) => {
     const decisionElements = decision !== null ?
         decision.map(decisionElement => {
             return (
-                <div key={decisionElement.id}>
+                <div key={decisionElement.id} className="Level-decision-block">
                     {decisionElement.title}
                 </div>
             )
@@ -60,12 +60,12 @@ const Level = observer((props) => {
     
     return (
         <div>
-            <div>
+            <div className="Level-text">
                 {
                     text
                 }
             </div>
-            <div>
+            <div className="Level-decision-section">
                 {
                     decisionElements
                 }
